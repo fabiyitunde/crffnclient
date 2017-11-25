@@ -1,0 +1,12 @@
+<div class="row form-group">
+    <label>Membership Type</label>
+    <select class="form-control" [(ngModel)]="membertypeid" (change)="onSelect($event.target.value)">
+                <option *ngFor="let membertype of membertypelist" [value]="membertype.id">{{membertype.description}}</option>           
+          </select>
+</div>
+
+
+
+<div *ngIf="membertypeid == 1 || membertypeid == 2">
+    <ngx-individual-form [membershiptypeid]="membertypeid"></ngx-individual-form>
+</div>

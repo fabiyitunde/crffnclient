@@ -1,0 +1,68 @@
+<h1>
+    Individual Registration Form</h1>
+<form (ngSubmit)="updateindividualmember()" class="form-group" #form="ngForm">
+    <div class="form-group">
+        <label>Title</label>
+        <select class="form-control" [(ngModel)]="data.titleid" name="titleid">
+                          <option *ngFor="let title of titlelist" [value]="title.id">{{title.description}}</option>           
+                   </select>
+    </div>
+    <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" class="form-control" name="surname" #surname="ngModel" [(ngModel)]="data.surname" id="surname" placeholder="Surname">
+    </div>
+    <div class="form-group">
+        <label for="othernames">Other Names</label>
+        <input type="text" class="form-control" name="othernames" #othernames="ngModel" [(ngModel)]="data.othernames" id="othernames"
+            placeholder="Other Names">
+    </div>
+    <div class="form-group">
+        <label for="dateofbirth">Date Of Birth</label>
+        <input [ngModel]="data.dateofbirth | date:'yyyy-MM-dd'" name="dateofbirth" class="form-control" (ngModelChange)="data.dateofbirth = $event"
+            type="date" id="dateofbirth" />
+    </div>
+    <div class="form-group">
+        <label>State</label>
+        <select class="form-control" [(ngModel)]="data.stateid" name="stateid" (change)="onStateSelect($event.target.value)">
+                          <option *ngFor="let state of statelist" [value]="state.id">{{state.description}}</option>           
+                   </select>
+    </div>
+    <div class="form-group">
+        <label>Local Govt</label>
+        <select class="form-control" [(ngModel)]="data.lgaid" name="lgaid">
+                        <option value="">Please Select</option>
+                          <option *ngFor="let lga of lgalist" [value]="lga.id">{{lga.description}}</option>           
+                   </select>
+    </div>
+    <div class="form-group">
+        <label for="address">Full Address</label>
+        <textarea rows="4" #address="ngModel" [(ngModel)]="data.address" name="address" id="address" class="form-control" placeholder="Address"
+            class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Type Of Identification</label>
+        <select class="form-control" [(ngModel)]="data.typeofid" name="typeofid">
+                <option *ngFor="let idtype of idtypelist" [value]="idtype.id">{{idtype.description}}</option>           
+          </select>
+    </div>
+    <div class="form-group">
+        <label for="idcardnumber">ID Number</label>
+        <input type="text" class="form-control" name="idcardnumber" #idcardnumber="ngModel" [(ngModel)]="data.idcardnumber" id="idcardnumber"
+            placeholder="ID Card Number">
+    </div>
+    <div class="form-group">
+        <label for="correspondenceEmail">Email address</label>
+        <input type="email" class="form-control" name="correspondenceEmail" #correspondenceEmail="ngModel" [(ngModel)]="data.correspondenceEmail"
+            id="correspondenceEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="correspondenceGSM">GSM Number</label>
+        <input type="email" class="form-control" name="correspondenceGSM" #correspondenceGSM="ngModel" [(ngModel)]="data.correspondenceGSM"
+            id="correspondenceGSM" placeholder="GSM Number">
+    </div>
+   
+ <button type="submit" class="btn btn-danger">Save</button>
+</form>
+ <div class="row col-md-6 offset-md-3">
+        <button *ngIf="data.isNotSubmitted" (click)="submitindividualmemberApplicationForm()" class="btn btn-danger">Submit</button>
+ </div>

@@ -1,0 +1,85 @@
+<h3>Invoice Details</h3>
+<div class="row">
+    <div class="col-md-4">
+        <nb-card size="small">
+            <nb-card-header>
+                From
+            </nb-card-header>
+            <nb-card-body>
+                <div><strong>{{header.organizationname}}</strong></div>
+                <div>{{header.address}}</div>
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-4">
+        <nb-card size="small">
+            <nb-card-header>
+                To
+            </nb-card-header>
+            <nb-card-body>
+                <div><strong>{{header.payername}}</strong></div>
+                <div>{{header.phone}}</div>
+                <div>{{header.email}}</div>
+                <div>{{header.payeraddress}}</div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-4">
+        <nb-card size="small">
+            <nb-card-header>
+               Invoice # {{header.invoicenos}}
+            </nb-card-header>
+            <nb-card-body>
+                <div><strong>Order Id :</strong><span>{{header.orderid}}</span></div>
+                <div><strong>Payment Due :</strong><span>{{header.paymentdue}}</span></div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                Line Items
+            </nb-card-header>
+            <nb-card-body>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+
+                                <th> Category
+                                    <small>Registration/Subscription/POF</small>
+                                </th>
+                                <th> Narration
+                                    <small>transaction description</small>
+                                </th>
+                                <th> Amount
+                                    <small>line item amount</small>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let detail of lineitems">
+                                <td>{{detail.snos}}</td>
+                                <td>{{detail.category}}</td>
+                                <td>{{detail.narration}}</td>
+                                <td>{{detail.amount}}</td>
+                            </tr>
+
+                        </tbody>
+                        <tfoot>
+                            <th></th>
+                             <th>Invoice Total</th>
+                              <th></th>
+                               <th>{{header.invoiceamount}} </th>
+                        </tfoot>
+                    </table>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

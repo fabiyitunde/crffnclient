@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+               Invoices
+            </nb-card-header>
+            <nb-card-body>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th> Reference Date
+                                    <small>date generated</small>
+                                </th>
+                                <th> Category
+                                    <small>Registration/Subscription/POF</small>
+                                </th>
+                                <th> Amount
+                                    <small>invoice amount</small>
+                                </th>
+                                <th> Status
+                                    <small>pending/paid/cancelled</small>
+                                </th>
+                                <th> Narration
+                                    <small>transaction description</small>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                            <tr *ngFor="let invoice of invoicelist">
+                                <td class="text-nowrap" scope="row"> <button (click)="proceedtopayment(invoice)" class="btn btn-hero-info  btn-demo">Open</button></td>
+                                <td>{{invoice.refdate}}</td>
+                                <td>{{invoice.category}}</td>
+                                <td>{{invoice.invoiceamount}}</td>
+                                <td>{{invoice.status}}</td>
+                                <td>{{invoice.narration}}</td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

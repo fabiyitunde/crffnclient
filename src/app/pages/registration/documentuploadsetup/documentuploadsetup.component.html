@@ -1,0 +1,12 @@
+<nb-card>
+  <nb-card-header>
+   Document Upload Setup
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table *ngIf="showtable" [settings]="settings" [source]="source"
+     (createConfirm)="onCreateConfirm($event)"
+      (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

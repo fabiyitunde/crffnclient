@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { MENU_ITEMS } from './pages-menu';
+import { PagesService } from './pages.services';
 
 @Component({
   selector: 'ngx-pages',
@@ -11,7 +12,16 @@ import { MENU_ITEMS } from './pages-menu';
     </ngx-sample-layout>
   `,
 })
-export class PagesComponent {
+export class PagesComponent implements OnInit {
 
-  menu = MENU_ITEMS;
+  menu = [];
+  constructor(private pageservice: PagesService) {
+
+  }
+  ngOnInit() {
+    this.pageservice.getUserMenu().subscribe(data => {
+      this.menu = [];
+      this.menu = data ;
+    });
+  }
 }
