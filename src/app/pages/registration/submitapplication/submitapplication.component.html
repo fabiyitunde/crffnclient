@@ -1,0 +1,7 @@
+<div *ngIf="membertypeid == 1 || membertypeid == 2">
+    <ngx-individual-info [crffmasterid]="crffmasterid"></ngx-individual-info>
+    <hr/>
+<div class="row col-md-6 offset-md-3">
+        <button *ngIf="isNotSubmitted" (click)="submitindividualmemberApplicationForm()" class="btn btn-danger">Submit</button>
+ </div>
+</div>

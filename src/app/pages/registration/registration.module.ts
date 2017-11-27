@@ -1,3 +1,6 @@
+import { IndiviualInfoComponent } from './individualinfo/individualinfo.component';
+import { SubmitApplicationComponent } from './submitapplication/submitapplication.component';
+import { PaymentDetailsComponent } from './paymentdetails/paymentdetails.component';
 import { ViewDocumentComponent } from './viewdocument/viewdocument.component';
 
 import { BaFileUploaderComponent } from './documentupload/components/baFileUploader/baFileUploader.component';
@@ -37,10 +40,10 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     ThemeModule, RegistrationRoutingModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule,
   ],
   declarations: [RegistrationComponent, QualificationTypeDisplayComponent, UploadDocumentTypeDisplayComponent,
-  UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent
+  UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent, ManageIndividualFormComponent
   , InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
   ProcessPaymentComponent, LoadRemitaGatewayComponent , RemitaResponseComponent , RemitaTransDetailComponent,
-   QualificationComponent, DocumentUploadSetupComponent ],
+   QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent, IndiviualInfoComponent ],
   providers: [RegistrationService, QualificationService, DocumentUploadSetupService],
   entryComponents: [QualificationTypeDisplayComponent,
    UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent],

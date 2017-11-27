@@ -1,14 +1,39 @@
-  
-  <nb-card>
+<nb-card>
     <nb-card-header>
-        Document View
+
+      
+        <div class="row">
+            <div class="col-md-4">
+                <button (click)="goback()" class="btn btn-hero-primary btn-demo">Go Back</button>
+            </div>
+            <div class="col-md-4"> <button (click)="download()" class="btn btn-hero-primary btn-demo">Download</button></div>
+            <div class="col-md-4"> <button class="btn btn-hero-primary btn-demo">Delete</button></div>
+        </div>
+          <div class="row">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+
+                    <tbody>
+                        <tr>
+                            <td>Document Type</td>
+                            <td>
+                                {{data.documentType}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>
+                                {{data.description}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </nb-card-header>
 
     <nb-card-body>
-<pdf-viewer [src]="pdfSrc" 
-              [render-text]="true"
-              style="display: block;"
-  ></pdf-viewer>
+        <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer>
 
-         </nb-card-body>
+    </nb-card-body>
 </nb-card>

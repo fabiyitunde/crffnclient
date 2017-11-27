@@ -50,18 +50,31 @@ export class AuthenticationService {
     }
     public getToken(): string {
         const userinfo = localStorage.getItem('userinfo');
+if (userinfo){
+return JSON.parse(userinfo).access_token;
+} else{
+    return "";
+}
 
-        return JSON.parse(localStorage.getItem('userinfo')).access_token;
+        
     }
     public getUserName(): string {
         return JSON.parse(localStorage.getItem('userinfo')).userName;
     }
     public isAuthenticated(): boolean {
         // get the token
+        console.log
+
         const token = this.getToken();
+        if(token) {
+            return true;
+        }else {
+            return false;
+        }
+
         // return a boolean reflecting
         // whether or not the token is expired
-        return token != null; // tokenNotExpired(null, token);
+     //   return token != null; // tokenNotExpired(null, token);
     }
     private encodeParams(params: any): string {
 

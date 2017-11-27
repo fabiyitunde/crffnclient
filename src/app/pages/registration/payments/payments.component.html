@@ -4,7 +4,7 @@
 </div>
 
 <div class="row">
- <button class="btn btn-hero-info  btn-demo" (click)="createPaymentTransactionRecord()">Click Here To Add New Payment</button>
+ <button class="btn btn-hero-info  btn-demo" (click)="createPaymentTransactionRecord()">Click Here To Process Payment</button>
 </div>
 
 <div class="row">
@@ -45,7 +45,7 @@
                         <tbody>
                            
                             <tr *ngFor="let payment of paymentlist">
-                                <td class="text-nowrap" scope="row"> <button class="btn btn-hero-info  btn-demo">Details</button></td>
+                                <td class="text-nowrap" scope="row"> <button (click)="openpaymentdetails(payment)" class="btn btn-hero-info  btn-demo">Details</button></td>
                                 <td>{{payment.refdate}}</td>
                                 <td>{{payment.category}}</td>
                                 <td>{{payment.transamount}}</td>

@@ -1,3 +1,6 @@
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { DocumentViewerComponent } from './documentviewer/documentviewer.component';
+import { ConfirmemailComponent } from './confirmemail/confirmemail.component';
 import { QualificationTypeDisplayComponent } from './pages/registration/qualification/qualificationTypedisplay.component';
 import { RegGuard } from './services/reg.guard';
 /**
@@ -23,10 +26,10 @@ import { AuthenticationService } from './services/index';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
 @NgModule({
-  declarations: [AppComponent, NbLoginComponent],
+  declarations: [AppComponent, NbLoginComponent, ConfirmemailComponent, DocumentViewerComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, PdfViewerModule,
     HttpModule,
     AppRoutingModule,
     NgbModule.forRoot(),
@@ -48,10 +51,10 @@ import { TokenInterceptor } from './services/token.interceptor';
               endpoint: '/auth/sign-out',
             },
             requestPass: {
-              endpoint: '/auth/request-pass',
+              endpoint: 'api/account/ForgotPassword',
             },
             resetPass: {
-              endpoint: '/auth/reset-pass',
+              endpoint: 'api/account/ForgotPassword',
             },
           },
         },

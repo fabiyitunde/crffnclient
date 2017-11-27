@@ -1,0 +1,73 @@
+<div class="row">
+    <ngx-invoicedetail *ngIf="showinvoice" [invoicemasterid]="invoicemasterid"></ngx-invoicedetail>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                Transaction Details
+            </nb-card-header>
+            <nb-card-body>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+
+                        <tbody>
+
+                            <tr>
+                                <td>Transaction Gateway</td>
+                                <td>Remita</td>
+
+                            </tr>
+                            <tr>
+                                <td>Charges</td>
+                                <td>{{paytransdetail.charges}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>Total Amount To Pay</td>
+                                <td>{{paytransdetail.amountpayable}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>Remita Payment Type</td>
+                                <td>
+                                    {{paytransdetail.paymenttype}}
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Status Code</td>
+                                <td>
+                                    {{paytransdetail.statuscode}}
+                                </td>
+
+                            </tr>
+                             <tr>
+                                <td>Status Message</td>
+                                <td>
+                                    {{paytransdetail.statusmessage}}
+                                </td>
+
+                            </tr>
+                             <tr>
+                                <td>RRR</td>
+                                <td>
+                                    {{paytransdetail.rrr}}
+                                </td>
+
+                            </tr>
+                             <tr>
+                                <td></td>
+                                <td>
+                                    <button *ngIf="paytransdetail.id > 0" (click)="processpayment()" class="btn btn-hero-info  btn-demo">Process Payment</button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

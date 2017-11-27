@@ -48,22 +48,6 @@ returnUrl: string;
             this.errors = err;
           alert(err);
         }) ;
-        // this.service.authenticate(this.provider, this.user).subscribe((result: NbAuthResult) => {
-        //     this.submitted = false;
-
-        //     if (result.isSuccess()) {
-        //         this.messages = result.getMessages();
-        //     } else {
-        //         this.errors = result.getErrors();
-        //     }
-
-        //     const redirect = result.getRedirect();
-        //     if (redirect) {
-        //         setTimeout(() => {
-        //             return this.router.navigateByUrl(redirect);
-        //         }, this.redirectDelay);
-        //     }
-        // });
     }
 
     getConfigValue(key: string): any {

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
@@ -16,14 +17,24 @@ export class HeaderComponent implements OnInit {
 
   user: any;
 
-  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+  userMenu = [{
+    title: 'Profile', func: () => {
+      alert('profile not ready');
+    },
+  }, {
+    title: 'Log out', func: () => {
+      this.router.navigate(['auth/login']);
+    },
+  }];
 
   constructor(private sidebarService: NbSidebarService,
-              private menuService: NbMenuService,
-              private userService: UserService,
-              private analyticsService: AnalyticsService) {
+    private menuService: NbMenuService,
+    private userService: UserService,
+    private analyticsService: AnalyticsService, private router: Router) {
   }
-
+  menuclick(data) {
+    data.func();
+  }
   ngOnInit() {
     this.userService.getUsers()
       .subscribe((users: any) => this.user = users.nick);

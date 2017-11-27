@@ -58,15 +58,7 @@ export class ManageIndividualFormComponent implements OnInit {
         alert(error);
       });
   }
-  submitindividualmemberApplicationForm() {
-    this.service.submitindividualmemberApplicationForm(this.data).subscribe(result => {
-
-       this.router.navigate(['pages/registration/invoces']);
-    },
-      error => {
-        alert(error);
-      });
-  }
+ 
   showStaticModal(header: string, content: string) {
     const activeModal = this.modalService.open(ModalComponent, {
       size: 'sm',

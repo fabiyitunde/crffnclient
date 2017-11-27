@@ -1,3 +1,4 @@
+import { SubmitApplicationComponent } from './submitapplication/submitapplication.component';
 import { ViewDocumentComponent } from './viewdocument/viewdocument.component';
 import { DocumentUploadSetupComponent } from './documentuploadsetup/documentuploadsetup.component';
 import { DocumentUploadComponent } from './documentupload/documentupload.component';
@@ -14,7 +15,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { RegistrationComponent } from './registration.component';
 import { MembershipHomeComponent } from './membershiphome/membershiphome.component';
-
+import { ManageIndividualFormComponent } from './manageindividualform/manageindividualform.component';
+import { PaymentDetailsComponent } from './paymentdetails/paymentdetails.component';
 
 const routes: Routes = [{
   path: '',
@@ -28,7 +30,11 @@ const routes: Routes = [{
         { path: 'qualification', component: QualificationComponent },
            { path: 'documentupload/:id', component: DocumentUploadComponent },
      { path: 'documentuploadsetup', component: DocumentUploadSetupComponent },
-      { path: 'viewdocument', component: ViewDocumentComponent },
+      { path: 'viewdocument/:id', component: ViewDocumentComponent },
+       { path: 'basicinformation', component: ManageIndividualFormComponent },
+        { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
+        { path: 'submitapplication', component: SubmitApplicationComponent },
+
   ],
 }];
 

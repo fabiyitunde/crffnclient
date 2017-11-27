@@ -1,3 +1,5 @@
+import { DocumentViewerComponent } from './documentviewer/documentviewer.component';
+import { ConfirmemailComponent } from './confirmemail/confirmemail.component';
 import { RegGuard } from './services/reg.guard';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,6 +14,8 @@ import {
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
+  {path: 'documentviewer/:id', component: DocumentViewerComponent},
+   {path: 'confirmemail', component: ConfirmemailComponent},
   { path: 'pages', canActivate: [AuthGuard, RegGuard], loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',

@@ -16,7 +16,7 @@ import { IndividualFormComponent } from '../registration/individualform/individu
     ThemeModule, UiFeaturesModule,
   ],
   declarations: [HomeComponent, StartRegistrationComponent, MembershipHomeComponent,
-   IndividualFormComponent, StatusCardComponent, ManageIndividualFormComponent ],
+   IndividualFormComponent, StatusCardComponent ],
   providers: [HomeService, RegistrationService],
 })
 export class HomeModule { }

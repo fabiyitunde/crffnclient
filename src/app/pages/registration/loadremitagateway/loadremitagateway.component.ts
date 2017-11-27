@@ -24,12 +24,6 @@ export class LoadRemitaGatewayComponent implements OnInit {
             this.service.getRemitaPaymentTransactionDetails(this.remitapaytransid).subscribe(result => {
                 this.data = result;
                 this.showremitadetail = true;
-              // this.remitaform.nativeElement.submit();
-              //  this.savebutton.nativeElement.click();
-                //  const el: HTMLElement = this.savebutton.nativeElement as HTMLElement;
-                //  el.click();
-                // const event = new MouseEvent('click', { bubbles: true });
-                // this.renderer.invokeElementMethod(this.savebutton.nativeElement, 'dispatchEvent', [event]);
             });
         });
     }

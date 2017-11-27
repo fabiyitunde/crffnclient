@@ -9,16 +9,20 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-    constructor(public auth: AuthenticationService) { }
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log('Inside Interceptor');
-        if (this.auth.isAuthenticated()) {
+    constructor(public auth: AuthenticationService) {
+        
+     }
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {    
+        
+        if (this.auth.isAuthenticated()) {            
+          var  token = this.auth.getToken() || '';
             request = request.clone({
                 setHeaders: {
-                    Authorization: `Bearer ${this.auth.getToken()}`,
+                    Authorization: `Bearer ${token}`,
                 },
             });
         }
+          
         return next.handle(request);
     }
 }

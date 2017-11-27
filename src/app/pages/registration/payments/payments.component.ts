@@ -31,4 +31,7 @@ export class PaymentsComponent implements OnInit {
             alert(err);
         });
     }
+    openpaymentdetails(paymentitem: any) {
+        this.router.navigate(['pages/registration/paymentdetails', paymentitem.id]);
+    }
 }

@@ -42,22 +42,7 @@ export class IndividualFormService {
                 return Observable.throw(errMsg);
             });
     }
-    submitindividualmemberApplicationForm(model: any) {
-        const url = `${webapibaseurl}api/registration/submitindividualmemberApplicationForm`;
 
-        return this.http
-            .post(url, model)
-            .map((response: Response) => {
-                const returnbody = response;
-                return returnbody; //   alert(JSON.stringify(user));
-            })
-            .catch((error: any) => {
-                const body = error.error;
-                const errMsg = (body.Message) ? body.Message :
-                    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-                return Observable.throw(errMsg);
-            });
-    }
     getIndividualMemberCRFFNRegistrationInfo() {
         const url = `${webapibaseurl}api/registration/getIndividualMemberCRFFNRegistrationInfo`;
         return this.http
