@@ -19,6 +19,13 @@ const routes: Routes = [{
     }, {
       path: 'registration',
       loadChildren: './registration/registration.module#RegistrationModule',
+    }, {
+      path: 'administrator',
+      loadChildren: './administrator/administrator.module#AdministratorModule',
+    }
+    , {
+      path: 'registrationmanagement',
+      loadChildren: './registrationmanagement/registrationmanagement.module#RegistrationManagementModule',
     }
     , {
       path: 'ui-features',

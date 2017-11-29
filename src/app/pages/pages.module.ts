@@ -1,3 +1,4 @@
+//import { IndiviualInfoComponent } from './registration/individualinfo/individualinfo.component';
 import { QualificationTypeDisplayComponent } from './registration/qualification/qualificationTypedisplay.component';
 import { NgModule } from '@angular/core';
 

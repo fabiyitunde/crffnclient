@@ -1,3 +1,4 @@
+import { IndiviualInfoComponent } from './pages/registration/individualinfo/individualinfo.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentViewerComponent } from './documentviewer/documentviewer.component';
 import { ConfirmemailComponent } from './confirmemail/confirmemail.component';

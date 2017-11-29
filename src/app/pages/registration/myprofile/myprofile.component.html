@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                Phone Number Verification
+            </nb-card-header>
+            <nb-card-body>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+
+                        <tbody>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>
+                                    <input type="text" class="form-control" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="data.phonenumber" id="phonenumber"
+                                        placeholder="Enter phone number">
+
+                                </td>
+                                <td>
+                                    <button type="submit" (click)="sendPhoneNumberVerificationCode()" class="btn btn-danger">Send Validation Code</button>
+                                </td>
+                            </tr>
+                           
+
+                                <tr>
+                                    <td>Validation Code</td>
+                                    <td>
+                                        <input type="text" class="form-control" name="validationcode" #validationcode="ngModel" [(ngModel)]="data.code"
+                                            id="validationcode" placeholder="Enter Validation Code">
+
+                                    </td>
+                                    <td>
+                                        <button (click)="verifyCodeAndRegisterPhoneNumber()" type="submit" class="btn btn-danger">Validate Code</button>
+                                    </td>
+                                </tr>
+                            
+                        </tbody>
+
+                    </table>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <ngx-ba-picture-uploader [picture]="profile.picture" [defaultPicture]="defaultPicture"
+             [uploaderOptions]="uploaderOptions" (onUpload)="onUpload()" (onUploadCompleted)="onUploadCompleted()"></ngx-ba-picture-uploader>
+
+    </div>
+</div>
+<div *ngIf="uploadInProgress" class="item text-warning">
+    <div class="color bg-warning"></div>
+    <div>
+        <h5 class="text-warning">Alert</h5>
+        upload in progress.
+    </div>
+</div>

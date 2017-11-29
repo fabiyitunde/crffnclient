@@ -53,12 +53,19 @@
                                 <th> Category
                                     <small>Registration/Subscription/POF</small>
                                 </th>
+                                 <th> Unit Amount
+                                    <small>=N=</small>
+                                </th>
+                                  <th> Quantity
+                                    <small>..</small>
+                                </th>
+                                 <th> Amount
+                                    <small>line item amount</small>
+                                </th>
                                 <th> Narration
                                     <small>transaction description</small>
                                 </th>
-                                <th> Amount
-                                    <small>line item amount</small>
-                                </th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -66,8 +73,11 @@
                             <tr *ngFor="let detail of lineitems">
                                 <td>{{detail.snos}}</td>
                                 <td>{{detail.category}}</td>
+                                 <td>{{detail.unitamount}}</td>
+                                  <td>{{detail.quantity}}</td>
+                                 <td>{{detail.amount}}</td>
                                 <td>{{detail.narration}}</td>
-                                <td>{{detail.amount}}</td>
+                               
                             </tr>
 
                         </tbody>

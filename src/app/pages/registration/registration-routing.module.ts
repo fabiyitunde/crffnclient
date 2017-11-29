@@ -1,3 +1,4 @@
+import { MyProfileComponent } from './myprofile/myprofile.component';
 import { SubmitApplicationComponent } from './submitapplication/submitapplication.component';
 import { ViewDocumentComponent } from './viewdocument/viewdocument.component';
 import { DocumentUploadSetupComponent } from './documentuploadsetup/documentuploadsetup.component';
@@ -26,14 +27,15 @@ const routes: Routes = [{
     { path: 'payments/:id', component: PaymentsComponent },
     { path: 'processpayment/:id', component: ProcessPaymentComponent },
     { path: 'loadremitagateway/:id', component: LoadRemitaGatewayComponent },
-      { path: 'remitaresponse', component: RemitaResponseComponent },
-        { path: 'qualification', component: QualificationComponent },
-           { path: 'documentupload/:id', component: DocumentUploadComponent },
-     { path: 'documentuploadsetup', component: DocumentUploadSetupComponent },
-      { path: 'viewdocument/:id', component: ViewDocumentComponent },
-       { path: 'basicinformation', component: ManageIndividualFormComponent },
-        { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
-        { path: 'submitapplication', component: SubmitApplicationComponent },
+    { path: 'remitaresponse', component: RemitaResponseComponent },
+    { path: 'qualification', component: QualificationComponent },
+    { path: 'documentupload/:id', component: DocumentUploadComponent },
+    { path: 'documentuploadsetup', component: DocumentUploadSetupComponent },
+    { path: 'viewdocument/:id', component: ViewDocumentComponent },
+    { path: 'basicinformation', component: ManageIndividualFormComponent },
+    { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
+    { path: 'submitapplication', component: SubmitApplicationComponent },
+    { path: 'myprofile', component: MyProfileComponent },
 
   ],
 }];

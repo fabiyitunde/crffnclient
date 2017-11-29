@@ -1,0 +1,42 @@
+<nb-card>
+    <nb-card-header>
+        User Information
+    </nb-card-header>
+    <nb-card-body>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                        <td><code>{{user.email}}</code></td>
+
+                    </tr>
+                    <tr>
+                        <td>Full Name</td>
+                        <td>{{user.fullname}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>IsLockedOut</td>
+                        <td>{{user.status}}</td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </nb-card-body>
+</nb-card>
+
+<nb-card >
+    <nb-tabset>
+        <nb-tab tabTitle="Roles">
+           <ngx-role-management></ngx-role-management>
+        </nb-tab>
+        <nb-tab tabTitle="Members">
+          
+        </nb-tab>
+
+    </nb-tabset>
+</nb-card>

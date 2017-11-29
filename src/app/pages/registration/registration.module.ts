@@ -1,4 +1,6 @@
 import { IndiviualInfoComponent } from './individualinfo/individualinfo.component';
+import { BaPictureUploaderComponent } from './myprofile/components/baPictureUploader/baPictureUploader.component';
+import { MyProfileComponent } from './myprofile/myprofile.component';
 import { SubmitApplicationComponent } from './submitapplication/submitapplication.component';
 import { PaymentDetailsComponent } from './paymentdetails/paymentdetails.component';
 import { ViewDocumentComponent } from './viewdocument/viewdocument.component';
@@ -40,12 +42,14 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     ThemeModule, RegistrationRoutingModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule,
   ],
   declarations: [RegistrationComponent, QualificationTypeDisplayComponent, UploadDocumentTypeDisplayComponent,
+  MyProfileComponent, BaPictureUploaderComponent, IndiviualInfoComponent,
   UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent, ManageIndividualFormComponent
   , InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
   ProcessPaymentComponent, LoadRemitaGatewayComponent , RemitaResponseComponent , RemitaTransDetailComponent,
-   QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent, IndiviualInfoComponent ],
+   QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent ],
   providers: [RegistrationService, QualificationService, DocumentUploadSetupService],
   entryComponents: [QualificationTypeDisplayComponent,
    UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent],
+   exports: [IndiviualInfoComponent],
 })
 export class RegistrationModule { }
