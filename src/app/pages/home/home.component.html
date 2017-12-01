@@ -1,2 +1,6 @@
-<ngx-start-registration *ngIf="isregistered==false"></ngx-start-registration>
-<ngx-membership-home *ngIf="isregistered==true"></ngx-membership-home>
+<ngx-start-registration *ngIf="isregistered==false && displaymemberhome==true"></ngx-start-registration>
+<ngx-membership-home *ngIf="isregistered==true && displaymemberhome==true"></ngx-membership-home>
+<ngx-mymembers *ngIf="displaymemberhome==false"></ngx-mymembers>
+
+
+

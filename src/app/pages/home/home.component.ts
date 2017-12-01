@@ -6,14 +6,18 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
   isregistered: boolean;
+  displaymemberhome: boolean = true;
   constructor(private service: HomeService) {
 
   }
   ngOnInit() {
     this.service.getCRFFNMasterInfo().subscribe(result => {
-     this.isregistered = true;
+      this.isregistered = true;
     }, err => {
-       this.isregistered = false;     
+      this.isregistered = false;
     });
+    this.displaymemberhome = !this.service.isNotAMember();
+    
   }
+
 }

@@ -10,14 +10,18 @@
                     <tr>
                         <td>Member List</td>
                         <td>
-                            <ss-multiselect-dropdown [options]="userlist" [(ngModel)]="selectedmember" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+                            <nb-card>
+                             
+                            <ss-multiselect-dropdown  [options]="unMappedMembersOptions" [(ngModel)]="unMappedMembersOptionsModel"
+                             (ngModelChange)="onChange($event)" [texts]="memberselectTextsSettings" [settings]="memberselectSettings"></ss-multiselect-dropdown>
+                         </nb-card>  
                         </td>
 
                     </tr>
                     <tr>
                         <td></td>
                         <td>
-                            <button (click)="addMemberToUser()" type="submit" class="btn btn-danger">Add Member To User </button>
+                            <button (click)="mapMemberToUser()" type="submit" class="btn btn-danger">Map Member To User </button>
 
                         </td>
 
@@ -31,7 +35,7 @@
 </nb-card>
 
 <nb-card>
-    <ng2-smart-table *ngIf="showtable" [settings]="settings" [source]="source">
+    <ng2-smart-table *ngIf="showtable" [settings]="settings" [source]="source"  (deleteConfirm)="onDeleteConfirm($event)">
 
     </ng2-smart-table>
 </nb-card>

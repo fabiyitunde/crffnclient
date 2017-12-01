@@ -1,3 +1,5 @@
+import { HeaderService } from './header.service';
+
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -9,17 +11,19 @@ import { AnalyticsService } from '../../../@core/utils/analytics.service';
   selector: 'ngx-header',
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
+  providers: [HeaderService],
 })
 export class HeaderComponent implements OnInit {
 
 
   @Input() position = 'normal';
 
-  user: any;
+  user: any = {};
 
   userMenu = [{
     title: 'Profile', func: () => {
-      alert('profile not ready');
+
+       this.router.navigate(['pages/registration/myprofile']);
     },
   }, {
     title: 'Log out', func: () => {
@@ -30,14 +34,15 @@ export class HeaderComponent implements OnInit {
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private userService: UserService,
-    private analyticsService: AnalyticsService, private router: Router) {
+    private analyticsService: AnalyticsService, private router: Router, private headerservice: HeaderService) {
   }
   menuclick(data) {
     data.func();
   }
   ngOnInit() {
-    this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.nick);
+
+      this.user.name = this.headerservice.getFullName();
+        this.headerservice.getProfilePicture().subscribe(data => this.user.picture = 'data:image/png;base64,' + data);
   }
 
   toggleSidebar(): boolean {

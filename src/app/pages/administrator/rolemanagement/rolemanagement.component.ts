@@ -38,7 +38,6 @@ export class RoleManagementComponent implements OnInit {
             this.userid = params['id']; // (+) converts string 'id' to a number
             this.service.loadRoleTypeList();
             this.service.roletypedata$.subscribe(cacheddata => {
-                console.log(cacheddata);
                 this.settableSettings(cacheddata);
                 this.loadTableData();
             });

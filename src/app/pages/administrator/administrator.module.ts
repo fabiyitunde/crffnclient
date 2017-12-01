@@ -1,3 +1,4 @@
+import { UserMemberMappingComponent } from './user-member-mapping/user-member-mapping.component';
 import { RoleManagementGridCellDisplayDropdownTextComponent } from './rolemanagement/rolemanagement.gridcelldisplay.dropdowntext';
 import { RoleManagementComponent } from './rolemanagement/rolemanagement.component';
 import { AdministratorComponent } from './administrator.component';
@@ -11,12 +12,15 @@ import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+
 @NgModule({
   imports: [
     ThemeModule,  Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, AdministratorRoutingModule,
+    MultiselectDropdownModule,
   ],
   declarations: [SystemUsersComponent, SystemUsersGridButtonViewDetailComponent, SystemUserManagementComponent,
-  AdministratorComponent, RoleManagementComponent, RoleManagementGridCellDisplayDropdownTextComponent],
+  AdministratorComponent, RoleManagementComponent, RoleManagementGridCellDisplayDropdownTextComponent, UserMemberMappingComponent],
   providers: [],
   entryComponents: [SystemUsersGridButtonViewDetailComponent, RoleManagementGridCellDisplayDropdownTextComponent],
 })
