@@ -20,6 +20,9 @@ const routes: Routes = [{
       path: 'registration',
       loadChildren: './registration/registration.module#RegistrationModule',
     }, {
+      path: 'customerservice',
+      loadChildren: './customerservice/customerservice.module#CustomerServiceModule',
+    }, {
       path: 'administrator',
       loadChildren: './administrator/administrator.module#AdministratorModule',
     }

@@ -22,8 +22,11 @@ export class UploadDocumentTypeDisplayComponent implements ViewCell, OnInit {
   ngOnInit() {
 
     this.service.uploadDocumenttypedata$.subscribe(data => {
-
-      this.renderValue = (<any> data).filter(a => a.value === <number> this.value)[0].title;
+      data.forEach(element => {
+        if (element.value === this.value) {
+          this.renderValue = element.title;
+        }
+      });
     });
 
   }

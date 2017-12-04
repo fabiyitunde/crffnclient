@@ -28,7 +28,7 @@ export class MyMembersGridButtonViewMemberDetailComponent implements ViewCell, O
   }
 
   onClick() {
-    this.router.navigate(['pages/registration/documentupload', this.id]);
+    this.router.navigate(['pages/customerservice/customerdashboard', this.id]);
 
   }
 }

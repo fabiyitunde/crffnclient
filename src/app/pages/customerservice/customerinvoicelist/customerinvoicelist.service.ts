@@ -7,15 +7,15 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { webapibaseurl } from '../../../app.model';
 @Injectable()
-export class InvoicesService {
-    // private headers: Headers;
-    // private options: RequestOptions;
+export class CustomerInvoiceListService {
+
     constructor(private http: HttpClient) {
 
     }
 
-    getmemberinvoicelist() {
-        const url = `${webapibaseurl}api/invoice/getmemberinvoiceApprovedForPaymentlist`;
+    getCustomerInvoiceList(crffnmasterid: number) {
+      //  console.log('getPendingVerificationList');
+        const url = `${webapibaseurl}api/customerservice/getCustomerInvoiceList?crffnmasterid=${crffnmasterid}`;
         return this.http
             .get(url)
             .map((response: Response) => response)

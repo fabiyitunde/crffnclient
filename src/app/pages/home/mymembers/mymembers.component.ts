@@ -30,7 +30,7 @@ export class MyMembersComponent implements OnInit {
                 delete: false,
             },
             columns: {
-                id: {
+                crffmasterid: {
                     title: ' ',
                     type: 'custom',
                     renderComponent: MyMembersGridButtonViewMemberDetailComponent,

@@ -1,0 +1,18 @@
+<h1>
+    New Invoice </h1>
+<form (ngSubmit)="createinvoice()" class="form-group" #form="ngForm">
+    <div class="form-group">
+        <label for="narration">Narration</label>
+        <textarea rows="3" #narration="ngModel" [(ngModel)]="data.narration" name="narration" id="narration" class="form-control"
+            placeholder="Narration" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="refdate">Invoice Date</label>
+        <input [ngModel]="data.refdate | date:'yyyy-MM-dd'" name="refdate" class="form-control" (ngModelChange)="data.refdate = $event"
+            type="date" id="dateofbirth" />
+    </div>
+      <button type="submit" class="btn btn-danger">Save</button>  
+
+</form>
+ 

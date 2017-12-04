@@ -1,0 +1,8 @@
+<ngx-create-invoice-header *ngIf="showaddnewinvoice" [crffnmasterid]="crffnmasterid" (onInvoiceCreated)="onInvoiceCreated($event)"></ngx-create-invoice-header>
+<ngx-customer-invoice-edit *ngIf="showeditinvoice" [invoicemasterid]="invoicemasterid" (onFinishedEditingInvoice)="onFinishedEditingInvoice($event)"></ngx-customer-invoice-edit>
+<hr>
+<div class="row col-md-12">
+    <div>
+        <button (click)="close()" class="btn btn-danger">Cancel</button>
+    </div>
+</div>

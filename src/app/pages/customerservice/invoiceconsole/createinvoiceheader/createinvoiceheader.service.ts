@@ -5,25 +5,27 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { webapibaseurl } from '../../../app.model';
+import { webapibaseurl } from '../../../../app.model';
 @Injectable()
-export class InvoicesService {
+export class CreateInvoiceHeaderService {
     // private headers: Headers;
     // private options: RequestOptions;
     constructor(private http: HttpClient) {
 
     }
 
-    getmemberinvoicelist() {
-        const url = `${webapibaseurl}api/invoice/getmemberinvoiceApprovedForPaymentlist`;
+    createinvoice(model: any) {
+        const url = `${webapibaseurl}api/invoice/createinvoice`;
         return this.http
-            .get(url)
+            .post(url, model)
             .map((response: Response) => response)
             .catch((error: any) => {
                 const body = error.error;
-                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                const errMsg = (body.Message) ? body.Message :  error.status ? `${error.status} - ${error.statusText}` : 'Server error';
                 return Observable.throw(errMsg);
             });
     }
+
+
 
 }
