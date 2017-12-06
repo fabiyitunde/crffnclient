@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                Transaction Details
+            </nb-card-header>
+            <nb-card-body>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <td>Invoice Date</td>
+                                <td>{{header.refdate}}</td>
+                            </tr>
+                            <tr>
+                                <td>Transaction Type</td>
+                                <td>{{header.type}}</td>
+                            </tr>
+                            <tr>
+                                <td>Category</td>
+                                <td>{{header.category}}</td>
+                            </tr>
+                            <tr>
+                                <td>Association</td>
+                                <td>{{header.association}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total Amount</td>
+                                <td>{{header.invoiceamount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Narration</td>
+                                <td>{{header.narration}}</td>
+                            </tr>
+                             <tr>
+                                <td>Created On</td>
+                                <td>{{header.createdon}}</td>
+                            </tr>
+                            <tr>
+                                <td> <button (click)="deletePOFTransaction()" class="btn btn-danger">Delete Invoice</button></td>
+                                <td> <button (click)="submitPOFTransaction()" class="btn btn-danger">Submit Invoice</button></td>
+                                <td> <button (click)="addnewdetail()" class="btn btn-danger">Add New Detail</button></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row col-md-12">
+    <ng2-smart-table *ngIf="showtable" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+</div>

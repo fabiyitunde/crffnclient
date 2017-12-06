@@ -31,6 +31,10 @@ const routes: Routes = [{
       loadChildren: './registrationmanagement/registrationmanagement.module#RegistrationManagementModule',
     }
     , {
+      path: 'pof',
+      loadChildren: './pof/pof.module#POFModule',
+    }
+    , {
       path: 'ui-features',
       loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
     }, {

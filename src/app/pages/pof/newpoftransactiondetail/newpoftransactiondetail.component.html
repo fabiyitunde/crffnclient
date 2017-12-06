@@ -1,0 +1,41 @@
+<h1>
+    New Line Item </h1>
+<form (ngSubmit)="createPOFTransactionDetail()" class="form-group" #form="ngForm">
+     <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" class="form-control" name="quantity" [(ngModel)]="data.Description" id="Description" placeholder="Description">
+    </div>
+    <div class="form-group">
+        <label>Cargo Unit</label>
+        <select class="form-control" [(ngModel)]="data.POFChargeId" name="POFChargeId">
+                          <option *ngFor="let item of POFChargeList" [value]="item.id">{{item.description}}</option>           
+                   </select>
+    </div>  
+   
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" name="quantity" [(ngModel)]="data.Quantity" id="quantity" placeholder="Quantity">
+    </div>
+    <div class="form-group">
+        <label for="VoyageNumber">Voyage Number</label>
+        <input type="text" class="form-control" name="VoyageNumber" [(ngModel)]="data.VoyageNumber" id="VoyageNumber" placeholder="VoyageNumber">
+    </div>
+      <div class="form-group">
+        <label for="WayBillNumber">Way Bill Number</label>
+        <input type="text" class="form-control" name="WayBillNumber" [(ngModel)]="data.WayBillNumber" id="WayBillNumber" placeholder="WayBillNumber">
+    </div>
+     <div class="form-group">
+        <label for="WayBillNumber">Consignee</label>
+        <input type="text" class="form-control" name="Consignee" [(ngModel)]="data.Consignee" id="Consignee" placeholder="Consignee">
+    </div>
+    <div class="form-group">
+        <label for="Remarks">Remarks</label>
+        <textarea rows="3"  [(ngModel)]="data.Remarks" name="Remarks" id="Remarks" class="form-control"
+            placeholder="Remarks" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Save</button>
+ 
+</form>
+
+ <button  class="btn btn-danger" (click)="closemodal()">Close</button>

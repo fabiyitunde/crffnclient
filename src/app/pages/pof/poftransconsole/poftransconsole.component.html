@@ -1,0 +1,8 @@
+<ngx-new-pof-transaction *ngIf="steptoshow===1" [crffnmasterid]="crffnmasterid" (onNewPOFTransactionCreated)="onNewPOFTransactionCreated($event)"></ngx-new-pof-transaction>
+<ngx-pof-transaction-edit *ngIf="steptoshow===2" [poftransactionmasterid]="poftransactionmasterid" (onFinishedEditing)="onFinishedEditing($event)"></ngx-pof-transaction-edit>
+<hr>
+<div class="row col-md-12">
+    <div>
+        <button (click)="close()" class="btn btn-danger">Close</button>
+    </div>
+</div>

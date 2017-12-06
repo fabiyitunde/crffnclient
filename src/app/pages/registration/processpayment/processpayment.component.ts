@@ -21,7 +21,6 @@ export class ProcessPaymentComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.paymenttransid = +params['id']; // (+) converts string 'id' to a number
             this.service.getPaymentTransactionDetail(this.paymenttransid).subscribe(result => {
-                console.log(result);
                  this.invoicemasterid = result.invoicemasterid;
                 this.paytransdetail = result;
                 this.showinvoice = true;
