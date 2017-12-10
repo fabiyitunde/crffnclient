@@ -7,7 +7,7 @@ import { NbAuthResult, NbAuthService } from '@nebular/auth/services/auth.service
 
 @Component({
     selector: 'login',
-    templateUrl: '/login.component.html',
+    templateUrl: './login.component.html',
 })
 export class NbLoginComponent implements OnInit {
 

@@ -1,5 +1,5 @@
 {
-  "name": "ngx-admin",
+  "name": "crffn",
   "version": "2.0.1",
   "license": "MIT",
   "repository": {
@@ -16,8 +16,8 @@
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "build": "rimraf dist && ng build",
-    "build:prod": "npm run build -- --prod",
-    "build:prod:aot": "npm run build:prod -- --aot",
+    "build:prod": "ng build --build-optimizer --aot --base-href=/my/app/",
+    "build:prod:aot": "ng build --build-optimizer --aot --base-href=/my/app/",
     "build:ci": "npm-run-all -p -r build:prod build:prod:aot",
     "test": "ng test -sr",
     "test:coverage": "rimraf coverage && npm run test -- -cc",
@@ -71,7 +71,6 @@
     "ngx-uploader": "^2.2.5",
     "normalize.css": "6.0.0",
     "pace-js": "^1.0.2",
-    "pspdfkit": "https://customers.pspdfkit.com/npm/TRIAL-S-sJWLziG0y84O1RTcSMXmlVmsAXHXPZHqO2rP3xK1gxQWlJJCmwG7Q0QnAZOcQqJwuWzDMaOfFrWhqN1QdhUA/latest.tar.gz",
     "roboto-fontface": "0.8.0",
     "rxjs": "^5.4.2",
     "socicon": "^3.0.5",

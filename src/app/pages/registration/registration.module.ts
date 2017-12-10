@@ -21,7 +21,6 @@ import { RemitaResponseComponent } from './remitaresponse/remitaresponse.compone
 import { InvoiceDetailComponent } from './invoicedetail/invoicedetail.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { InvoicesComponent } from './invoices/invoices.component';
-import { ModalComponent } from './../ui-features/modals/modal/modal.component';
 import { ManageIndividualFormComponent } from './manageindividualform/manageindividualform.component';
 import { StatusCardComponent } from './status-card/status-card.component';
 import { NgModule } from '@angular/core';
@@ -46,10 +45,12 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
   UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent, ManageIndividualFormComponent
   , InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
   ProcessPaymentComponent, LoadRemitaGatewayComponent , RemitaResponseComponent , RemitaTransDetailComponent,
-   QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent ],
+   QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent,
+   StartRegistrationComponent,MembershipHomeComponent, StatusCardComponent, IndividualFormComponent ],
   providers: [RegistrationService, QualificationService, DocumentUploadSetupService],
   entryComponents: [QualificationTypeDisplayComponent,
    UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent],
-   exports: [IndiviualInfoComponent],
+   exports: [IndiviualInfoComponent, StartRegistrationComponent, MembershipHomeComponent
+    , StatusCardComponent ],
 })
 export class RegistrationModule { }

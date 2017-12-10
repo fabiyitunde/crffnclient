@@ -6,7 +6,7 @@ import { MembershipType } from '../registration.model';
     templateUrl: './membershiphome.component.html',
 })
 export class MembershipHomeComponent {
-    membershipstatus= {};
+    membershipstatus: any= {};
 
     membertypelist: any[] = [];
     membershiptype: MembershipType;

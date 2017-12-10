@@ -1,3 +1,4 @@
+import { GridButtonComponent } from './gridbutton/gridbutton.component';
 import { NgModule } from '@angular/core';
 import { CKEditorModule } from 'ng2-ckeditor';
 
@@ -12,7 +13,7 @@ import { EditorsRoutingModule, routedComponents } from './editors-routing.module
     CKEditorModule,
   ],
   declarations: [
-    ...routedComponents,
+    ...routedComponents, GridButtonComponent,
   ],
 })
 export class EditorsModule { }
