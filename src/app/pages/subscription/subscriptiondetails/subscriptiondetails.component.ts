@@ -27,7 +27,8 @@ export class SubscriptionDetailsComponent implements OnInit {
     @Input() subscriptionmasterid: number;
     source: LocalDataSource = new LocalDataSource();
     @Output() onFinishedEditing: EventEmitter<any> = new EventEmitter();
-
+    @Output() onSubscriptionSubmitted: EventEmitter<any> = new EventEmitter();
+    
     constructor(private service: SubscriptionDetailsService) {
 
     }
@@ -53,7 +54,7 @@ export class SubscriptionDetailsComponent implements OnInit {
         if (window.confirm('Are you sure you want to Submit?')) {
 
             this.service.submitSubscriptionFeePaymentRequest({ subscriptionmasterid: this.subscriptionmasterid }).subscribe(result => {
-                this.onFinishedEditing.emit(this.data);
+                this.onSubscriptionSubmitted.emit(this.data);
             }, err => {
                 alert(err);
             });

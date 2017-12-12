@@ -32,7 +32,11 @@ export class SubscriptionConsoleComponent implements OnInit {
     onFinishedEditing(arg) {
         this.router.navigate(['pages/subscription/subscriptionhome']);
     }
+    onSubscriptionSubmitted(arg) {
+        alert("Invoice Generated Successfully.. Click Ok To Continue To Payment");
+        this.router.navigate(['pages/registration/invoices']);
+    }
     close() {
-              this.router.navigate(['pages/pof/pofhome']);
+              this.router.navigate(['pages/subscription/subscriptionhome']);
     }
 }

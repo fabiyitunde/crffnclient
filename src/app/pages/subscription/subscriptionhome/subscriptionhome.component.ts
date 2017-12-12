@@ -73,7 +73,11 @@ export class SubscriptionHomeComponent implements OnInit {
                     type: 'string',
                     editable: false,
                 },              
-              
+                status: {
+                    title: 'Status',
+                    type: 'string',
+                    editable: false,
+                },
             },
         };
 

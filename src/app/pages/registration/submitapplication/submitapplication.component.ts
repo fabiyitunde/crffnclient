@@ -28,7 +28,7 @@ export class SubmitApplicationComponent implements OnInit {
         if (confirm('Are You Sure')) {
             this.service.submitindividualmemberApplicationForm({ id: this.crffmasterid }).subscribe(result => {
 
-                this.router.navigate(['pages/registration/invoces']);
+                this.router.navigate(['pages/registration/invoices']);
             },
                 error => {
                     alert(error);
