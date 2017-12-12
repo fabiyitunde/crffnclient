@@ -16,7 +16,7 @@
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "build": "rimraf dist && ng build",
-    "build:prod": "ng build --build-optimizer --aot --base-href=/my/app/",
+    "build:prod": "ng build --prod --build-optimizer --aot --base-href=/my/app/",
     "build:prod:aot": "ng build --build-optimizer --aot --base-href=/my/app/",
     "build:ci": "npm-run-all -p -r build:prod build:prod:aot",
     "test": "ng test -sr",

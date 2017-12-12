@@ -8,10 +8,15 @@ import { Component } from '@angular/core';
         Tiny MCE
       </nb-card-header>
       <nb-card-body>
-        <ngx-tiny-mce></ngx-tiny-mce>
+        <ngx-tiny-mce (editorKeyup)="editorKeyup($event)"></ngx-tiny-mce>
       </nb-card-body>
+      <div>{{data}}</div>
     </nb-card>
   `,
 })
 export class TinyMCEComponent {
+  data: any = {};
+  editorKeyup(data) {
+    this.data = data;
+  }
 }

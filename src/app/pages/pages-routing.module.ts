@@ -35,8 +35,8 @@ const routes: Routes = [{
       loadChildren: './pof/pof.module#POFModule',
     }
     , {
-      path: 'ui-features',
-      loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
+      path: 'subscription',
+      loadChildren: './subscription/subscription.module#SubscriptionModule',
     }, {
       path: 'components',
       loadChildren: './components/components.module#ComponentsModule',

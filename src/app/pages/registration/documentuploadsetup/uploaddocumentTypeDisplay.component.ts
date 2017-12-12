@@ -23,7 +23,7 @@ export class UploadDocumentTypeDisplayComponent implements ViewCell, OnInit {
 
     this.service.uploadDocumenttypedata$.subscribe(data => {
       data.forEach(element => {
-        if (element.value === this.value) {
+        if (element.value == this.value) {
           this.renderValue = element.title;
         }
       });

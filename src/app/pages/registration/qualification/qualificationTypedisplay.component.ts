@@ -22,7 +22,14 @@ export class QualificationTypeDisplayComponent implements ViewCell, OnInit {
   ngOnInit() {
 
     this.service.qualificationtypedata$.subscribe(data => {
-      this.renderValue = (<any> data).filter(a => a.value === this.value)[0].title;
+
+      // data.forEach(element => {
+      //   console.log(`${element.value} : ${this.value}`);
+      //   if (element.value == this.value) {
+      //     this.renderValue = element.title;
+      //   }
+      // });
+     this.renderValue = (<any> data).filter(a => a.value == this.value)[0].title;
     });
 
   }

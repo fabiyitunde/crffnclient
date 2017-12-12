@@ -8,34 +8,14 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { webapibaseurl } from '../../../app.model';
 @Injectable()
-export class QualificationService {
-    private qualificationtypedataSubject = new ReplaySubject<any>(1);
-    qualificationtypedata$: Observable<any> = this.qualificationtypedataSubject.asObservable();
+export class SubscriptionDetailsService {
     constructor(private http: HttpClient) {
 
     }
 
 
-      loadQualificationTypeList() {
-        const url = `${webapibaseurl}api/registration/getQualificationTypeList`;
-         this.http
-            .get(url)
-            .map((response: Response) => response)
-            .subscribe(res => this.qualificationtypedataSubject.next(res));
-    }
-    getQualificationList() {
-        const url = `${webapibaseurl}api/registration/getQualificationList`;
-        return this.http
-            .get(url)
-            .map((response: Response) => response)
-            .catch((error: any) => {
-                const body = error.error;
-                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-                return Observable.throw(errMsg);
-            });
-    }
-    createQualificationRecord(model: any) {
-        const url = `${webapibaseurl}api/registration/createQualificationRecord`;
+    deleteSubscriptionFeePaymentRequest(model: any) {
+        const url = `${webapibaseurl}api/subscription/deleteSubscriptionFeePaymentRequest`;
         return this.http
             .post(url, model)
             .map((response: Response) => response)
@@ -45,19 +25,9 @@ export class QualificationService {
                 return Observable.throw(errMsg);
             });
     }
-    updateQualificationRecord(model: any) {
-        const url = `${webapibaseurl}api/registration/updateQualificationRecord`;
-        return this.http
-            .put(url, model)
-            .map((response: Response) => response)
-            .catch((error: any) => {
-                const body = error.error;
-                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-                return Observable.throw(errMsg);
-            });
-    }
-    deleteQualificationRecord(model: any) {
-        const url = `${webapibaseurl}api/registration/deleteQualificationRecord`;
+   
+    submitSubscriptionFeePaymentRequest(model: any) {
+        const url = `${webapibaseurl}api/subscription/submitSubscriptionFeePaymentRequest`;
         return this.http
             .post(url, model)
             .map((response: Response) => response)
@@ -67,4 +37,17 @@ export class QualificationService {
                 return Observable.throw(errMsg);
             });
     }
+
+    getSubscriptionDetailInformation(subscriptionmasterid: number) {
+        const url = `${webapibaseurl}api/subscription/getSubscriptionDetailInformation?subscriptionmasterid=${subscriptionmasterid}`;
+        return this.http
+            .get(url)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
 }

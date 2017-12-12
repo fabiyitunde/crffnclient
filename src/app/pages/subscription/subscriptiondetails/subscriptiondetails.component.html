@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                Subscription Fee Payment Request Details
+            </nb-card-header>
+            <nb-card-body>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <td>Request Date</td>
+                                <td>{{data.refdate}}</td>
+                            </tr>
+                            <tr>
+                                <td>Subscription Year</td>
+                                <td>{{data.year}}</td>
+                            </tr>
+                            <tr>
+                                <td>Amount</td>
+                                <td>{{data.amount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Narration</td>
+                                <td>{{data.narration}}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>{{data.statusdescription}}</td>
+                            </tr>
+                            
+                            <tr *ngIf="data.status===1">
+                                <td> <button (click)="deleteSubscriptionFeePaymentRequest()" class="btn btn-danger">Delete</button></td>
+                                <td> <button (click)="submitSubscriptionFeePaymentRequest()" class="btn btn-danger">Submit</button></td>                              
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
