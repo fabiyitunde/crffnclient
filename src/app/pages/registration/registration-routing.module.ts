@@ -18,6 +18,7 @@ import { RegistrationComponent } from './registration.component';
 import { MembershipHomeComponent } from './membershiphome/membershiphome.component';
 import { ManageIndividualFormComponent } from './manageindividualform/manageindividualform.component';
 import { PaymentDetailsComponent } from './paymentdetails/paymentdetails.component';
+import { BasicInformationComponent } from './basicinformation/basicinformation.component';
 
 const routes: Routes = [{
   path: '',
@@ -32,13 +33,13 @@ const routes: Routes = [{
     { path: 'documentupload/:id', component: DocumentUploadComponent },
     { path: 'documentuploadsetup', component: DocumentUploadSetupComponent },
     { path: 'viewdocument/:id', component: ViewDocumentComponent },
-    { path: 'basicinformation', component: ManageIndividualFormComponent },
+    { path: 'basicinformation', component: BasicInformationComponent },
     { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
     { path: 'submitapplication', component: SubmitApplicationComponent },
-    { path: 'myprofile', component: MyProfileComponent },
+    
 
   ],
-}];
+},{ path: 'myprofile', component: MyProfileComponent,canActivate: [AuthGuard] },];
 
 @NgModule({
   imports: [

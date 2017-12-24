@@ -8,12 +8,13 @@ import { AuthGuard } from './../../services/auth.guard';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RegGuard } from '../../services/reg.guard';
 
 
 
 const routes: Routes = [{
   path: '',
-  component: POFComponent, canActivate: [AuthGuard],
+  component: POFComponent, canActivate: [AuthGuard,RegGuard],
   children: [
     { path: 'pofhome', component: POFHomeComponent },
   { path: 'poftransconsole', component: POFTransConsoleComponent },

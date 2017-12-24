@@ -22,6 +22,7 @@ import { SmartTableService } from '../../../@core/data/smart-table.service';
       transform: translate3d(0, 0, 0);
     }
   `],
+ providers:[DocumentUploadSetupService]
 
 
 })
@@ -37,13 +38,17 @@ export class DocumentUploadSetupComponent implements OnInit {
 
 
     }
+    
     ngOnInit() {
+        // console.log(this.service.uploaddocumenttypelist);
+        // this.settableSettings(this.service.uploaddocumenttypelist);
+        // this.loadTableData();
         this.service.loadUploadDocumentTypeList();
         this.service.uploadDocumenttypedata$.subscribe(cacheddata => {
             this.settableSettings(cacheddata);
             this.loadTableData();
         });
-
+        
     }
     loadTableData() {
         this.service.getUploadDocumentList().subscribe(retlist => {

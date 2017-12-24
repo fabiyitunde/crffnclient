@@ -8,17 +8,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { saveAs} from 'file-saver';
 
 import { webapibaseurl } from '../../../app.model';
+import { NbSpinnerService } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-view-document',
   templateUrl: './viewdocument.component.html',
-  providers: [DocumentUploadService],
+  providers: [DocumentUploadService,NbSpinnerService],
 })
 export class ViewDocumentComponent implements OnInit {
   pdfSrc;
   docuploadid: number;
   data: any = {};
-  constructor(private http: Http, private route: ActivatedRoute, private router: Router, private service: DocumentUploadService) {
+  constructor(private http: Http, private route: ActivatedRoute, private router: Router,
+     private service: DocumentUploadService,private spinner:NbSpinnerService) {
 
   }
   ngOnInit() {
@@ -34,9 +36,11 @@ export class ViewDocumentComponent implements OnInit {
     this.router.navigate(['pages/registration/documentupload', this.docuploadid]);
   }
   download() {
+    
    this.downloadPdf().subscribe(
         (res) => {
             saveAs(res, `${this.data.documentType}.pdf`);
+           
         },
     );
   }

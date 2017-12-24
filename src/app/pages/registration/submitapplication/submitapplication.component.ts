@@ -12,21 +12,21 @@ export class SubmitApplicationComponent implements OnInit {
 
     membertypeid: number;
     isNotSubmitted: boolean = false;
-    crffmasterid: number;
+    crffnmasterid: number;
     constructor(private service: SubmitApplicationService, private router: Router) {
 
     }
     ngOnInit() {
 
-        this.service.getIndividualMemberCRFFNRegistrationInfo().subscribe(result => {
-            this.crffmasterid = result.id;
-            this.membertypeid = result.FreightForwaderCategory;
-            this.isNotSubmitted = result.isNotSubmitted;
+        this.service.getCRFFNMasterInfo().subscribe(result => {
+            this.crffnmasterid = result.id;
+            this.membertypeid = result.category;
+            this.isNotSubmitted = result.registrationstatusTypeId == 1;
         });
     }
     submitindividualmemberApplicationForm() {
         if (confirm('Are You Sure')) {
-            this.service.submitindividualmemberApplicationForm({ id: this.crffmasterid }).subscribe(result => {
+            this.service.submitindividualmemberApplicationForm({ id: this.crffnmasterid }).subscribe(result => {
 
                 this.router.navigate(['pages/registration/invoices']);
             },
@@ -35,6 +35,17 @@ export class SubmitApplicationComponent implements OnInit {
                 });
         }
 
+    }
+    submitCorporateRegistrationRecord() {
+        if (confirm('Are You Sure')) {
+            this.service.submitCorporateRegistrationRecord({ crffnmasterid: this.crffnmasterid }).subscribe(result => {
+
+                this.router.navigate(['pages/registration/invoices']);
+            },
+                error => {
+                    alert(error);
+                });
+        }
     }
 
 }

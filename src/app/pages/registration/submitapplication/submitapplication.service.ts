@@ -15,8 +15,8 @@ export class SubmitApplicationService {
 
     }
 
-    getIndividualMemberCRFFNRegistrationInfo() {
-        const url = `${webapibaseurl}api/registration/getIndividualMemberCRFFNRegistrationInfo`;
+    getCRFFNMasterInfo() {
+        const url = `${webapibaseurl}api/registration/getCRFFNMasterInfo`;
         return this.http
             .get(url)
             .map((response: Response) => response)
@@ -42,5 +42,20 @@ export class SubmitApplicationService {
                 return Observable.throw(errMsg);
             });
     }
+    submitCorporateRegistrationRecord(model: any) {
+        const url = `${webapibaseurl}api/registration/submitCorporateRegistrationRecord`;
 
+        return this.http
+            .post(url, model)
+            .map((response: Response) => {
+                const returnbody = response;
+                return returnbody; //   alert(JSON.stringify(user));
+            })
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message :
+                    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
 }

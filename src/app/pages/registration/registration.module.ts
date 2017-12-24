@@ -1,3 +1,5 @@
+import { CorporateFormDetailComponent } from './corporateformdetail/corporateformdetail.component';
+import { CorporateFormComponent } from './corporateform/corporateform.component';
 import { IndiviualInfoComponent } from './individualinfo/individualinfo.component';
 import { BaPictureUploaderComponent } from './myprofile/components/baPictureUploader/baPictureUploader.component';
 import { MyProfileComponent } from './myprofile/myprofile.component';
@@ -36,6 +38,7 @@ import { LoadRemitaGatewayComponent } from './loadremitagateway/loadremitagatewa
 import { ProcessPaymentComponent } from './processpayment/processpayment.component';
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { BasicInformationComponent } from './basicinformation/basicinformation.component';
 @NgModule({
   imports: [
     ThemeModule, RegistrationRoutingModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule,
@@ -46,11 +49,12 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
   , InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
   ProcessPaymentComponent, LoadRemitaGatewayComponent , RemitaResponseComponent , RemitaTransDetailComponent,
    QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent,
-   StartRegistrationComponent,MembershipHomeComponent, StatusCardComponent, IndividualFormComponent ],
-  providers: [RegistrationService, QualificationService, DocumentUploadSetupService],
+   StartRegistrationComponent,MembershipHomeComponent, StatusCardComponent, IndividualFormComponent,
+   BasicInformationComponent,CorporateFormComponent,CorporateFormDetailComponent ],
+  providers: [RegistrationService, QualificationService],
   entryComponents: [QualificationTypeDisplayComponent,
    UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent],
    exports: [IndiviualInfoComponent, StartRegistrationComponent, MembershipHomeComponent
-    , StatusCardComponent ],
+    , StatusCardComponent,CorporateFormDetailComponent ],
 })
 export class RegistrationModule { }

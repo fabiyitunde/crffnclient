@@ -1,0 +1,69 @@
+<h1>
+    Corporate Registration Form</h1>
+<form (ngSubmit)="register()" class="form-group" #form="ngForm">
+
+    <div class="form-group">
+        <label for="rcnos">RC Number</label>
+        <input type="text" class="form-control" name="rcnos" #rcnos="ngModel" [(ngModel)]="data.rcnos" id="rcnos" placeholder="RC Number">
+    </div>
+    <div class="form-group">
+        <label for="companyname">Company Name</label>
+        <input type="text" class="form-control" name="companyname" #companyname="ngModel" [(ngModel)]="data.companyname" id="companyname"
+            placeholder="Company Name">
+    </div>
+    <div class="form-group">
+        <label for="opnstartdate">Operation Start Date</label>
+        <input [ngModel]="data.opnstartdate | date:'yyyy-MM-dd'" name="opnstartdate" class="form-control" (ngModelChange)="data.opnstartdate = $event"
+            type="date" id="opnstartdate" />
+    </div>
+    <div class="form-group">
+        <label for="association">Association</label>
+        <input type="text" class="form-control" name="association" #association="ngModel" [(ngModel)]="data.association" id="association"
+            placeholder="Association">
+    </div>
+    <div class="form-group">
+        <label for="postaladdress">Postal Address</label>
+        <textarea rows="3" #address="ngModel" [(ngModel)]="data.postaladdress" name="postaladdress" id="postaladdress" class="form-control"
+            placeholder="Postal Address" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>State</label>
+        <select class="form-control" [(ngModel)]="data.stateid" name="stateid" (change)="onStateSelect($event.target.value)">
+            <option *ngFor="let state of statelist" [value]="state.id">{{state.description}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="address">Office Address</label>
+        <textarea rows="4" #address="ngModel" [(ngModel)]="data.address" name="address" id="address" class="form-control" placeholder="Address"
+            class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="contactperson">Contact Person</label>
+        <input type="text" class="form-control" name="contactperson" #contactperson="ngModel" [(ngModel)]="data.contactperson" id="contactperson"
+            placeholder="Contact Person">
+    </div>
+    <div class="form-group">
+        <label for="phonenumber">Company Phone</label>
+        <input type="text" class="form-control" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="data.phonenumber" id="phonenumber" placeholder="Phone Number">
+    </div>
+    <div class="form-group">
+        <label for="email">Company Email</label>
+        <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="data.email" id="email" placeholder="Company Email">
+    </div>
+    <div class="form-group">
+        <label for="website">Company Web Site</label>
+        <input type="text" class="form-control" name="website" #website="ngModel" [(ngModel)]="data.website" id="website" placeholder="Website">
+    </div>
+    <div class="form-group">
+        <label for="all">Arears Of Operations</label>
+        <input type="checkbox" class="form-control" name="seaport" #seaport="ngModel" [(ngModel)]="data.seaport" id="seaport">Sea Port
+        <input>
+        <input type="checkbox" class="form-control" name="airport" #airport="ngModel" [(ngModel)]="data.airport" id="airport">Air Port
+        <input>
+        <input type="checkbox" class="form-control" name="landborder" #landborder="ngModel" [(ngModel)]="data.landborder" id="landborder">Land Border
+        <input>
+    </div>
+    <button type="submit" class="btn btn-danger">Save</button>
+</form>

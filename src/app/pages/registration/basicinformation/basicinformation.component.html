@@ -1,0 +1,6 @@
+<div *ngIf="membertypeid == 1 || membertypeid == 2">
+    <ngx-manage-individual-form></ngx-manage-individual-form>
+</div>
+<div *ngIf="membertypeid == 3 || membertypeid == 4">
+    <ngx-corporate-form [membershiptypeid]="membertypeid"></ngx-corporate-form>
+</div>

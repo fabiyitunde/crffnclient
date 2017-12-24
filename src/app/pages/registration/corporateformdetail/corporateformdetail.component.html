@@ -1,0 +1,150 @@
+<nb-card>
+    <nb-card-header>
+        Corporate Registration Data
+    </nb-card-header>
+    <nb-card-body>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+
+                <tbody>
+                    <tr>
+                        <td>Registration Status</td>
+                        <td>
+                            <code>{{header.status}}</code>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Membership Id</td>
+                        <td>{{header.membershipid}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Membership Category</td>
+                        <td>{{header.category}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>RC Number</td>
+                        <td>{{header.rcnos}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Company Name</td>
+                        <td>{{header.companyname}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Operation Start Date</td>
+                        <td>{{header.opnstartdate}}</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Postal Address</td>
+                        <td>{{header.postaladdress}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Office Address</td>
+                        <td>{{header.officeaddress}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>
+                            {{header.state}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Office Email</td>
+                        <td>{{header.email}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td>{{header.website}}</td>
+
+                    </tr>
+                   
+                    <tr>
+                        <td>Operates At Sea Port</td>
+                        <td>
+                            {{header.seaport}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Operates At Air Port</td>
+                        <td>
+                            {{header.airport}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Operates At Land Border</td>
+                        <td>
+                            {{header.landborder}}
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </nb-card-body>
+</nb-card>
+
+
+
+<nb-card>
+    <nb-tabset>
+        <nb-tab tabTitle="Qualification">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Instituition</th>
+                        <th>Qualification</th>
+                        <th>Year Of Graduation</th>
+                        <th>Remarks</th>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of qualificationlist">
+                            <td>{{item.instituition}}</td>
+                            <td>{{item.qualification}}</td>
+                            <td>{{item.yearofgrad}}</td>
+                            <td>{{item.remarks}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </nb-tab>
+        <nb-tab tabTitle="Documents Uploaded">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th></th>
+                        <th>Id</th>
+                        <th>Document Type</th>
+                        <th>Description</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of uploadeddocuments">
+                            <td>
+                                <a target="_blank" routerLink="/documentviewer/{{item.id}}">View</a>
+                            </td>
+                            <td>{{item.id}}</td>
+                            <td>{{item.documenttype}}</td>
+                            <td>{{item.description}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </nb-tab>
+
+    </nb-tabset>
+</nb-card>

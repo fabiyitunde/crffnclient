@@ -1,9 +1,8 @@
-<div class="row" *ngIf="membertypeid == 1 || membertypeid == 2">
-    <ngx-individual-info [crffmasterid]="crffnmasterid"></ngx-individual-info>
-    <hr/>
 
-</div>
-
+<ngx-individual-info  *ngIf="membertypeid == 1 || membertypeid == 2" [crffmasterid]="crffnmasterid"></ngx-individual-info>
+<hr/>
+<ngx-corporate-form-detail *ngIf="membertypeid == 3 || membertypeid == 4" [crffmasterid]="crffnmasterid"></ngx-corporate-form-detail>
+<hr/>
 <div class="row col-md-6 offset-md-3">
         <button  (click)="verifyRegistrationInformation()" class="btn btn-danger">ApproveVerification</button>
  </div>
