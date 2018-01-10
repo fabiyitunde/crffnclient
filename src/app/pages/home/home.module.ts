@@ -1,3 +1,4 @@
+
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { MyMembersGridButtonViewMemberDetailComponent } from './mymembers/mymembers.gridbutton.viewmemberdetail';
 import { MyMembersComponent } from './mymembers/mymembers.component';

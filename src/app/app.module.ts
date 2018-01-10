@@ -1,3 +1,4 @@
+import { HomeModule } from './pages/home/home.module';
 import { IndiviualInfoComponent } from './pages/registration/individualinfo/individualinfo.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentViewerComponent } from './documentviewer/documentviewer.component';
@@ -26,12 +27,13 @@ import {  NbLoginComponent } from './login/login.component';
 import { AuthenticationService } from './services/index';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [AppComponent, NbLoginComponent, ConfirmemailComponent, DocumentViewerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule, PdfViewerModule,
-    HttpModule,
+    HttpModule,NgxPaginationModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),

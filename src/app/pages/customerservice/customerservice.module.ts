@@ -16,6 +16,7 @@ import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PaymentListComponent } from './invoiceconsole/paymentlist/paymentlist.component';
 @NgModule({
   imports: [
     ThemeModule,  Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, CustomerServiceRoutingModule,
@@ -23,8 +24,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
   ],
   declarations: [CustomerDashboardComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerInvoiceListComponent,
   CustomerInvoiceListGridButtonViewDetailComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent, 
-  InvoiceLineItemTypeDisplayComponent, InvoiceConsoleComponent ],
+  InvoiceLineItemTypeDisplayComponent, InvoiceConsoleComponent,PaymentListComponent ],
   providers: [],
+  exports:[CustomerInfoComponent],
   entryComponents: [CustomerInvoiceListGridButtonViewDetailComponent, InvoiceLineItemTypeDisplayComponent],
 })
 export class CustomerServiceModule { }

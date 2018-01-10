@@ -3,7 +3,7 @@ import { HeaderService } from './header.service';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
+import { NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
 
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   userMenu = [{
     title: 'Profile', func: () => {
 
-       this.router.navigate(['pages/registration/myprofile']);
+      this.router.navigate(['pages/registration/myprofile']);
     },
   }, {
     title: 'Log out', func: () => {
@@ -34,15 +34,17 @@ export class HeaderComponent implements OnInit {
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private userService: UserService,
-    private analyticsService: AnalyticsService, private router: Router, private headerservice: HeaderService) {
+    private analyticsService: AnalyticsService, private router: Router, private headerservice: HeaderService,
+    private themeService: NbThemeService) {
   }
   menuclick(data) {
     data.func();
   }
   ngOnInit() {
-
-      this.user.name = this.headerservice.getFullName();
-        this.headerservice.getProfilePicture().subscribe(data => this.user.picture = 'data:image/png;base64,' + data);
+    this.themeService.changeTheme('default');
+    //this.themeService.currentTheme = 'cosmic';
+    this.user.name = this.headerservice.getFullName();
+    this.headerservice.getProfilePicture().subscribe(data => this.user.picture = 'data:image/png;base64,' + data,err => {});
   }
 
   toggleSidebar(): boolean {

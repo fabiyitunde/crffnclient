@@ -35,6 +35,6 @@ export class InvoiceConsoleComponent implements OnInit {
         this.router.navigate(['pages/customerservice/customerdashboard', arg.crffmasterid]);
     }
     close() {
-              this.router.navigate(['pages/home']);
+        this.router.navigate(['pages/home']);
     }
 }

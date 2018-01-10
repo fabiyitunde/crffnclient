@@ -26,8 +26,10 @@ export class CustomerInvoiceEditComponent implements OnInit {
 
     settings = {};
     showtable: boolean = false;
+    iseditable: boolean = true;
     header: any = {};
     @Input() invoicemasterid: number;
+    
     source: LocalDataSource = new LocalDataSource();
     @Output() onFinishedEditingInvoice: EventEmitter<any> = new EventEmitter();
 
@@ -47,6 +49,7 @@ export class CustomerInvoiceEditComponent implements OnInit {
     loadTableData() {
         this.service.getInvoiceDetails(this.invoicemasterid).subscribe(data => {
             this.header = data.header;
+            if (data.header.status !== "Pending") this.iseditable = false;
             this.source.load(data.lineitems);
             this.showtable = true;
         });

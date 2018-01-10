@@ -1,0 +1,50 @@
+
+<nb-card>
+        <nb-card-header>
+            Payment List
+        </nb-card-header>
+        <nb-card-body>
+                <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    
+                                    <th> Reference Date
+                                        <small>date generated</small>
+                                    </th>
+                                    <th>Payment Gateway
+                                        <small>Remita</small>
+                                    </th>
+                                    
+                                     <th> Charges
+                                        <small>transaction charges</small>
+                                    </th>
+                                    <th> Status
+                                        <small>pending/started/success/failed</small>
+                                    </th>
+                                     <th> Trans Reference
+                                        <small>Remita OrderId</small>
+                                    </th>
+                                    <th> Narration
+                                        <small>transaction description</small>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                <tr *ngFor="let payment of paymentlist">
+                                   
+                                    <td>{{payment.refdate}}</td>
+                                    <td>{{payment.gateway}}</td>
+                                    
+                                     <td>{{payment.transcharges}}</td>
+                                    <td>{{payment.status}}</td>
+                                    <td>{{payment.transref}}</td>
+                                    <td>{{payment.narration}}</td>
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+        </nb-card-body>
+    </nb-card>

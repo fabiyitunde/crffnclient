@@ -1,3 +1,4 @@
+
 import { DocumentViewerComponent } from './documentviewer/documentviewer.component';
 import { ConfirmemailComponent } from './confirmemail/confirmemail.component';
 import { RegGuard } from './services/reg.guard';
@@ -16,6 +17,7 @@ import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   {path: 'documentviewer/:id', component: DocumentViewerComponent},
    {path: 'confirmemail', component: ConfirmemailComponent},
+   { path: 'public',  loadChildren: 'app/public/public.module#PublicModule' },
   { path: 'pages', canActivate: [AuthGuard, RegGuard], loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',

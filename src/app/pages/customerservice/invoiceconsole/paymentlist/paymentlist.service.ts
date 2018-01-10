@@ -5,32 +5,25 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { webapibaseurl } from '../../../app.model';
+import { webapibaseurl } from '../../../../app.model';
 @Injectable()
-export class HeaderService {
-    // private headers: Headers;
-    // private options: RequestOptions;
+export class PaymentListService {
+
     constructor(private http: HttpClient) {
 
     }
 
-    getProfilePicture() {
-        const url = `${webapibaseurl}api/Account/getProfilePicture`;
+    getpaymentlist(invoicemasterid: number) {
+        const url = `${webapibaseurl}api/invoice/getInvoicepaymentlist?invoicemasterid=${invoicemasterid}`;
         return this.http
             .get(url)
             .map((response: Response) => response)
             .catch((error: any) => {
                 const body = error.error;
-                const errMsg = (body.Message) ? body.Message :
-                    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
                 return Observable.throw(errMsg);
             });
     }
-    getFullName() {
-
-        const userinfo = JSON.parse(localStorage.getItem('userinfo'));
-        if (userinfo == null) return 'Guest';
-        return userinfo.fullname || 'Not Found';
-    }
+   
 
 }
