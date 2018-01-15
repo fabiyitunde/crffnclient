@@ -16,8 +16,15 @@
       "dom"
     ],
     "plugins": [
-      { "name": "tslint-language-service"}
+      {
+        "name": "tslint-language-service"
+      }
     ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "preserveWhiteSpace": false,
+    "strictMetadataEmit": true,
+    "skipTemplateCodeGen": true
   }
-  
 }

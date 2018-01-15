@@ -63,13 +63,13 @@
     "ionicons": "2.0.1",
     "leaflet": "1.0.3",
     "nebular-icons": "1.0.6",
-    "ng2-ckeditor": "^1.1.9",
-    "ng2-pdf-viewer": "^3.0.2",
+    "ng2-ckeditor": "1.1.9",
+    "ng2-pdf-viewer": "3.0.2",
     "ng2-smart-table": "1.1.0",
-    "ng2-tree": "^2.0.0-alpha.10",
+    "ng2-tree": "2.0.0-alpha.10",
     "ngx-echarts": "1.2.2",
-    "ngx-pagination": "^3.0.3",
-    "ngx-uploader": "^2.2.5",
+    "ngx-pagination": "3.0.3",
+    "ngx-uploader": "2.2.5",
     "normalize.css": "6.0.0",
     "pace-js": "^1.0.2",
     "roboto-fontface": "0.8.0",
@@ -109,6 +109,7 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "tslint-language-service": "0.9.6",
-    "typescript": "~2.3.3"
+    "typescript": "~2.3.3",
+    "webpack-bundle-analyzer": "^2.9.2"
   }
 }
