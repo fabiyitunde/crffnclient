@@ -45,7 +45,7 @@ returnUrl: string;
             this.router.navigate([this.returnUrl]);
         }, err => {
             this.submitted = false;
-            this.errors = err;
+            this.errors.push(err);
           alert(err);
         }) ;
     }
