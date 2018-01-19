@@ -1,18 +1,21 @@
 <div class="row col-md-12">
-    <button (click)="createnewtrans()" class="btn btn-danger">Create New Subscription Payment Request</button>
-  
-  </div>
-  <div class="row">
-      <div class="col-md-12">
-          <nb-card>
-              <nb-card-header>
-                  UnSubmitted Subscriptions Fee Payment Request
-              </nb-card-header>
-              <nb-card-body>
-                  <ng2-smart-table *ngIf="showtable" [settings]="settings" [source]="source">
-                  </ng2-smart-table>
-              </nb-card-body>
-          </nb-card>
-      </div>
-  </div>
-  
+    <nb-card>
+        <nb-card-body>
+
+            <button (click)="createnewtrans()" class="btn btn-danger">Create New Subscription Payment Request</button>
+        </nb-card-body>
+    </nb-card>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                UnSubmitted Subscriptions Fee Payment Request
+            </nb-card-header>
+            <nb-card-body>
+                <ng2-smart-table *ngIf="showtable" [settings]="settings" [source]="source">
+                </ng2-smart-table>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

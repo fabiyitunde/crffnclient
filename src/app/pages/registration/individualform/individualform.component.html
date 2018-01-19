@@ -1,11 +1,11 @@
-<h1>
-    Individual Registration Form</h1>
+<h3>
+    Individual Registration Form</h3>
 <form (ngSubmit)="register()" class="form-group" #form="ngForm">
     <div class="form-group">
         <label>Title</label>
         <select class="form-control" [(ngModel)]="data.titleid" name="titleid">
-                          <option *ngFor="let title of titlelist" [value]="title.id">{{title.description}}</option>           
-                   </select>
+            <option *ngFor="let title of titlelist" [value]="title.id">{{title.description}}</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="surname">Surname</label>
@@ -24,15 +24,15 @@
     <div class="form-group">
         <label>State</label>
         <select class="form-control" [(ngModel)]="data.stateid" name="stateid" (change)="onStateSelect($event.target.value)">
-                          <option *ngFor="let state of statelist" [value]="state.id">{{state.description}}</option>           
-                   </select>
+            <option *ngFor="let state of statelist" [value]="state.id">{{state.description}}</option>
+        </select>
     </div>
     <div class="form-group">
         <label>Local Govt</label>
         <select class="form-control" [(ngModel)]="data.lgaid" name="lgaid">
-                        <option value="">Please Select</option>
-                          <option *ngFor="let lga of lgalist" [value]="lga.id">{{lga.description}}</option>           
-                   </select>
+            <option value="">Please Select</option>
+            <option *ngFor="let lga of lgalist" [value]="lga.id">{{lga.description}}</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="address">Full Address</label>
@@ -42,15 +42,15 @@
     <div class="form-group">
         <label>Type Of Identification</label>
         <select class="form-control" [(ngModel)]="data.typeofid" name="typeofid">
-                <option *ngFor="let idtype of idtypelist" [value]="idtype.id">{{idtype.description}}</option>           
-          </select>
+            <option *ngFor="let idtype of idtypelist" [value]="idtype.id">{{idtype.description}}</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="idcardnumber">ID Number</label>
         <input type="text" class="form-control" name="idcardnumber" #idcardnumber="ngModel" [(ngModel)]="data.idcardnumber" id="idcardnumber"
             placeholder="ID Card Number">
     </div>
-    
+
 
     <button type="submit" class="btn btn-danger">Save</button>
 </form>

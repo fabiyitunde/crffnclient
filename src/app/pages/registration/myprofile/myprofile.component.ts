@@ -44,7 +44,7 @@ export class MyProfileComponent implements OnInit {
       });
   }
   sendPhoneNumberVerificationCode() {
-     this.service.sendPhoneNumberVerificationCode({ PhoneNumber: this.data.phonenumber })
+    this.service.sendPhoneNumberVerificationCode({ PhoneNumber: this.data.phonenumber })
       .subscribe(result => {
         alert(result);
       }, err => {
