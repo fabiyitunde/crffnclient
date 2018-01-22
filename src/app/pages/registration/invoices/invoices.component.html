@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <nb-card>
             <nb-card-header>
-               Invoices
+                Invoices
             </nb-card-header>
             <nb-card-body>
                 <div class="table-responsive">
@@ -28,16 +28,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                           
+
                             <tr *ngFor="let invoice of invoicelist">
-                                <td class="text-nowrap" scope="row"> <button (click)="proceedtopayment(invoice)" class="btn btn-hero-info  btn-demo">Open</button></td>
+                                <td class="text-nowrap" scope="row">
+                                    <button (click)="proceedtopayment(invoice)" class="btn btn-hero-info  btn-demo">Open</button>
+                                </td>
                                 <td>{{invoice.refdate}}</td>
                                 <td>{{invoice.category}}</td>
                                 <td>{{invoice.invoiceamount}}</td>
                                 <td>{{invoice.status}}</td>
                                 <td>{{invoice.narration}}</td>
                             </tr>
-                           
+
                         </tbody>
                     </table>
                 </div>

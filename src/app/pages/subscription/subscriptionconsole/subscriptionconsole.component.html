@@ -1,12 +1,14 @@
-<div class="row col-md-12">
-    <div class="col-md-6 offset-md-3">
-        <button (click)="close()" class="btn btn-danger">Close</button>
-    </div>
+<div class="col-md-12">
+    <nb-card>
+        <nb-card-body>
+            <button (click)="close()" class="btn btn-danger">Close</button>
+        </nb-card-body>
+    </nb-card>
 </div>
 
 
 <ngx-new-subscription *ngIf="steptoshow===1" [crffnmasterid]="crffnmasterid" (onNewSubscriptionCreated)="onNewSubscriptionCreated($event)"></ngx-new-subscription>
-<ngx-subscription-details *ngIf="steptoshow===2" [subscriptionmasterid]="subscriptionmasterid"
- (onFinishedEditing)="onFinishedEditing($event)" (onSubscriptionSubmitted)="onSubscriptionSubmitted($event)">
+<ngx-subscription-details *ngIf="steptoshow===2" [subscriptionmasterid]="subscriptionmasterid" (onFinishedEditing)="onFinishedEditing($event)"
+    (onSubscriptionSubmitted)="onSubscriptionSubmitted($event)">
 </ngx-subscription-details>
 <hr>

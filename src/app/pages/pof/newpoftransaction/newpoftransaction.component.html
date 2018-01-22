@@ -1,35 +1,54 @@
-<h1>
-    New Transaction </h1>
-<form (ngSubmit)="createPOFTransaction()" class="form-group" #form="ngForm">
-    <div class="form-group">
-        <label>Type</label>
-        <select class="form-control" [(ngModel)]="data.pofTransactionType" name="pofTransactionType">
-                          <option *ngFor="let poftranstypetype of pofTransactionTypelist" [value]="poftranstypetype.id">{{poftranstypetype.description}}</option>           
-                   </select>
-    </div>
-     <div class="form-group">
-        <label>Category</label>
-        <select class="form-control" [(ngModel)]="data.pofTransactioncategory" name="pofTransactioncategory">
-                          <option *ngFor="let item of pofTransactioncategorylist" [value]="item.id">{{item.description}}</option>           
-                   </select>
-    </div>
-    <div class="form-group">
-        <label for="refdate">Invoice Date</label>
-        <input [ngModel]="data.refdate | date:'yyyy-MM-dd'" name="refdate" class="form-control" (ngModelChange)="data.refdate = $event"
-            type="date" id="refdate" />
-    </div>
-    <div class="form-group">
-        <label>Association</label>
-        <select class="form-control" [(ngModel)]="data.POFTransactionAssociation" name="POFTransactionAssociation">
-                          <option *ngFor="let item of POFTransactionAssociationlist" [value]="item.id">{{item.description}}</option>           
-                   </select>
-    </div>
-    <div class="form-group">
-        <label for="narration">Narration</label>
-        <textarea rows="3" #narration="ngModel" [(ngModel)]="data.narration" name="narration" id="narration" class="form-control"
-            placeholder="Narration" class="form-control"></textarea>
-    </div>
+<div class="col-md-12">
+    <nb-card>
 
-    <button type="submit" class="btn btn-danger">Save</button>
+        <nb-card-header>
+            New Transaction </nb-card-header>
+        <nb-card-body>
+            <form (ngSubmit)="createPOFTransaction()" class="form-group" #form="ngForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select class="form-control" [(ngModel)]="data.pofTransactionType" name="pofTransactionType">
+                                <option *ngFor="let poftranstypetype of pofTransactionTypelist" [value]="poftranstypetype.id">{{poftranstypetype.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-control" [(ngModel)]="data.pofTransactioncategory" name="pofTransactioncategory">
+                                <option *ngFor="let item of pofTransactioncategorylist" [value]="item.id">{{item.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="refdate">Invoice Date</label>
+                            <input [ngModel]="data.refdate | date:'yyyy-MM-dd'" name="refdate" class="form-control" (ngModelChange)="data.refdate = $event"
+                                type="date" id="refdate" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Association</label>
+                            <select class="form-control" [(ngModel)]="data.POFTransactionAssociation" name="POFTransactionAssociation">
+                                <option *ngFor="let item of POFTransactionAssociationlist" [value]="item.id">{{item.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="narration">Narration</label>
+                    <textarea rows="3" #narration="ngModel" [(ngModel)]="data.narration" name="narration" id="narration" class="form-control"
+                        placeholder="Narration" class="form-control"></textarea>
+                </div>
 
-</form>
+                <button type="submit" class="btn btn-success">Save</button>
+
+            </form>
+        </nb-card-body>
+    </nb-card>
+</div>
