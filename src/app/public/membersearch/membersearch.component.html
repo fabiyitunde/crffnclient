@@ -1,12 +1,17 @@
+<nb-card>
+    <nb-card-body>
+
+        <h4>
+            <i class="fa fa-address-book"></i> Member Search</h4>
+    </nb-card-body>
+</nb-card>
+
 <nb-layout center>
-    <nb-layout-header>
-        <h1>Memebr Search</h1>
-    </nb-layout-header>
 
     <nb-layout-column>
         <nb-card>
             <nb-card-header>
-                Search Criteria
+                <i class="fa fa-search "></i> Search Criteria
             </nb-card-header>
 
             <nb-card-body>
@@ -21,9 +26,6 @@
                                         <option *ngFor="let item of membershipcategorylist" [value]="item.id">{{item.description}}</option>
                                     </select>
                                 </td>
-
-                            </tr>
-                            <tr>
                                 <td>State</td>
                                 <td>
                                     <select class="form-control" [(ngModel)]="data.stateid" name="stateid">
@@ -38,8 +40,6 @@
                                     <input type="text" class="form-control" name="membername" #membername="ngModel" [(ngModel)]="data.membername" id="membername"
                                         placeholder="Name">
                                 </td>
-                            </tr>
-                            <tr>
                                 <td>Address</td>
                                 <td>
                                     <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="data.address" id="address" placeholder="Address">
@@ -47,10 +47,9 @@
                             </tr>
 
 
-                            <tr>
-                                <td>
 
-                                </td>
+                            <tr>
+
                                 <td>
                                     <button class="btn btn-hero-info  btn-demo" (click)="search()">Search</button>
                                 </td>
@@ -60,13 +59,16 @@
 
                     </table>
                 </div>
+
                 <div (click)="opendetails(result)" class="row contact" *ngFor="let result of resultlist | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }">
-                   
-                        <nb-user [picture]="result.picture" [name]="result.name" [title]="result.address" size="large">
-                   
+
+                    <nb-user [picture]="result.picture" [name]="result.name" [title]="result.address" size="large">
+
                     </nb-user>
+
                     <span class="time">{{ result.category }}</span>
                 </div>
+
                 <div class="row justify-content-center">
 
                     <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
