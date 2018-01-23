@@ -11,6 +11,7 @@ import { CustomerInfoComponent } from './customerinfo/customerinfo.component';
 import { CustomerAboutComponent } from './customerabout/customerabout.component';
 import { CustomerLocationComponent } from './customerlocation/customerlocation.component';
 import { CustomerQuotationComponent } from './customerquotation/customerquotation.component';
+import { CustomerServicesComponent } from './customerservices/customerservices.component';
 
 
 
@@ -26,10 +27,10 @@ import { PaymentListComponent } from './invoiceconsole/paymentlist/paymentlist.c
 
   ],
   declarations: [CustomerDashboardComponent, CustomerAboutComponent, CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerInvoiceListComponent,
-    CustomerInvoiceListGridButtonViewDetailComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent,
+    CustomerInvoiceListGridButtonViewDetailComponent, CustomerServicesComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent,
     InvoiceLineItemTypeDisplayComponent, InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent],
   providers: [],
-  exports: [CustomerInfoComponent, CustomerAboutComponent, CustomerLocationComponent, CustomerQuotationComponent],
+  exports: [CustomerInfoComponent, CustomerAboutComponent, CustomerLocationComponent, CustomerServicesComponent, CustomerQuotationComponent],
   entryComponents: [CustomerInvoiceListGridButtonViewDetailComponent, InvoiceLineItemTypeDisplayComponent],
 })
 export class CustomerServiceModule { }
