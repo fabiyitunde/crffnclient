@@ -8,7 +8,7 @@ import 'rxjs/add/observable/throw';
 import { webapibaseurl } from '../../../app.model';
 
 @Injectable()
-export class CustomerInfoService {
+export class CustomerQuotationService {
     // private headers: Headers;
     // private options: RequestOptions;
 
@@ -16,7 +16,7 @@ export class CustomerInfoService {
 
     }
 
-    getcustomerinfo(crffnmasterid: number) {
+    getcustomerquotation(crffnmasterid: number) {
         const url = `${webapibaseurl}api/customerservice/getcustomerinfo?crffnmasterid=${crffnmasterid}`;
         return this.http
             .get(url)

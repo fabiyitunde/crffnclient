@@ -1,4 +1,5 @@
 import { MemberDetailsComponent } from './memberdetails/memberdetails.component';
+
 import { MemberSearchComponent } from './membersearch/membersearch.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,11 +13,13 @@ const routes: Routes = [{
       path: 'membersearch',
       component: MemberSearchComponent,
     },
+
+
     {
       path: 'memberdetails/:id',
       component: MemberDetailsComponent,
     }
-   ],
+  ],
 }];
 
 @NgModule({

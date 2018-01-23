@@ -1,4 +1,5 @@
 import { MemberDetailsComponent } from './memberdetails/memberdetails.component';
+
 import { CustomerServiceModule } from './../pages/customerservice/customerservice.module';
 import { MemberSearchComponent } from './membersearch/membersearch.component';
 import { PublicComponent } from './public.component';
@@ -11,26 +12,26 @@ import { TokenInterceptor } from '../services/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 const PAGES_COMPONENTS = [
-    PublicComponent,MemberSearchComponent,
-    MemberDetailsComponent
+  PublicComponent, MemberSearchComponent,
+  MemberDetailsComponent
 ];
 
 @NgModule({
   imports: [
-    
-    ThemeModule,PublicRoutingModule,
-     HttpClientModule,NgxPaginationModule,CustomerServiceModule
+
+    ThemeModule, PublicRoutingModule,
+    HttpClientModule, NgxPaginationModule, CustomerServiceModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
   ],
-   providers: [
-   {
+  providers: [
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
     },
-    ],
+  ],
 })
 export class PublicModule {
 }

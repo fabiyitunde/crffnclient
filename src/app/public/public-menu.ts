@@ -10,7 +10,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'FEATURES',
     group: true,
-  },  
+  },
   {
     title: 'Forms',
     icon: 'nb-compose',

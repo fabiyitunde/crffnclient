@@ -1,29 +1,42 @@
-<div class="col-md-12" style="width:800px;">
-    <h1>
-        New Line Item </h1>
+<div class="col-md-12" style="width:800px;   background-color: rgba(255, 255, 255, 0.3)">
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-10">
+            <h3>
+                New Line Item </h3>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-danger btn-icon" type="button" (click)="closemodal()">
+                <i class="fa fa-window-close"></i>
+            </button>
+        </div>
+    </div>
     <form (ngSubmit)="createPOFTransactionDetail()" class="form-group" #form="ngForm">
         <div class="form-group">
             <label for="Description">Description</label>
             <input type="text" class="form-control" name="quantity" [(ngModel)]="data.Description" id="Description" placeholder="Description">
         </div>
-        <div class="form-group">
-            <label>Cargo Unit</label>
-            <select class="form-control" [(ngModel)]="data.POFChargeId" name="POFChargeId">
-                <option *ngFor="let item of POFChargeList" [value]="item.id">{{item.description}}</option>
-            </select>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label>Cargo Unit</label>
+                <select class="form-control" [(ngModel)]="data.POFChargeId" name="POFChargeId">
+                    <option *ngFor="let item of POFChargeList" [value]="item.id">{{item.description}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control" name="quantity" [(ngModel)]="data.Quantity" id="quantity" placeholder="Quantity">
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input type="text" class="form-control" name="quantity" [(ngModel)]="data.Quantity" id="quantity" placeholder="Quantity">
-        </div>
-        <div class="form-group">
-            <label for="VoyageNumber">Voyage Number</label>
-            <input type="text" class="form-control" name="VoyageNumber" [(ngModel)]="data.VoyageNumber" id="VoyageNumber" placeholder="VoyageNumber">
-        </div>
-        <div class="form-group">
-            <label for="WayBillNumber">Way Bill Number</label>
-            <input type="text" class="form-control" name="WayBillNumber" [(ngModel)]="data.WayBillNumber" id="WayBillNumber" placeholder="WayBillNumber">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="VoyageNumber">Voyage Number</label>
+                <input type="text" class="form-control" name="VoyageNumber" [(ngModel)]="data.VoyageNumber" id="VoyageNumber" placeholder="VoyageNumber">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="WayBillNumber">Way Bill Number</label>
+                <input type="text" class="form-control" name="WayBillNumber" [(ngModel)]="data.WayBillNumber" id="WayBillNumber" placeholder="WayBillNumber">
+            </div>
         </div>
         <div class="form-group">
             <label for="WayBillNumber">Consignee</label>
@@ -34,9 +47,9 @@
             <textarea rows="3" [(ngModel)]="data.Remarks" name="Remarks" id="Remarks" class="form-control" placeholder="Remarks" class="form-control"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-danger">Save</button>
+        <button type="submit" class="btn btn-success">Save</button>
 
     </form>
 
-    <button class="btn btn-danger" (click)="closemodal()">Close</button>
+
 </div>

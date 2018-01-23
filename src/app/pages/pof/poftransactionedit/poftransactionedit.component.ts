@@ -52,7 +52,7 @@ export class POFTransactionEditComponent implements OnInit {
     }
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
-            this.service.deletePOFTransactionDetail({POFTransactionDetailId:event.data.id}).subscribe(res => {
+            this.service.deletePOFTransactionDetail({ POFTransactionDetailId: event.data.id }).subscribe(res => {
                 event.confirm.resolve();
                 this.loadTableData();
             }, err => {
@@ -87,7 +87,7 @@ export class POFTransactionEditComponent implements OnInit {
     }
     addnewdetail() {
         this.pofservice.poftransactionmasterid = this.poftransactionmasterid;
-        const activeModal = this.modalService.open(NewPOFTransactionDetailComponent, { size: 'sm', container: 'nb-layout' });
+        const activeModal = this.modalService.open(NewPOFTransactionDetailComponent, { size: 'lg', container: 'nb-layout' });
         activeModal.componentInstance.modalHeader = 'Transaction Detail';
     }
     settableSettings() {

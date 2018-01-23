@@ -1,11 +1,46 @@
-
-
 <nb-card>
-        <nb-card-header>
-            Detail Information
-        </nb-card-header>
+    <nb-card-header>
+        <h4>
+            <i class="fa fa-user-circle"></i> Detail Information
+        </h4>
+    </nb-card-header>
 
+    <nb-card-body>
+        <ngx-customer-info *ngIf="showcustomerinfo" [crffnmasterid]="crffnmasterid"></ngx-customer-info>
+    </nb-card-body>
+
+
+
+
+</nb-card>
+
+<div class="col-md-12">
+    <nb-card>
         <nb-card-body>
-                <ngx-customer-info *ngIf="showcustomerinfo" [crffnmasterid]="crffnmasterid"></ngx-customer-info>
+            <div class="btn-group btn-toggle-group btn-outline-toggle-group btn-group-full-width btn-toggle-radio-group ng-valid ng-dirty ng-touched"
+                data-toggle="buttons" ngbradiogroup="" role="group">
+                <label class="btn btn-outline-success" ngbbuttonlabel="" id="one">
+                    <input (click)="onSelectAboutTab()" ngbbutton="" type="radio" value="left" name="ngb-radio-0">About
+                </label>
+                <label class="btn btn-outline-success" ngbbuttonlabel="" id="two">
+                    <input ngbbutton="" type="radio" value="middle" name="ngb-radio-0"> Some Page
+                </label>
+                <label class="btn btn-outline-success " ngbbuttonlabel="" id="three">
+                    <input (click)="onSelectQuoteTab()" ngbbutton="" type="radio" value="right" name="ngb-radio-0"> Quotation
+                </label>
+                <label class="btn btn-outline-success" ngbbuttonlabel="" id="four">
+                    <input (click)="onSelectLocationTab()" ngbbutton="" type="radio" value="right" name="ngb-radio-0"> Location
+                </label>
+            </div>
         </nb-card-body>
     </nb-card>
+</div>
+
+
+<ngx-customer-about *ngIf="showcustomerabout" [crffnmasterid]="crffnmasterid"></ngx-customer-about>
+
+
+<ngx-customer-quotation *ngIf="showcustomerquote" [crffnmasterid]="crffnmasterid"></ngx-customer-quotation>
+
+
+<ngx-customer-location *ngIf="showcustomerlocation" [crffnmasterid]="crffnmasterid"></ngx-customer-location>
