@@ -1,56 +1,91 @@
-<h3>
-    Individual Registration Form</h3>
-<form (ngSubmit)="register()" class="form-group" #form="ngForm">
-    <div class="form-group">
-        <label>Title</label>
-        <select class="form-control" [(ngModel)]="data.titleid" name="titleid">
-            <option *ngFor="let title of titlelist" [value]="title.id">{{title.description}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="surname">Surname</label>
-        <input type="text" class="form-control" name="surname" #surname="ngModel" [(ngModel)]="data.surname" id="surname" placeholder="Surname">
-    </div>
-    <div class="form-group">
-        <label for="othernames">Other Names</label>
-        <input type="text" class="form-control" name="othernames" #othernames="ngModel" [(ngModel)]="data.othernames" id="othernames"
-            placeholder="Other Names">
-    </div>
-    <div class="form-group">
-        <label for="dateofbirth">Date Of Birth</label>
-        <input [ngModel]="data.dateofbirth | date:'yyyy-MM-dd'" name="dateofbirth" class="form-control" (ngModelChange)="data.dateofbirth = $event"
-            type="date" id="dateofbirth" />
-    </div>
-    <div class="form-group">
-        <label>State</label>
-        <select class="form-control" [(ngModel)]="data.stateid" name="stateid" (change)="onStateSelect($event.target.value)">
-            <option *ngFor="let state of statelist" [value]="state.id">{{state.description}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Local Govt</label>
-        <select class="form-control" [(ngModel)]="data.lgaid" name="lgaid">
-            <option value="">Please Select</option>
-            <option *ngFor="let lga of lgalist" [value]="lga.id">{{lga.description}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="address">Full Address</label>
-        <textarea rows="4" #address="ngModel" [(ngModel)]="data.address" name="address" id="address" class="form-control" placeholder="Address"
-            class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-        <label>Type Of Identification</label>
-        <select class="form-control" [(ngModel)]="data.typeofid" name="typeofid">
-            <option *ngFor="let idtype of idtypelist" [value]="idtype.id">{{idtype.description}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="idcardnumber">ID Number</label>
-        <input type="text" class="form-control" name="idcardnumber" #idcardnumber="ngModel" [(ngModel)]="data.idcardnumber" id="idcardnumber"
-            placeholder="ID Card Number">
-    </div>
+<nb-card>
+    <nb-card-body>
+        <h3>
+            Individual Registration </h3>
+        <form (ngSubmit)="register()" class="form-group" #form="ngForm">
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label>
+                        <b>Title</b>
+                    </label>
+                    <select class="form-control" [(ngModel)]="data.titleid" name="titleid">
+                        <option *ngFor="let title of titlelist" [value]="title.id">{{title.description}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="surname">
+                        <b>Surname</b>
+                    </label>
+                    <input type="text" class="form-control" name="surname" #surname="ngModel" [(ngModel)]="data.surname" id="surname" placeholder="Surname">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="othernames">
+                        <b>Other Names</b>
+                    </label>
+                    <input type="text" class="form-control" name="othernames" #othernames="ngModel" [(ngModel)]="data.othernames" id="othernames"
+                        placeholder="Other Names">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="dateofbirth">
+                        <b>Date Of Birth</b>
+                    </label>
+                    <input [ngModel]="data.dateofbirth | date:'yyyy-MM-dd'" name="dateofbirth" class="form-control" (ngModelChange)="data.dateofbirth = $event"
+                        type="date" id="dateofbirth" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>
+                        <b>Type Of Identification</b>
+                    </label>
+                    <select class="form-control" [(ngModel)]="data.typeofid" name="typeofid">
+                        <option *ngFor="let idtype of idtypelist" [value]="idtype.id">{{idtype.description}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="idcardnumber">
+                        <b>ID Number</b>
+                    </label>
+                    <input type="text" class="form-control" name="idcardnumber" #idcardnumber="ngModel" [(ngModel)]="data.idcardnumber" id="idcardnumber"
+                        placeholder="ID Card Number">
+                </div>
 
 
-    <button type="submit" class="btn btn-danger">Save</button>
-</form>
+            </div>
+
+
+            <div class="row">
+
+                <div class="form-group  col-md-6">
+                    <label>
+                        <b>State</b>
+                    </label>
+                    <select class="form-control" [(ngModel)]="data.stateid" name="stateid" (change)="onStateSelect($event.target.value)">
+                        <option *ngFor="let state of statelist" [value]="state.id">{{state.description}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>
+                        <b>Local Govt</b>
+                    </label>
+                    <select class="form-control" [(ngModel)]="data.lgaid" name="lgaid">
+                        <option value="">Please Select</option>
+                        <option *ngFor="let lga of lgalist" [value]="lga.id">{{lga.description}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">
+                    <b>Full Address</b>
+                </label>
+                <textarea rows="4" #address="ngModel" [(ngModel)]="data.address" name="address" id="address" class="form-control" placeholder="Address"
+                    class="form-control"></textarea>
+            </div>
+
+
+            <button type="submit" class="btn btn-danger">Save</button>
+        </form>
+
+    </nb-card-body>
+</nb-card>

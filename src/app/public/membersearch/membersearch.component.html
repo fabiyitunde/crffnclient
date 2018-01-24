@@ -72,8 +72,14 @@
                 </div>
 
 
+
+                <div class="row justify-content-center">
+
+                    <pagination-controls (pageChange)="getPage($event)" id="server" style="color:#ffffff;"></pagination-controls>
+                </div>
             </nb-card-body>
         </nb-card>
+
         <nb-card>
             <nb-card-body>
                 <div (click)="opendetails(result)" class="row contact" *ngFor="let result of resultlist | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }">
@@ -84,14 +90,8 @@
 
                     <span class="time">{{ result.category }}</span>
                 </div>
-
-                <div class="row justify-content-center">
-
-                    <pagination-controls (pageChange)="getPage($event)" id="server" style="color:#ffffff;"></pagination-controls>
-                </div>
             </nb-card-body>
         </nb-card>
-
     </nb-layout-column>
 
     <nb-layout-footer></nb-layout-footer>

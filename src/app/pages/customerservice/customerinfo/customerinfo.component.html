@@ -1,44 +1,58 @@
 <div class="row">
-    <nb-card>
-        <nb-card-body>
-            <div class="col-md-4">
-                <img width="150px" height="150px" [src]="customer.picture">
-            </div>
-        </nb-card-body>
-    </nb-card>
-    <nb-card>
-        <nb-card-body>
-            <div class="col-md-8">
+
+    <div class="col-sm-3">
+        <nb-card>
+            <nb-card-body>
+                <img width="200px" height="200px" [src]="customer.picture">
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-sm-9">
+        <nb-card>
+            <nb-card-body>
                 <table class="table table-bordered table-striped">
                     <tbody>
 
                         <tr>
-                            <td>Membership Number</td>
+                            <td>
+                                <b> Number</b>
+                            </td>
                             <td>{{customer.membershipnumber}}</td>
                         </tr>
                         <tr>
-                            <td>Name</td>
+                            <td>
+                                <b>Name</b>
+                            </td>
                             <td>{{customer.name}}</td>
                         </tr>
                         <tr>
-                            <td>Category</td>
+                            <td>
+                                <b>Category</b>
+                            </td>
                             <td>{{customer.category}}</td>
                         </tr>
                         <tr>
-                            <td>Phone Number</td>
+                            <td>
+                                <b>Phone Number</b>
+                            </td>
                             <td>{{customer.phone}}</td>
                         </tr>
                         <tr>
-                            <td>Email</td>
+                            <td>
+                                <b>Email</b>
+                            </td>
                             <td>{{customer.email}}</td>
                         </tr>
                         <tr>
-                            <td>Address</td>
+                            <td>
+                                <b>Address</b>
+                            </td>
                             <td>{{customer.address}}</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </nb-card-body>
-    </nb-card>
+            </nb-card-body>
+        </nb-card>
+    </div>
+
 </div>

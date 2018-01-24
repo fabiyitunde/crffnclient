@@ -30,6 +30,7 @@ export class MemberDetailsComponent implements OnInit {
     this.showcustomerabout = true;
     this.showcustomerquote = false;
     this.showcustomerlocation = false;
+    this.showcustomerservices = false;
     var NAME = document.getElementById("one");
     NAME.className = this.activeClass;
     document.getElementById("two").className = "btn btn-outline-success";
@@ -57,6 +58,7 @@ export class MemberDetailsComponent implements OnInit {
     this.showcustomerabout = false;
     this.showcustomerquote = true;
     this.showcustomerlocation = false;
+    this.showcustomerservices = false;
     var NAME = document.getElementById("three");
     NAME.className = this.activeClass;
     document.getElementById("one").className = "btn btn-outline-success";
@@ -71,6 +73,7 @@ export class MemberDetailsComponent implements OnInit {
     this.showcustomerabout = false;
     this.showcustomerquote = false;
     this.showcustomerlocation = true;
+    this.showcustomerservices = false;
     var NAME = document.getElementById("four");
     NAME.className = this.activeClass;
     document.getElementById("one").className = "btn btn-outline-success";
