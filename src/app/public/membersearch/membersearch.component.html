@@ -1,6 +1,6 @@
 <nb-card-body>
 
-    <h4 style="margin-left:10px">
+    <h4 style="margin-left:10px; border-top:solid 1px #09ae44; padding:10px; ">
         <i class="fa fa-address-book"></i> Member Search</h4>
 </nb-card-body>
 
@@ -17,19 +17,23 @@
                 <i class="fa fa-search "></i> Search Criteria
             </nb-card-header>
 
-            <nb-card-body style="background-color:#25AA17">
+            <nb-card-body style="background-image:url('assets/images/backdrop.jpg');">
                 <div class="table-responsive" style="background-color:rgb(243, 243, 243);  border-radius: 20px;">
                     <table class="table table-bordered table-striped">
 
                         <tbody>
                             <tr>
-                                <td>Membership Category</td>
+                                <td>
+                                    <b>Membership Category</b>
+                                </td>
                                 <td>
                                     <select class="form-control" [(ngModel)]="data.membershipcategoryid" name="membershipcategoryid">
                                         <option *ngFor="let item of membershipcategorylist" [value]="item.id">{{item.description}}</option>
                                     </select>
                                 </td>
-                                <td>State</td>
+                                <td>
+                                    <b>State</b>
+                                </td>
                                 <td>
                                     <select class="form-control" [(ngModel)]="data.stateid" name="stateid">
                                         <option *ngFor="let item of statelist" [value]="item.id">{{item.description}}</option>
@@ -38,12 +42,16 @@
 
                             </tr>
                             <tr>
-                                <td>Name</td>
+                                <td>
+                                    <b>Name</b>
+                                </td>
                                 <td>
                                     <input type="text" class="form-control" name="membername" #membername="ngModel" [(ngModel)]="data.membername" id="membername"
                                         placeholder="Name">
                                 </td>
-                                <td>Address</td>
+                                <td>
+                                    <b>Address</b>
+                                </td>
                                 <td>
                                     <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="data.address" id="address" placeholder="Address">
                                 </td>
@@ -63,6 +71,11 @@
                     </table>
                 </div>
 
+
+            </nb-card-body>
+        </nb-card>
+        <nb-card>
+            <nb-card-body>
                 <div (click)="opendetails(result)" class="row contact" *ngFor="let result of resultlist | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }">
 
                     <nb-user [picture]="result.picture" [name]="result.name" [title]="result.address" size="large">
@@ -78,7 +91,6 @@
                 </div>
             </nb-card-body>
         </nb-card>
-
 
     </nb-layout-column>
 
