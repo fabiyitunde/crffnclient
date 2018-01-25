@@ -105,4 +105,8 @@ export class MemberDetailsComponent implements OnInit {
 
 
   }
+
+  opensearch() {
+    this.router.navigate(['public/membersearch']);
+  }
 }

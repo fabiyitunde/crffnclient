@@ -1,8 +1,18 @@
 <nb-card>
-    <nb-card-header>
-        <h4>
+    <nb-card-header class="row">
+        <h4 class="col-md-6">
             <i class="fa fa-user-circle"></i> Detail Information
+
         </h4>
+        <div class="col-md-6">
+
+
+            <div style="float:right;">
+                <button (click)="opensearch()" class="btn btn-success btn-semi-round btn-demo">Continue Search
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
     </nb-card-header>
 
     <nb-card-body style="background-image:url('assets/images/bg3.jpg'); ">
