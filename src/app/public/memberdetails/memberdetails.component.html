@@ -22,6 +22,9 @@
                 <label class="btn btn-outline-success" ngbbuttonlabel="" id="one">
                     <input (click)="onSelectAboutTab()" ngbbutton="" type="radio" value="left" name="ngb-radio-0">About
                 </label>
+                <label class="btn btn-outline-success" ngbbuttonlabel="" id="five">
+                    <input (click)="onSelectStaffTab()" ngbbutton="" type="radio" value="middle" name="ngb-radio-0"> Staff
+                </label>
                 <label class="btn btn-outline-success" ngbbuttonlabel="" id="two">
                     <input (click)="onSelectServicesTab()" ngbbutton="" type="radio" value="middle" name="ngb-radio-0"> Services
                 </label>
@@ -29,7 +32,7 @@
                     <input (click)="onSelectQuoteTab()" ngbbutton="" type="radio" value="right" name="ngb-radio-0"> Quotation
                 </label>
                 <label class="btn btn-outline-success" ngbbuttonlabel="" id="four">
-                    <input (click)="onSelectLocationTab()" ngbbutton="" type="radio" value="right" name="ngb-radio-0"> Location
+                    <input (click)="onSelectLocationTab()" ngbbutton="" type="radio" value="right" name="ngb-radio-0"> Contact Us
                 </label>
             </div>
         </nb-card-body>
@@ -40,6 +43,8 @@
 <ngx-customer-about *ngIf="showcustomerabout" [crffnmasterid]="crffnmasterid"></ngx-customer-about>
 
 <ngx-customer-services *ngIf="showcustomerservices" [crffnmasterid]="crffnmasterid"></ngx-customer-services>
+
+<ngx-customer-staff *ngIf="showcustomerstaff" [crffnmasterid]="crffnmasterid"></ngx-customer-staff>
 
 <ngx-customer-quotation *ngIf="showcustomerquote" [crffnmasterid]="crffnmasterid"></ngx-customer-quotation>
 

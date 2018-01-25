@@ -12,6 +12,7 @@ import { CustomerAboutComponent } from './customerabout/customerabout.component'
 import { CustomerLocationComponent } from './customerlocation/customerlocation.component';
 import { CustomerQuotationComponent } from './customerquotation/customerquotation.component';
 import { CustomerServicesComponent } from './customerservices/customerservices.component';
+import { CustomerStaffComponent } from './customerstaff/customerstaff.component';
 
 
 
@@ -26,11 +27,11 @@ import { PaymentListComponent } from './invoiceconsole/paymentlist/paymentlist.c
     ThemeModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, CustomerServiceRoutingModule,
 
   ],
-  declarations: [CustomerDashboardComponent, CustomerAboutComponent, CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerInvoiceListComponent,
+  declarations: [CustomerDashboardComponent, CustomerAboutComponent, CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerStaffComponent, CustomerInvoiceListComponent,
     CustomerInvoiceListGridButtonViewDetailComponent, CustomerServicesComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent,
     InvoiceLineItemTypeDisplayComponent, InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent],
   providers: [],
-  exports: [CustomerInfoComponent, CustomerAboutComponent, CustomerLocationComponent, CustomerServicesComponent, CustomerQuotationComponent],
+  exports: [CustomerInfoComponent, CustomerAboutComponent, CustomerLocationComponent, CustomerServicesComponent, CustomerStaffComponent, CustomerQuotationComponent],
   entryComponents: [CustomerInvoiceListGridButtonViewDetailComponent, InvoiceLineItemTypeDisplayComponent],
 })
 export class CustomerServiceModule { }
