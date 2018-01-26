@@ -2,30 +2,34 @@
   <div class="col-md-12">
     <nb-card class="inline-form-card">
       <nb-card-header>Customer Information</nb-card-header>
-      <nb-card-body>
+      <nb-card-body style="background-image:url('assets/images/bg3.jpg'); ">
         <ngx-customer-info *ngIf="showcustomerinfo" [crffnmasterid]="crffnmasterid"></ngx-customer-info>
       </nb-card-body>
     </nb-card>
   </div>
 </div>
-<div class="row col-md-12">
-   <button (click)="createnewinvoice()" type="submit" class="btn btn-danger">Create New Invoice </button>
+<div>
+  <nb-card>
+    <nb-card-body class="row col-md-12">
+      <button (click)="createnewinvoice()" type="submit" class="btn btn-danger">Create New Invoice </button>
+    </nb-card-body>
+  </nb-card>
 </div>
 <hr>
 <div class="row">
   <div class="col-md-12">
     <nb-card>
       <nb-card-header>
-       
+
         <div>Customer Invoice List</div>
-       
+
       </nb-card-header>
       <nb-card-body>
         <ngx-customer-invoice-list [crffnmasterid]="crffnmasterid"></ngx-customer-invoice-list>
       </nb-card-body>
     </nb-card>
   </div>
- 
+
 
 
 </div>

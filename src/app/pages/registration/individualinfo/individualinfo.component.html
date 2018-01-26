@@ -1,67 +1,89 @@
-<nb-card>
+<nb-card style="">
     <nb-card-header>
         Registration Data
     </nb-card-header>
     <nb-card-body>
         <div class="table-responsive">
-            <table class="table table-bordered table-striped">
+            <table class="table ">
 
                 <tbody>
                     <tr>
-                        <td>Registration Status</td>
-                        <td><code>{{header.status}}</code></td>
+                        <td>
+                            <b>Registration Status</b>
+                        </td>
+                        <td>
+                            <code>{{header.status}}</code>
+                        </td>
 
                     </tr>
                     <tr>
-                        <td>Membership Id</td>
+                        <td>
+                            <b>Membership Id</b>
+                        </td>
                         <td>{{header.membershipid}}</td>
 
                     </tr>
                     <tr>
-                        <td>Full Name</td>
+                        <td>
+                            <b>Full Name</b>
+                        </td>
                         <td>{{header.fullname}}</td>
 
                     </tr>
                     <tr>
-                        <td>Date Of Birth</td>
+                        <td>
+                            <b>Date Of Birth</b>
+                        </td>
                         <td>{{header.dob}}</td>
 
                     </tr>
                     <tr>
-                        <td>Membership Category</td>
+                        <td>
+                            <b>Membership Category</b>
+                        </td>
                         <td>{{header.category}}</td>
 
                     </tr>
                     <tr>
-                        <td>State</td>
+                        <td>
+                            <b>State</b>
+                        </td>
                         <td>
                             {{header.state}}
                         </td>
 
                     </tr>
                     <tr>
-                        <td>LGA</td>
+                        <td>
+                            <b>LGA</b>
+                        </td>
                         <td>
                             {{header.lga}}
                         </td>
 
                     </tr>
                     <tr>
-                        <td>Address</td>
+                        <td>
+                            <b>Address</b>
+                        </td>
                         <td>
                             {{header.address}}
                         </td>
 
                     </tr>
                     <tr>
-                        <td>Identification Type</td>
+                        <td>
+                            <b>Identification Type</b>
+                        </td>
                         <td>
                             {{header.idtype}}
                         </td>
 
                     </tr>
                     <tr>
-                        <td>ID Number</td>
+                        <td>
+                            <b>ID Number</b>
+                        </td>
                         <td>
                             {{header.idnos}}
                         </td>
@@ -76,7 +98,7 @@
 
 
 
-<nb-card >
+<nb-card>
     <nb-tabset>
         <nb-tab tabTitle="Qualification">
             <div class="table-responsive">
@@ -111,7 +133,9 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of uploadeddocuments">
-                            <td><a target="_blank" routerLink="/documentviewer/{{item.id}}">View</a></td>
+                            <td>
+                                <a target="_blank" routerLink="/documentviewer/{{item.id}}">View</a>
+                            </td>
                             <td>{{item.id}}</td>
                             <td>{{item.documenttype}}</td>
                             <td>{{item.description}}</td>

@@ -54,7 +54,7 @@ export class CustomerInvoiceListComponent implements OnInit {
             },
             columns: {
                 id: {
-                    title: '...',
+                    title: 'Manage',
                     type: 'custom',
                     renderComponent: CustomerInvoiceListGridButtonViewDetailComponent,
                     onComponentInitFunction(instance) {

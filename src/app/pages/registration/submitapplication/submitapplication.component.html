@@ -1,21 +1,22 @@
+<div class="row">
 
-
-<div class="row col-md-12" *ngIf="membertypeid == 1 || membertypeid == 2">
-    <div class="row col-md-12">
-        <ngx-individual-info [crffmasterid]="crffnmasterid"></ngx-individual-info>
-        <hr/>
-    <div class="row col-md-6 offset-md-3">
-            <button *ngIf="isNotSubmitted" (click)="submitindividualmemberApplicationForm()" class="btn btn-danger">Submit</button>
-     </div>
+    <div style="width:100%" *ngIf="membertypeid == 1 || membertypeid == 2">
+        <div class="">
+            <ngx-individual-info [crffmasterid]="crffnmasterid" class="col-md-6"></ngx-individual-info>
+            <hr/>
+            <div class="">
+                <button *ngIf="isNotSubmitted" (click)="submitindividualmemberApplicationForm()" class="btn btn-danger">Submit</button>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="row col-md-12" *ngIf="membertypeid == 3 || membertypeid == 4">
-    <div class="row col-md-12">
-        <ngx-corporate-form-detail [crffmasterid]="crffnmasterid"></ngx-corporate-form-detail>
-        <hr/>
-    <div class="row col-md-6 offset-md-3">
-            <button *ngIf="isNotSubmitted" (click)="submitCorporateRegistrationRecord()" class="btn btn-danger">Submit</button>
-     </div>
+    <div style="width:100%" *ngIf="membertypeid == 3 || membertypeid == 4">
+        <div>
+            <ngx-corporate-form-detail [crffmasterid]="crffnmasterid" class="col-md-6"></ngx-corporate-form-detail>
+            <hr/>
+            <div class="">
+                <button *ngIf="isNotSubmitted" (click)="submitCorporateRegistrationRecord()" class="btn btn-danger">Submit</button>
+            </div>
+        </div>
     </div>
 </div>
