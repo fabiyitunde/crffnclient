@@ -1,7 +1,7 @@
 import { InvoiceConsoleComponent } from './invoiceconsole/invoiceconsole.component';
 import { CustomerServiceComponent } from './customerservice.component';
 import { CustomerDashboardComponent } from './customerdashboard/customerdashboard.component';
-
+import { CustomerAboutCmsComponent } from './customeraboutcms/customeraboutcms.component';
 
 import { AuthGuard } from './../../services/auth.guard';
 
@@ -15,7 +15,8 @@ const routes: Routes = [{
   component: CustomerServiceComponent, canActivate: [AuthGuard],
   children: [
     { path: 'customerdashboard/:id', component: CustomerDashboardComponent },
-  { path: 'invoiceconsole', component: InvoiceConsoleComponent },
+    { path: 'invoiceconsole', component: InvoiceConsoleComponent },
+    { path: 'aboutcms', component: CustomerAboutCmsComponent },
 
   ],
 }];
