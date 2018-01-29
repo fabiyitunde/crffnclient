@@ -20,7 +20,7 @@ export class POFHomeGridButtonViewDetailComponent implements ViewCell, OnInit {
 
   }
   ngOnInit() {
-    this.renderValue = '...';
+    this.renderValue = 'Manage';
   }
 
   onClick() {

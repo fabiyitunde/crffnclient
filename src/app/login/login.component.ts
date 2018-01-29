@@ -19,7 +19,7 @@ export class NbLoginComponent implements OnInit {
     messages: string[] = [];
     user: any = {};
     submitted = false;
-returnUrl: string;
+    returnUrl: string;
     ngOnInit() {
         // reset login status
         this.authservice.logout();
@@ -39,15 +39,15 @@ returnUrl: string;
         this.errors = this.messages = [];
         // this.submitted = true;
         this.user.grant_type = 'password';
-         this.authservice.login(this.user.username, this.user.password)
-        .subscribe(ret => {
-            this.submitted = false;
-            this.router.navigate([this.returnUrl]);
-        }, err => {
-            this.submitted = false;
-            this.errors.push(err);
-          alert(err);
-        }) ;
+        this.authservice.login(this.user.username, this.user.password)
+            .subscribe(ret => {
+                this.submitted = false;
+                this.router.navigate([this.returnUrl]);
+            }, err => {
+                this.submitted = false;
+                this.errors.push(err);
+                alert(err);
+            });
     }
 
     getConfigValue(key: string): any {

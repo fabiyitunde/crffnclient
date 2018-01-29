@@ -52,7 +52,7 @@ export class POFHomeComponent implements OnInit {
             },
             columns: {
                 id: {
-                    title: '...',
+                    title: 'Manage',
                     type: 'custom',
                     renderComponent: POFHomeGridButtonViewDetailComponent,
                     onComponentInitFunction(instance) {

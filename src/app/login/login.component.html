@@ -6,11 +6,14 @@
       <img src="assets/images/logocr.jpg">
     </a>
   </div>
+
+
   <h2 class="title">Sign In</h2>
   <small class="form-text sub-title">Hello! Sign in with your email</small>
   <form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
-    <div *ngIf="showMessages.error && errors && errors.length > 0 && !submitted" class="alert alert-danger" role="alert">
+    <div *ngIf="showMessages.error && errors && errors.length> 0 && !submitted" class="alert alert-danger" role="alert">
       <div>
+
         <strong>Oh snap!</strong>
       </div>
       <div *ngFor="let error of errors">{{ error }}</div>

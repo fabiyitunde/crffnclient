@@ -1,5 +1,5 @@
-
-<ngx-remita-trans-detail *ngIf="showremitadetail" [remitapaytransid]="remitapaytransid"></ngx-remita-trans-detail>
+<ngx-remita-trans-detail *ngIf="showremitadetail" [remitapaytransid]="remitapaytransid">
+</ngx-remita-trans-detail>
 
 <form ngNoForm method="POST" [action]="data.remitapostUrl" #remitaform>
     <input type="hidden" id="payerName" name="payerName" [value]="data.payerName">
@@ -12,5 +12,5 @@
     <input type="hidden" id="amt" name="amt" [value]="data.amt">
     <input type="hidden" id="hash" name="hash" [value]="data.hash">
     <input type="hidden" id="paymenttype" name="paymenttype" [value]="data.paymenttype">
-     <button #savebutton type="submit" class="btn btn-primary">Pay</button>
+    <button #savebutton type="submit" class="btn btn-primary">Proceed To Remita Gateway</button>
 </form>

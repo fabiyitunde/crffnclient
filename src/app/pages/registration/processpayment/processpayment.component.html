@@ -30,15 +30,18 @@
                             </tr>
                             <tr>
                                 <td>Remita Payment Type</td>
-                                <td><select class="form-control" [(ngModel)]="data.paymentType" name="paymentType">
-                                            <option *ngFor="let item of paymentTypeList" [value]="item.code">{{item.description}}</option>           
+                                <td>
+                                    <select class="form-control" [(ngModel)]="data.paymentType" name="paymentType">
+                                        <option *ngFor="let item of paymentTypeList" [value]="item.code">{{item.description}}</option>
                                     </select>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td></td>
-                                <td> <button class="btn btn-hero-info  btn-demo" (click)="createRemitaTransactionRecord()">Proceed To Remita Gateway</button></td>
+                                <td>
+                                    <button class="btn btn-hero-info  btn-demo" (click)="createRemitaTransactionRecord()">Pay</button>
+                                </td>
 
                             </tr>
                         </tbody>
