@@ -20,10 +20,7 @@ export class MembershipHomeComponent {
         });
     }
 
-    openaboutcms() {
-        console.log("I work")
-        this.router.navigate(['pages/customerservice/aboutcms']);
-    }
+
 
 }
 

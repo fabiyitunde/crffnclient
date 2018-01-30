@@ -15,5 +15,6 @@ import { EditorsRoutingModule, routedComponents } from './editors-routing.module
   declarations: [
     ...routedComponents, GridButtonComponent,
   ],
+  exports: [CKEditorModule, EditorsRoutingModule, routedComponents],
 })
 export class EditorsModule { }

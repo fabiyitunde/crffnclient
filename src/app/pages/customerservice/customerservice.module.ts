@@ -10,6 +10,9 @@ import { CustomerServiceRoutingModule } from './customerservice-routing.module';
 import { CustomerInfoComponent } from './customerinfo/customerinfo.component';
 import { CustomerAboutComponent } from './customerabout/customerabout.component';
 import { CustomerAboutCmsComponent } from './customeraboutcms/customeraboutcms.component';
+import { CustomerServiceCmsComponent } from './customerservicecms/customerservicecms.component';
+
+
 import { CustomerLocationComponent } from './customerlocation/customerlocation.component';
 import { CustomerQuotationComponent } from './customerquotation/customerquotation.component';
 import { CustomerServicesComponent } from './customerservices/customerservices.component';
@@ -23,18 +26,18 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PaymentListComponent } from './invoiceconsole/paymentlist/paymentlist.component';
-
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
   imports: [
-    ThemeModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, CustomerServiceRoutingModule,
+    ThemeModule, CKEditorModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, CustomerServiceRoutingModule,
 
   ],
   declarations: [CustomerDashboardComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
-    CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerStaffComponent, CustomerInvoiceListComponent,
+    CustomerServiceCmsComponent, CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerStaffComponent, CustomerInvoiceListComponent,
     CustomerInvoiceListGridButtonViewDetailComponent, CustomerServicesComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent,
     InvoiceLineItemTypeDisplayComponent,
-    InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent],
+    InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent,],
   providers: [],
   exports: [CustomerInfoComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
     CustomerLocationComponent, CustomerServicesComponent, CustomerStaffComponent,

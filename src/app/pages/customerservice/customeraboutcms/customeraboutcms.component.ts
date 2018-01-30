@@ -1,10 +1,11 @@
 import { CustomerAboutCmsService } from './customeraboutcms.service';
 import { Component, Inject, OnInit, Input } from '@angular/core';
 
-import { CKEditorModule } from 'ng2-ckeditor';
+import './ckeditor.loader';
+import 'ckeditor';
 
-import '../../editors/ckeditor/ckeditor.loader.ts';
-import '../../editors/ckeditor/ckeditor.component.ts';
+
+
 
 @Component({
     selector: 'ngx-customer-about-cms',

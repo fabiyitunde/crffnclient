@@ -2,6 +2,7 @@ import { InvoiceConsoleComponent } from './invoiceconsole/invoiceconsole.compone
 import { CustomerServiceComponent } from './customerservice.component';
 import { CustomerDashboardComponent } from './customerdashboard/customerdashboard.component';
 import { CustomerAboutCmsComponent } from './customeraboutcms/customeraboutcms.component';
+import { CustomerServiceCmsComponent } from './customerservicecms/customerservicecms.component';
 
 import { AuthGuard } from './../../services/auth.guard';
 
@@ -17,6 +18,7 @@ const routes: Routes = [{
     { path: 'customerdashboard/:id', component: CustomerDashboardComponent },
     { path: 'invoiceconsole', component: InvoiceConsoleComponent },
     { path: 'aboutcms', component: CustomerAboutCmsComponent },
+    { path: 'servicecms', component: CustomerServiceCmsComponent },
 
   ],
 }];

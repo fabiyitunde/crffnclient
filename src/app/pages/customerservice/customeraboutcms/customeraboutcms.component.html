@@ -1,10 +1,16 @@
 <div class="col-md-12">
     <nb-card>
         <nb-card-header>
-            CKEditor
+            About Us
         </nb-card-header>
         <nb-card-body>
-            <!--    <ckeditor></ckeditor>-->
+            <div>
+                <i>Write about your company in the section below:</i>
+            </div>
+            <ckeditor [config]="{ extraPlugins: 'divarea', height: '320' }"></ckeditor>
+            <div style="padding-top:10px;">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
         </nb-card-body>
     </nb-card>
 
