@@ -26,8 +26,8 @@ export class MemberSearchComponent implements OnInit {
     data: any = {};
     membershipcategorylist: any[] = [];
     statelist: any[] = [];
-    constructor(private ngsearchservice: NbSearchService,private router: Router,
-         private membersearchservice: MemberSearchService) {
+    constructor(private ngsearchservice: NbSearchService, private router: Router,
+        private membersearchservice: MemberSearchService) {
         // ngsearchservice.onSearchSubmit().subscribe(term => {
         //     alert(term.term);
         // })
@@ -42,7 +42,7 @@ export class MemberSearchComponent implements OnInit {
         });
     }
     getPage(page: number) {
-        console.log(page);
+        console.log(page, 'we are here');
         this.loading = true;
         this.data.page = page;
         this.resultlist = this.membersearchservice.searchmembers(this.data)

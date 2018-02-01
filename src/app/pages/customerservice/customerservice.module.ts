@@ -11,6 +11,8 @@ import { CustomerInfoComponent } from './customerinfo/customerinfo.component';
 import { CustomerAboutComponent } from './customerabout/customerabout.component';
 import { CustomerAboutCmsComponent } from './customeraboutcms/customeraboutcms.component';
 import { CustomerServiceCmsComponent } from './customerservicecms/customerservicecms.component';
+import { CustomerContactCmsComponent } from './customercontactcms/customercontactcms.component';
+import { CustomerStaffCmsComponent } from './customerstaffcms/customerstaffcms.component';
 
 
 import { CustomerLocationComponent } from './customerlocation/customerlocation.component';
@@ -18,7 +20,7 @@ import { CustomerQuotationComponent } from './customerquotation/customerquotatio
 import { CustomerServicesComponent } from './customerservices/customerservices.component';
 import { CustomerStaffComponent } from './customerstaff/customerstaff.component';
 
-
+import { BaPictureUploaderComponent } from './customerstaffcms/components/baPictureUploader/baPictureUploader.component';
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgModule } from '@angular/core';
@@ -36,8 +38,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
   declarations: [CustomerDashboardComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
     CustomerServiceCmsComponent, CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerStaffComponent, CustomerInvoiceListComponent,
     CustomerInvoiceListGridButtonViewDetailComponent, CustomerServicesComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent,
-    InvoiceLineItemTypeDisplayComponent,
-    InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent,],
+    InvoiceLineItemTypeDisplayComponent, CustomerContactCmsComponent, CustomerStaffCmsComponent,
+    InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent, BaPictureUploaderComponent],
   providers: [],
   exports: [CustomerInfoComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
     CustomerLocationComponent, CustomerServicesComponent, CustomerStaffComponent,
