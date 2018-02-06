@@ -48,7 +48,9 @@ export class RegistrationService {
                 return Observable.throw(errMsg);
             });
     }
-
+    getCRFFNMasterId() {
+        return JSON.parse(localStorage.getItem('userinfo')).crffnmasterid;
+    }
     getIDTypeList() {
         const url = `${webapibaseurl}api/parameters/getIDTypeList`;
         return this.http
