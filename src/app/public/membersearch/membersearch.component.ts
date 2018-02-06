@@ -42,7 +42,7 @@ export class MemberSearchComponent implements OnInit {
         });
     }
     getPage(page: number) {
-        console.log(page, 'we are here');
+        console.log(page, );
         this.loading = true;
         this.data.page = page;
         this.resultlist = this.membersearchservice.searchmembers(this.data)
