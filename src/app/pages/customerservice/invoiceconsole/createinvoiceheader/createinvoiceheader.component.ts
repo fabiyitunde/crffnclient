@@ -3,7 +3,7 @@ import { Component, Inject, OnInit, Input, Output, EventEmitter } from '@angular
 
 @Component({
     selector: 'ngx-create-invoice-header',
-   // styleUrls: ['./individualform.component.scss'],
+    // styleUrls: ['./individualform.component.scss'],
     templateUrl: './createinvoiceheader.component.html',
     providers: [CreateInvoiceHeaderService],
 })

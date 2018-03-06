@@ -19,12 +19,14 @@ import { MembershipHomeComponent } from './membershiphome/membershiphome.compone
 import { ManageIndividualFormComponent } from './manageindividualform/manageindividualform.component';
 import { PaymentDetailsComponent } from './paymentdetails/paymentdetails.component';
 import { BasicInformationComponent } from './basicinformation/basicinformation.component';
+import { CustomerStaffCmsComponent } from './membershiphome/customerstaffcms/customerstaffcms.component';
 
 const routes: Routes = [{
   path: '',
   component: RegistrationComponent, canActivate: [AuthGuard, RegGuard],
   children: [
     { path: 'invoices', component: InvoicesComponent },
+    { path: 'customerxx', component: CustomerStaffCmsComponent },
     { path: 'payments/:id', component: PaymentsComponent },
     { path: 'processpayment/:id', component: ProcessPaymentComponent },
     { path: 'loadremitagateway/:id', component: LoadRemitaGatewayComponent },
@@ -36,10 +38,10 @@ const routes: Routes = [{
     { path: 'basicinformation', component: BasicInformationComponent },
     { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
     { path: 'submitapplication', component: SubmitApplicationComponent },
-    
+
 
   ],
-},{ path: 'myprofile', component: MyProfileComponent,canActivate: [AuthGuard] },];
+}, { path: 'myprofile', component: MyProfileComponent, canActivate: [AuthGuard] },];
 
 @NgModule({
   imports: [

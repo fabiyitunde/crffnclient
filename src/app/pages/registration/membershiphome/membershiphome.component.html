@@ -1,134 +1,141 @@
-<div style="background-image:url('assets/images/homebg.jpg'); padding:15px;">
+<ngx-customer-staff-cms *ngIf="staffcms" [crffnmasterid]="crrfnmasterid"></ngx-customer-staff-cms>
 
-  <div class="row">
-    <div class="col-xxxl-3 col-md-6">
-      <ngx-status-card title="Registration Fee" type="primary" [status]="membershipstatus.appfeestatus">
-        <i class="fa fa-credit-card-alt"></i>
-      </ngx-status-card>
+<div *ngIf="dashboard">
+  <div style="background-image:url('assets/images/homebg.jpg'); padding:15px;">
+
+
+
+    <div class="row">
+      <div class="col-xxxl-3 col-md-6">
+        <ngx-status-card title="Registration Fee" type="primary" [status]="membershipstatus.appfeestatus">
+          <i class="fa fa-credit-card-alt"></i>
+        </ngx-status-card>
+      </div>
+
+      <div class="col-xxxl-3 col-md-6">
+        <ngx-status-card title="Subscription Fee" type="success" [status]="membershipstatus.subfeestatus">
+          <i class="fa fa-money"></i>
+        </ngx-status-card>
+      </div>
+
+      <div class="col-xxxl-3 col-md-6">
+        <ngx-status-card title="Pending Invoices" type="info" [status]="membershipstatus.pendinginvoicestatus">
+          <i class="fa fa-pencil-square-o"></i>
+        </ngx-status-card>
+      </div>
+
+      <div class="col-xxxl-3 col-md-6">
+        <ngx-status-card title="Pending Payments" type="warning" [status]="membershipstatus.pendingpaymentstatus">
+          <i class="fa fa-spinner"></i>
+        </ngx-status-card>
+      </div>
     </div>
 
-    <div class="col-xxxl-3 col-md-6">
-      <ngx-status-card title="Subscription Fee" type="success" [status]="membershipstatus.subfeestatus">
-        <i class="fa fa-money"></i>
-      </ngx-status-card>
-    </div>
-
-    <div class="col-xxxl-3 col-md-6">
-      <ngx-status-card title="Pending Invoices" type="info" [status]="membershipstatus.pendinginvoicestatus">
-        <i class="fa fa-pencil-square-o"></i>
-      </ngx-status-card>
-    </div>
-
-    <div class="col-xxxl-3 col-md-6">
-      <ngx-status-card title="Pending Payments" type="warning" [status]="membershipstatus.pendingpaymentstatus">
-        <i class="fa fa-spinner"></i>
-      </ngx-status-card>
-    </div>
   </div>
 
-</div>
+  <div class="row">
 
-<div class="row">
-
-  <nb-card class="medium-card col-md-6">
+    <nb-card class="medium-card col-md-6">
 
 
 
 
-    <nb-card-header>
-      Create A Profile
-    </nb-card-header>
+      <nb-card-header>
+        Create A Profile
+      </nb-card-header>
 
 
-    <nb-card-body>
-      <div _ngcontent-c18="" class="picture" style="background-repeat: no-repeat; background-position: center; height:98px; width:100%;background-image: url('assets/images/profilebg.png');"></div>
+      <nb-card-body>
+        <div _ngcontent-c18="" class="picture" style="background-repeat: no-repeat; background-position: center; height:98px; width:100%;background-image: url('assets/images/profilebg.png');"></div>
 
 
-      <div style="text-align:justify; ">
-        Create a profile for your company to get recognized through our member search platform. Get reached easily by customers by
-        uploading your company contents for "About Us", "Staff","Services", "Quotations" and "Contact Us"
-      </div>
-      <nb-card-footer class="row col-md-12">
-        <div class="col-md-3">
-          <h2 style="margin-left:10px;">
-
-            <a routerLink="/pages/customerservice/aboutcms">
-              <i class="ion-ios-world"></i>
-            </a>
-
-          </h2>
-          <label style="text-align:center; font-size: 10px;"> About Us</label>
+        <div style="text-align:justify; ">
+          Create a profile for your company to get recognized through our member search platform. Get reached easily by customers by
+          uploading your company contents for "About Us", "Staff","Services", "Quotations" and "Contact Us"
         </div>
-        <div class="col-md-3">
-          <h2 style="margin-left:10px;">
-            <a routerLink="/pages/customerservice/staffcms">
-              <i class="fa fa-users"></i>
-            </a>
-          </h2>
-          <label style="text-align:center; font-size: 10px;"> Staff</label>
+        <nb-card-footer class="row col-md-12">
+          <div class="col-md-3">
+            <h2 style="margin-left:10px;">
+
+              <a routerLink="/pages/customerservice/aboutcms">
+                <i class="ion-ios-world"></i>
+              </a>
+
+            </h2>
+            <label style="text-align:center; font-size: 10px;"> About Us</label>
+          </div>
+          <div class="col-md-3">
+            <h2 style="margin-left:10px;">
+              <a (click)="createstaffcms()">
+                <i class="fa fa-users"></i>
+              </a>
+            </h2>
+            <label style="text-align:center; font-size: 10px;"> Staff</label>
+          </div>
+
+          <div class="col-md-3">
+            <h2 style="margin-left:10px;">
+              <a routerLink="/pages/customerservice/servicecms">
+                <i class="fa fa-briefcase"></i>
+              </a>
+            </h2>
+            <label style="text-align:center;font-size: 10px; "> Services</label>
+          </div>
+
+          <div class="col-md-3 ">
+            <h2 style="margin-left:10px;">
+              <a routerLink="/pages/customerservice/contactcms">
+                <i class="fa fa-map-marker"></i>
+              </a>
+            </h2>
+            <label style="text-align:center; font-size: 10px;"> Contact Us</label>
+          </div>
+        </nb-card-footer>
+      </nb-card-body>
+
+    </nb-card>
+    <nb-card class="medium-card col-md-6">
+
+
+
+
+      <nb-card-header>
+        Quick Links
+      </nb-card-header>
+
+
+      <nb-card-body>
+        <div class="picture" style="background-repeat: no-repeat; background-position: center; height:98px; width:100%;background-image: url('assets/images/profilebg2.png');"></div>
+
+
+        <div>
+          <div class="btn-group btn-group-full-width" role="group" style="margin:1px;">
+            <button (click)="newtransaction()" class="btn btn-primary btn-group-icon btn-group-divider btn-fixed" type="button">
+              <i class="fa fa-exchange"></i>
+            </button>
+            <button (click)="newtransaction()" class="btn btn-primary" type="button">Create New Transaction</button>
+          </div>
+          <div class="btn-group btn-group-full-width" role="group" style="margin:1px;">
+            <button (click)="quotation()" class="btn btn-primary btn-group-icon btn-group-divider btn-fixed" type="button">
+              <i class="fa fa-quote-right"></i>
+            </button>
+            <button (click)="quotation()" class="btn btn-primary" type="button">View Quotations</button>
+          </div>
+          <div class="btn-group btn-group-full-width" role="group" style="margin:1px;">
+            <button (click)="registrationdata()" class="btn btn-primary btn-group-icon btn-group-divider btn-fixed" type="button">
+              <i class="fa fa-address-card"></i>
+            </button>
+            <button (click)="registrationdata()" class="btn btn-primary" type="button">Registration Data</button>
+          </div>
         </div>
-        <div class="col-md-3">
-          <h2 style="margin-left:10px;">
-            <a routerLink="/pages/customerservice/servicecms">
-              <i class="fa fa-briefcase"></i>
-            </a>
-          </h2>
-          <label style="text-align:center;font-size: 10px; "> Services</label>
-        </div>
+        <nb-card-footer class="row col-md-12">
 
-        <div class="col-md-3 ">
-          <h2 style="margin-left:10px;">
-            <a routerLink="/pages/customerservice/contactcms">
-              <i class="fa fa-map-marker"></i>
-            </a>
-          </h2>
-          <label style="text-align:center; font-size: 10px;"> Contact Us</label>
-        </div>
-      </nb-card-footer>
-    </nb-card-body>
+        </nb-card-footer>
+      </nb-card-body>
 
-  </nb-card>
-  <nb-card class="medium-card col-md-6">
+    </nb-card>
 
 
 
-
-    <nb-card-header>
-      Quick Links
-    </nb-card-header>
-
-
-    <nb-card-body>
-      <div class="picture" style="background-repeat: no-repeat; background-position: center; height:98px; width:100%;background-image: url('assets/images/profilebg2.png');"></div>
-
-
-      <div>
-        <div class="btn-group btn-group-full-width" role="group" style="margin:1px;">
-          <button (click)="newtransaction()" class="btn btn-primary btn-group-icon btn-group-divider btn-fixed" type="button">
-            <i class="fa fa-exchange"></i>
-          </button>
-          <button (click)="newtransaction()" class="btn btn-primary" type="button">Create New Transaction</button>
-        </div>
-        <div class="btn-group btn-group-full-width" role="group" style="margin:1px;">
-          <button (click)="quotation()" class="btn btn-primary btn-group-icon btn-group-divider btn-fixed" type="button">
-            <i class="fa fa-quote-right"></i>
-          </button>
-          <button (click)="quotation()" class="btn btn-primary" type="button">View Quotations</button>
-        </div>
-        <div class="btn-group btn-group-full-width" role="group" style="margin:1px;">
-          <button (click)="registrationdata()" class="btn btn-primary btn-group-icon btn-group-divider btn-fixed" type="button">
-            <i class="fa fa-address-card"></i>
-          </button>
-          <button (click)="registrationdata()" class="btn btn-primary" type="button">Registration Data</button>
-        </div>
-      </div>
-      <nb-card-footer class="row col-md-12">
-
-      </nb-card-footer>
-    </nb-card-body>
-
-  </nb-card>
-
-
-
+  </div>
 </div>

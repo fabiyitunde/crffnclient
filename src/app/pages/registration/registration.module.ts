@@ -28,8 +28,8 @@ import { StatusCardComponent } from './status-card/status-card.component';
 import { NgModule } from '@angular/core';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import {RegistrationService} from './registration.service';
-import {RegistrationComponent} from './registration.component';
+import { RegistrationService } from './registration.service';
+import { RegistrationComponent } from './registration.component';
 import { MembershipHomeComponent } from './membershiphome/membershiphome.component';
 import { IndividualFormComponent } from './individualform/individualform.component';
 import { StartRegistrationComponent } from './startregistration/startregistration.component';
@@ -39,22 +39,29 @@ import { ProcessPaymentComponent } from './processpayment/processpayment.compone
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BasicInformationComponent } from './basicinformation/basicinformation.component';
+import { CustomerStaffCmsComponent } from './membershiphome/customerstaffcms/customerstaffcms.component';
+import { ModalComponent } from './membershiphome/customerstaffcms/modals/modal/modal.component';
+import { ModalsComponent } from './membershiphome/customerstaffcms/modals/modals.component';
+
+
+
+
 @NgModule({
   imports: [
     ThemeModule, RegistrationRoutingModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule,
   ],
   declarations: [RegistrationComponent, QualificationTypeDisplayComponent, UploadDocumentTypeDisplayComponent,
-  MyProfileComponent, BaPictureUploaderComponent, IndiviualInfoComponent,
-  UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent, ManageIndividualFormComponent
-  , InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
-  ProcessPaymentComponent, LoadRemitaGatewayComponent , RemitaResponseComponent , RemitaTransDetailComponent,
-   QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent,
-   StartRegistrationComponent,MembershipHomeComponent, StatusCardComponent, IndividualFormComponent,
-   BasicInformationComponent,CorporateFormComponent,CorporateFormDetailComponent ],
+    MyProfileComponent, BaPictureUploaderComponent, ModalsComponent, IndiviualInfoComponent,
+    UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent, ManageIndividualFormComponent
+    , ModalComponent, InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
+    ProcessPaymentComponent, CustomerStaffCmsComponent, LoadRemitaGatewayComponent, RemitaResponseComponent, RemitaTransDetailComponent,
+    QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent,
+    StartRegistrationComponent, MembershipHomeComponent, StatusCardComponent, IndividualFormComponent,
+    BasicInformationComponent, CorporateFormComponent, CorporateFormDetailComponent],
   providers: [RegistrationService, QualificationService],
   entryComponents: [QualificationTypeDisplayComponent,
-   UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent],
-   exports: [IndiviualInfoComponent, StartRegistrationComponent, MembershipHomeComponent
-    , StatusCardComponent,CorporateFormDetailComponent ],
+    UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent, ModalComponent],
+  exports: [IndiviualInfoComponent, StartRegistrationComponent, MembershipHomeComponent
+    , StatusCardComponent, CorporateFormDetailComponent],
 })
 export class RegistrationModule { }

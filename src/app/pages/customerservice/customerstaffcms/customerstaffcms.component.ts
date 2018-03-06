@@ -1,13 +1,13 @@
 import { CustomerStaffCmsService } from './customerstaffcms.service';
 import { Component, Inject, OnInit, Input } from '@angular/core';
 import { NgUploaderOptions } from 'ngx-uploader';
-
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 import { webapibaseurl } from '../../../app.model';
 
 
 @Component({
-    selector: 'ngx-customer-staff-cms',
+    selector: 'ngx-customer-staff-cms444',
     templateUrl: './customerstaffcms.component.html',
     providers: [CustomerStaffCmsService],
 })
@@ -18,6 +18,7 @@ export class CustomerStaffCmsComponent implements OnInit {
     public defaultPicture = 'assets/img/theme/no-photo.png';
     uploadInProgress: boolean = false;
     data: any = {};
+
     public profile: any = {
         picture: 'assets/img/app/profile/Nasta.png',
     };
@@ -29,19 +30,33 @@ export class CustomerStaffCmsComponent implements OnInit {
 
 
     ngOnInit() {
-        this.service.getProfilePicture().subscribe(data => this.profile.picture = 'data:image/png;base64,' + data);
-    }
-    onUpload() {
-        this.uploadInProgress = true;
-    }
-    onUploadCompleted(data: any) {
-        alert('Complete');
-        this.uploadInProgress = false;
+        this.route.params.subscribe(params => {
+            this.crffnmasterid = +params['id']; // (+) converts string 'id' to a number
+
+        });
+
     }
 
-    customer: any = {};
+
+
+    createStaff() {
+        this.data.crffnmasterid = this.crffnmasterid;
+
+        this.service.createstaff(this.data).subscribe(result => {
+            alert('Staff Saved SuccessFully');
+            console.log('success')
+
+        },
+            error => {
+                alert(error);
+            });
+    }
+
+
+
+
     @Input() crffnmasterid: number;
-    constructor(private service: CustomerStaffCmsService) {
+    constructor(private service: CustomerStaffCmsService, private route: ActivatedRoute, private router: Router) {
 
     }
 

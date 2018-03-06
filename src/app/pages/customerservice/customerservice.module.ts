@@ -17,6 +17,7 @@ import { CustomerStaffCmsComponent } from './customerstaffcms/customerstaffcms.c
 
 import { CustomerLocationComponent } from './customerlocation/customerlocation.component';
 import { CustomerQuotationComponent } from './customerquotation/customerquotation.component';
+import { QuotationComponent } from './quotation/quotation.component';
 import { CustomerServicesComponent } from './customerservices/customerservices.component';
 import { CustomerStaffComponent } from './customerstaff/customerstaff.component';
 
@@ -35,7 +36,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
     ThemeModule, CKEditorModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, CustomerServiceRoutingModule,
 
   ],
-  declarations: [CustomerDashboardComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
+  declarations: [CustomerDashboardComponent, QuotationComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
     CustomerServiceCmsComponent, CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerStaffComponent, CustomerInvoiceListComponent,
     CustomerInvoiceListGridButtonViewDetailComponent, CustomerServicesComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent,
     InvoiceLineItemTypeDisplayComponent, CustomerContactCmsComponent, CustomerStaffCmsComponent,

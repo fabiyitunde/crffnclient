@@ -29,29 +29,7 @@
 
                 </div>
 
-                <div class="form-group col-md-6">
-                    <nb-card>
-                        <div>
-                            <i>Staff profile image</i>
-                        </div>
 
-                        <nb-card-body>
-
-                            <ngx-ba-picture-uploader></ngx-ba-picture-uploader>
-
-
-
-                            <div *ngIf="uploadInProgress" class="item text-warning">
-                                <div class="color bg-warning"></div>
-                                <div>
-                                    <h5 class="text-warning">Alert</h5>
-                                    upload in progress.
-                                </div>
-                            </div>
-                        </nb-card-body>
-
-                    </nb-card>
-                </div>
             </div>
             <div style="padding-top:10px;">
                 <button (click)="createStaff()" type="submit" class="btn btn-success">Add</button>
@@ -72,23 +50,26 @@
                         <th>Position</th>
                         <th>Email</th>
                         <th>image</th>
-                        <th>Edit</th>
+                        <th>Upload Image</th>
+                        <th>Delete Image</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let staff of stafflist">
+                        <td>{{staff.name}}</td>
+                        <td>{{staff.position}}</td>
+                        <td>{{staff.email}}</td>
+
+                        <td>{{staff.image}}</td>
                         <td>
-                            <button type="submit" class="btn btn-success">Edit</button>
+                            <button (click)="showSmallModal()" type="submit" class="btn btn-primary">Upload Image</button>
+                        </td>
+                        <td>
+                            <button (click)="deleteStaff(staff.id)" type="submit" class="btn btn-danger">Delete</button>
                         </td>
 
                     </tr>
                 </tbody>
             </table>
-            <div style="padding-top:10px;">
-                <button type="submit" class="btn btn-danger">Save</button>
-            </div>
+
         </nb-card-body>
     </nb-card>
 

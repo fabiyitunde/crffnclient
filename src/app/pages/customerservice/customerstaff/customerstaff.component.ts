@@ -13,12 +13,7 @@ export class CustomerStaffComponent implements OnInit {
 
     }
     ngOnInit() {
-        this.service.getcustomerstaff(this.crffnmasterid).subscribe(data => {
 
-            this.customer = data;
-        }, err => {
-            alert(err);
-        });
     }
 
 }

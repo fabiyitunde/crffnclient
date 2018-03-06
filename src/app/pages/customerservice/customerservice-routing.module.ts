@@ -5,7 +5,7 @@ import { CustomerAboutCmsComponent } from './customeraboutcms/customeraboutcms.c
 import { CustomerServiceCmsComponent } from './customerservicecms/customerservicecms.component';
 import { CustomerContactCmsComponent } from './customercontactcms/customercontactcms.component';
 import { CustomerStaffCmsComponent } from './customerstaffcms/customerstaffcms.component';
-
+import { QuotationComponent } from './quotation/quotation.component';
 
 import { AuthGuard } from './../../services/auth.guard';
 
@@ -24,6 +24,7 @@ const routes: Routes = [{
     { path: 'servicecms', component: CustomerServiceCmsComponent },
     { path: 'contactcms', component: CustomerContactCmsComponent },
     { path: 'staffcms', component: CustomerStaffCmsComponent },
+    { path: 'quotation', component: QuotationComponent },
 
   ],
 }];
