@@ -6,7 +6,7 @@ import { MyProfileComponent } from './myprofile/myprofile.component';
 import { SubmitApplicationComponent } from './submitapplication/submitapplication.component';
 import { PaymentDetailsComponent } from './paymentdetails/paymentdetails.component';
 import { ViewDocumentComponent } from './viewdocument/viewdocument.component';
-
+import { PaymentGatewayComponent } from './paymentgateway/paymentgateway.component'
 import { BaFileUploaderComponent } from './documentupload/components/baFileUploader/baFileUploader.component';
 import { DocumentUploadSetupService } from './documentuploadsetup/documentuploadsetup.service';
 import { QualificationService } from './qualification/qualification.service';
@@ -23,6 +23,8 @@ import { RemitaResponseComponent } from './remitaresponse/remitaresponse.compone
 import { InvoiceDetailComponent } from './invoicedetail/invoicedetail.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { InvoiceListComponent } from './invoicelist/invoicelist.component';
+import { InvoiceMasterDetailComponent } from './invoicemasterdetail/invoicemasterdetail.component';
 import { ManageIndividualFormComponent } from './manageindividualform/manageindividualform.component';
 import { StatusCardComponent } from './status-card/status-card.component';
 import { NgModule } from '@angular/core';
@@ -50,12 +52,12 @@ import { ModalsComponent } from './membershiphome/customerstaffcms/modals/modals
   imports: [
     ThemeModule, RegistrationRoutingModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule,
   ],
-  declarations: [RegistrationComponent, QualificationTypeDisplayComponent, UploadDocumentTypeDisplayComponent,
-    MyProfileComponent, BaPictureUploaderComponent, ModalsComponent, IndiviualInfoComponent,
+  declarations: [RegistrationComponent, InvoiceMasterDetailComponent, PaymentGatewayComponent, QualificationTypeDisplayComponent, UploadDocumentTypeDisplayComponent,
+    MyProfileComponent, InvoiceListComponent, BaPictureUploaderComponent, ModalsComponent, IndiviualInfoComponent,
     UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent, ManageIndividualFormComponent
     , ModalComponent, InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
     ProcessPaymentComponent, CustomerStaffCmsComponent, LoadRemitaGatewayComponent, RemitaResponseComponent, RemitaTransDetailComponent,
-    QualificationComponent, DocumentUploadSetupComponent, PaymentDetailsComponent, SubmitApplicationComponent,
+    QualificationComponent, DocumentUploadSetupComponent, PaymentGatewayComponent, PaymentDetailsComponent, SubmitApplicationComponent,
     StartRegistrationComponent, MembershipHomeComponent, StatusCardComponent, IndividualFormComponent,
     BasicInformationComponent, CorporateFormComponent, CorporateFormDetailComponent],
   providers: [RegistrationService, QualificationService],

@@ -4,7 +4,8 @@ import { ConfirmemailComponent } from './confirmemail/confirmemail.component';
 import { RegGuard } from './services/reg.guard';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import {  NbLoginComponent } from './login/login.component';
+import { NbLoginComponent } from './login/login.component';
+
 import {
   NbAuthComponent,
   NbLogoutComponent,
@@ -15,10 +16,12 @@ import {
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  {path: 'documentviewer/:id', component: DocumentViewerComponent},
-   {path: 'confirmemail', component: ConfirmemailComponent},
-   { path: 'public',  loadChildren: 'app/public/public.module#PublicModule' },
+  { path: 'documentviewer/:id', component: DocumentViewerComponent },
+  { path: 'confirmemail', component: ConfirmemailComponent },
+  { path: 'public', loadChildren: 'app/public/public.module#PublicModule' },
   { path: 'pages', canActivate: [AuthGuard, RegGuard], loadChildren: 'app/pages/pages.module#PagesModule' },
+
+
   {
     path: 'auth',
     component: NbAuthComponent,
@@ -31,6 +34,7 @@ const routes: Routes = [
         path: 'login',
         component: NbLoginComponent,
       },
+
       {
         path: 'register',
         component: NbRegisterComponent,

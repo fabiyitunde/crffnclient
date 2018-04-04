@@ -59,16 +59,6 @@ export class CustomerStaffCmsService {
                 return Observable.throw(errMsg);
             });
     }
-    uploadImage(model: any) {
-        const url = `${webapibaseurl}api/ffinformation/savestaffprofilepicture`;
-        return this.http
-            .post(url, model)
-            .map((response: Response) => response)
-            .catch((error: any) => {
-                const body = error.error;
-                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-                return Observable.throw(errMsg);
-            });
-    }
+
 
 }

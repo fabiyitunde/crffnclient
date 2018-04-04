@@ -5,12 +5,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { webapibaseurl } from '../../../app.model';
-
+import { webapibaseurl } from '../../app.model';
 @Injectable()
-export class CustomerStaffService {
-    // private headers: Headers;
-    // private options: RequestOptions;
+export class MemberDetailService {
+
 
     constructor(private http: HttpClient) {
 
@@ -27,5 +25,9 @@ export class CustomerStaffService {
                 return Observable.throw(errMsg);
             });
     }
+
+
+
+
 
 }

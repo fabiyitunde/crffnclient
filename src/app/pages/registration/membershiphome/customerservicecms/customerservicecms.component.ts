@@ -8,7 +8,7 @@ import 'ckeditor';
 
 
 @Component({
-    selector: 'ngx-customer-service22',
+    selector: 'ngx-customer-service-cms',
     templateUrl: './customerservicecms.component.html',
     providers: [CustomerServiceCmsService],
 })
@@ -19,7 +19,6 @@ export class CustomerServiceCmsComponent implements OnInit {
 
     }
     ngOnInit() {
-
 
     }
 

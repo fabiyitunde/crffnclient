@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { CustomerStaffCmsService } from '../customerstaffcms.service';
 import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'ngx-modals',
   styleUrls: ['./modals.component.scss'],
   templateUrl: './modals.component.html',
+  providers: [CustomerStaffCmsService],
 })
 export class ModalsComponent {
 
@@ -17,11 +18,7 @@ export class ModalsComponent {
 
     activeModal.componentInstance.modalHeader = 'Large Modal';
   }
-  showSmallModal() {
-    const activeModal = this.modalService.open(ModalComponent, { size: 'sm', container: 'nb-layout' });
 
-    activeModal.componentInstance.modalHeader = 'Upload Staff Image ';
-  }
 
   showStaticModal() {
     const activeModal = this.modalService.open(ModalComponent, {

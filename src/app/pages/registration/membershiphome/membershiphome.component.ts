@@ -7,6 +7,7 @@ import { MembershiphomeService } from './membershiphome.service';
     selector: 'ngx-membership-home',
     templateUrl: './membershiphome.component.html',
     providers: [MembershiphomeService],
+    styleUrls: ['./membershiphome.component.scss'],
 })
 export class MembershipHomeComponent {
     membershipstatus: any = {};
@@ -15,6 +16,8 @@ export class MembershipHomeComponent {
     crrfnmasterid: number;
     dashboard: boolean = true;
     staffcms: boolean = false;
+    aboutcms: boolean = false;
+    quotationcms: boolean = false;
 
     constructor(private service: RegistrationService, route: ActivatedRoute, private router: Router) {
         this.service.getMembershipHomePageData().subscribe(result => {
@@ -39,6 +42,7 @@ export class MembershipHomeComponent {
     createstaffcms() {
         this.dashboard = false;
         this.staffcms = true;
+        this.aboutcms = false;
     }
 
 }

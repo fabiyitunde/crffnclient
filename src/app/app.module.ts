@@ -23,17 +23,18 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuard } from './services/auth.guard';
 import { webapibaseurl } from './app.model';
-import {  NbLoginComponent } from './login/login.component';
+
+import { NbLoginComponent } from './login/login.component';
 import { AuthenticationService } from './services/index';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [AppComponent, NbLoginComponent, ConfirmemailComponent, DocumentViewerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule, PdfViewerModule,
-    HttpModule,NgxPaginationModule,
+    HttpModule, NgxPaginationModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
@@ -67,7 +68,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' }, AuthGuard, AuthenticationService, RegGuard,
-     {
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,

@@ -13,14 +13,15 @@ import { PaymentsComponent } from './payments/payments.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { PaymentGatewayComponent } from './paymentgateway/paymentgateway.component';
+import { InvoiceMasterDetailComponent } from './invoicemasterdetail/invoicemasterdetail.component';
 import { RegistrationComponent } from './registration.component';
 import { MembershipHomeComponent } from './membershiphome/membershiphome.component';
 import { ManageIndividualFormComponent } from './manageindividualform/manageindividualform.component';
 import { PaymentDetailsComponent } from './paymentdetails/paymentdetails.component';
 import { BasicInformationComponent } from './basicinformation/basicinformation.component';
 import { CustomerStaffCmsComponent } from './membershiphome/customerstaffcms/customerstaffcms.component';
-
+import { InvoiceListComponent } from './invoicelist/invoicelist.component';
 const routes: Routes = [{
   path: '',
   component: RegistrationComponent, canActivate: [AuthGuard, RegGuard],
@@ -38,7 +39,9 @@ const routes: Routes = [{
     { path: 'basicinformation', component: BasicInformationComponent },
     { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
     { path: 'submitapplication', component: SubmitApplicationComponent },
-
+    { path: 'paymentgateway', component: PaymentGatewayComponent },
+    { path: 'invoicemasterdetail', component: InvoiceMasterDetailComponent },
+    { path: 'invoicelist', component: InvoiceListComponent },
 
   ],
 }, { path: 'myprofile', component: MyProfileComponent, canActivate: [AuthGuard] },];

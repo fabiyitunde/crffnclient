@@ -10,7 +10,7 @@ import { webapibaseurl } from '../../../app.model';
 })
 export class MyProfileComponent implements OnInit {
 
-  public defaultPicture = 'assets/img/theme/no-photo.png';
+  public defaultPicture = 'assets/images/default.png';
   uploadInProgress: boolean = false;
   data: any = {};
   public profile: any = {

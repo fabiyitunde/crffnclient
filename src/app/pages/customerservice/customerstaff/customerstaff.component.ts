@@ -7,12 +7,25 @@ import { Component, Inject, OnInit, Input } from '@angular/core';
     providers: [CustomerStaffService],
 })
 export class CustomerStaffComponent implements OnInit {
-    customer: any = {};
+
+    stafflist: any[] = [];
     @Input() crffnmasterid: number;
     constructor(private service: CustomerStaffService) {
 
     }
     ngOnInit() {
+        this.getstafflist();
+
+    }
+    getstafflist() {
+        this.service.getstafflist(this.crffnmasterid).subscribe(result => {
+            this.stafflist = [];
+            this.stafflist = result;
+
+        });
+
+
+
 
     }
 

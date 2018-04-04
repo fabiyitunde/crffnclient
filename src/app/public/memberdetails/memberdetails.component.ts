@@ -1,9 +1,12 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Inject, OnInit, Input } from '@angular/core';
+import { MemberDetailService } from './memberdetails.service';
 
 @Component({
   selector: 'ngx-member-details',
   templateUrl: './memberdetails.component.html',
+  providers: [MemberDetailService],
+
 })
 export class MemberDetailsComponent implements OnInit {
   crffnmasterid: number;
@@ -13,8 +16,9 @@ export class MemberDetailsComponent implements OnInit {
   showcustomerlocation: boolean = false;
   showcustomerservices: boolean = false;
   showcustomerstaff: boolean = false;
+
   activeClass = "btn btn-outline-success  active";
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private service: MemberDetailService, private route: ActivatedRoute, private router: Router) {
 
   }
   ngOnInit() {
@@ -71,6 +75,9 @@ export class MemberDetailsComponent implements OnInit {
     document.getElementById("three").className = "btn btn-outline-success";
     document.getElementById("four").className = "btn btn-outline-success";
     document.getElementById("two").className = "btn btn-outline-success";
+
+
+
 
 
   };

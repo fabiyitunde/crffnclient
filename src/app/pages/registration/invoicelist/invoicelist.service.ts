@@ -6,18 +6,16 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { webapibaseurl } from '../../../app.model';
-
 @Injectable()
-export class CustomerStaffService {
+export class InvoiceListService {
     // private headers: Headers;
     // private options: RequestOptions;
-
     constructor(private http: HttpClient) {
 
     }
 
-    getstafflist(crffnmasterid: number) {
-        const url = `${webapibaseurl}api/ffinformation/getstafflist?crffnmasterid=${crffnmasterid}`;
+    getmemberinvoicelist() {
+        const url = `${webapibaseurl}api/invoice/getmemberinvoicelist`;
         return this.http
             .get(url)
             .map((response: Response) => response)

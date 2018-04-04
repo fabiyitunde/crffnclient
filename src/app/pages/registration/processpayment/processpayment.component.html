@@ -2,6 +2,12 @@
     <ngx-invoicedetail *ngIf="showinvoice" [invoicemasterid]="invoicemasterid"></ngx-invoicedetail>
 </div>
 <div class="row">
+    <ngx-paymentgateway [invoicemasterid]="invoicemasterid"></ngx-paymentgateway>
+</div>
+
+
+
+<div class="row">
     <div class="col-md-12">
         <nb-card>
             <nb-card-header>

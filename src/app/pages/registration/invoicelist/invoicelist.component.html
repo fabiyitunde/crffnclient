@@ -1,15 +1,19 @@
+<!--<ngx-invoicemasterdetail *ngIf="invoicedetail" [crffnmasterid]="crrfnmasterid"></ngx-invoicemasterdetail>-->
 <div class="row">
     <div class="col-md-12">
         <nb-card>
             <nb-card-header>
-                Pending Invoices
+                Invoice List
             </nb-card-header>
             <nb-card-body>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th> Narration
+                                    <small>transaction description</small>
+                                </th>
+
                                 <th> Reference Date
                                     <small>date generated</small>
                                 </th>
@@ -22,22 +26,24 @@
                                 <th> Status
                                     <small>pending/paid/cancelled</small>
                                 </th>
-                                <th> Narration
-                                    <small>transaction description</small>
+                                <th> Detail
+                                    <small>Invoice Detail</small>
                                 </th>
+
                             </tr>
                         </thead>
                         <tbody>
 
                             <tr *ngFor="let invoice of invoicelist">
-                                <td class="text-nowrap" scope="row">
-                                    <button (click)="proceedtopayment(invoice)" class="btn btn-hero-info  btn-demo">Open</button>
-                                </td>
+                                <td>{{invoice.narration}}</td>
                                 <td>{{invoice.refdate}}</td>
                                 <td>{{invoice.category}}</td>
                                 <td>{{invoice.invoiceamount}}</td>
                                 <td>{{invoice.status}}</td>
-                                <td>{{invoice.narration}}</td>
+
+                                <td class="text-nowrap" scope="row">
+                                    <button (click)="proceedtoinvoice(invoice)" class="btn btn-hero-info  btn-demo">Detail</button>
+                                </td>
                             </tr>
 
                         </tbody>

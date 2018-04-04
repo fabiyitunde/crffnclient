@@ -1,5 +1,6 @@
 <ngx-customer-staff-cms *ngIf="staffcms" [crffnmasterid]="crrfnmasterid"></ngx-customer-staff-cms>
 
+
 <div *ngIf="dashboard">
   <div style="background-image:url('assets/images/homebg.jpg'); padding:15px;">
 
@@ -67,7 +68,7 @@
           <div class="col-md-3">
             <h2 style="margin-left:10px;">
               <a (click)="createstaffcms()">
-                <i class="fa fa-users"></i>
+                <i class="fa fa-users contact"></i>
               </a>
             </h2>
             <label style="text-align:center; font-size: 10px;"> Staff</label>
@@ -127,6 +128,7 @@
             </button>
             <button (click)="registrationdata()" class="btn btn-primary" type="button">Registration Data</button>
           </div>
+
         </div>
         <nb-card-footer class="row col-md-12">
 

@@ -6,18 +6,16 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { webapibaseurl } from '../../../app.model';
-
 @Injectable()
-export class CustomerStaffService {
-    // private headers: Headers;
-    // private options: RequestOptions;
+export class InvoiceMasterDetailService {
+
 
     constructor(private http: HttpClient) {
 
     }
 
-    getstafflist(crffnmasterid: number) {
-        const url = `${webapibaseurl}api/ffinformation/getstafflist?crffnmasterid=${crffnmasterid}`;
+    getinvoicedetails(invoicematerid: number) {
+        const url = `${webapibaseurl}api/invoice/getinvoicedetails?invoicemasterid=${invoicematerid}`;
         return this.http
             .get(url)
             .map((response: Response) => response)
@@ -27,5 +25,19 @@ export class CustomerStaffService {
                 return Observable.throw(errMsg);
             });
     }
+    getpaymentlist(invoicematerid: number) {
+        const url = `${webapibaseurl}api/invoice/getpaymentlist?invoicemasterid=${invoicematerid}`;
+        return this.http
+            .get(url)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+
+
 
 }

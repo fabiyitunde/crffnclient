@@ -9,6 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalsComponent } from './modals/modals.component';
 import { ModalComponent } from './modals/modal/modal.component';
 
+
 @Component({
     selector: 'ngx-customer-staff-cms',
     templateUrl: './customerstaffcms.component.html',
@@ -25,14 +26,7 @@ export class CustomerStaffCmsComponent implements OnInit {
     staffPicture: any;
 
 
-    public profile: any = {
-        picture: 'assets/img/app/profile/Nasta.png',
-    };
-    public uploaderOptions: NgUploaderOptions = {
-        url: `${webapibaseurl}api/Account/saveProfilePicture`,
-        data: { username: JSON.parse(localStorage.getItem('userinfo')).userName },
 
-    };
 
 
     ngOnInit() {
@@ -40,6 +34,7 @@ export class CustomerStaffCmsComponent implements OnInit {
         this.getstafflist();
 
     }
+
 
     getstafflist() {
         this.service.getstafflist(this.crffnmasterid).subscribe(result => {
@@ -80,22 +75,13 @@ export class CustomerStaffCmsComponent implements OnInit {
         }
     }
 
-    showSmallModal() {
-        const activeModal = this.modalService.open(ModalComponent, { size: 'sm', container: 'nb-layout' });
+    showSmallModal(staffid) {
+        const activeModal = this.modalService.open(ModalComponent, { size: 'sm', container: 'nb-layout', windowClass: staffid });
 
-        activeModal.componentInstance.modalHeader = 'Small Modal';
+        activeModal.componentInstance.modalHeader = 'Upload Image';
+        activeModal.componentInstance.windowClass = staffid;
     }
-    uploadImage(staffid) {
-        if (window.alert('Image has been Uploaded')) {
 
-            this.service.uploadImage({ staffid: staffid }).subscribe(result => {
-                this.getstafflist();
-            }, err => {
-                alert(err);
-            });
-        }
-
-    }
     @Input() crffnmasterid: number;
     constructor(private service: CustomerStaffCmsService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) {
 
