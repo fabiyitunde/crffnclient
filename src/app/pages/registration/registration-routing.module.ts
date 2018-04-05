@@ -40,7 +40,7 @@ const routes: Routes = [{
     { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
     { path: 'submitapplication', component: SubmitApplicationComponent },
     { path: 'paymentgateway/:id', component: PaymentGatewayComponent },
-    { path: 'invoicemasterdetail', component: InvoiceMasterDetailComponent },
+    { path: 'invoicemasterdetail/:id', component: InvoiceMasterDetailComponent },
     { path: 'invoicelist', component: InvoiceListComponent },
 
   ],

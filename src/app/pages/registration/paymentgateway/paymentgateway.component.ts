@@ -15,7 +15,7 @@ export class PaymentGatewayComponent implements OnInit {
 
     @Input() invoicemasterid: number;
     invoice: number;
-    invoicelist: any[] = [];
+
     constructor(private service: PaymentGatewayService, private http: Http, private route: ActivatedRoute, private router: Router) {
         this.route.params.subscribe(params => {
             this.invoicemasterid = +params['id'];
@@ -31,11 +31,7 @@ export class PaymentGatewayComponent implements OnInit {
 
 
         });
-        this.service.getmemberinvoicelist().subscribe(result => {
-            this.invoicelist = [];
-            this.invoicelist = result;
-        });
-        console.log(this.invoicemasterid);
+
 
     }
 

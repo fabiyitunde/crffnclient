@@ -21,6 +21,6 @@ export class InvoicesComponent implements OnInit {
     }
     proceedtopayment(invoiceheader) {
 
-        this.router.navigate(['pages/registration/payments', invoiceheader.id]);
+        this.router.navigate(['pages/registration/paymentgateway', invoiceheader.id]);
     }
 }
