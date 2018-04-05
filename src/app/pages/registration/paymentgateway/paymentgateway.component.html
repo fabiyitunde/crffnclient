@@ -3,10 +3,39 @@
     <nb-card-header>
         Payment Gateway
     </nb-card-header>
-    <nb-card-body style="background-color:#dfdede;">
+    <nb-card-body style="background-color:#f0f0f0;">
         <div class="row">
-            select payment gateway
+            Select your prefared payment gateway
         </div>
 
 
     </nb-card-body>
+    <nb-card-body>
+        <div class="row">
+            <div class="row">
+                <div class="col-md-3" (click)="proceedtopayment()" style="border:1px #dfdede;">
+
+                    <img src="assets/images/gateway1.jpg" />
+
+                </div>
+                <div class="col-md-3" style="border:1px #dfdede;">
+
+                    <img src="assets/images/gateway2.jpg" />
+
+                </div>
+                <div class="col-md-3" style="border:1px #dfdede;">
+
+                    <img src="assets/images/gateway3.jpg" />
+
+                </div>
+                <div class="col-md-3" style="border:1px #dfdede;">
+
+                    <img src="assets/images/gateway4.jpg" />
+
+
+                </div>
+            </div>
+        </div>
+
+    </nb-card-body>
+</nb-card>

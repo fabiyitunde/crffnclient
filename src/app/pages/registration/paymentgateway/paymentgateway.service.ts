@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { webapibaseurl } from '../../../app.model';
 @Injectable()
-export class InvoiceDetailService {
+export class PaymentGatewayService {
     // private headers: Headers;
     // private options: RequestOptions;
 
@@ -15,8 +15,20 @@ export class InvoiceDetailService {
 
     }
 
-    getmemberinvoice(invoicematerid: number) {
-        const url = `${webapibaseurl}api/invoice/getmemberinvoice?invoicemasterid=${invoicematerid}`;
+    getpaymentlist(invoicemasterid: number) {
+        const url = `${webapibaseurl}api/invoice/getpaymentlist?invoicemasterid=${invoicemasterid}`;
+        return this.http
+            .get(url)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+    getmemberinvoicelist() {
+        const url = `${webapibaseurl}api/invoice/getmemberinvoiceApprovedForPaymentlist`;
         return this.http
             .get(url)
             .map((response: Response) => response)

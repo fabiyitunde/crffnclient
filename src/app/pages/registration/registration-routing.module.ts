@@ -39,7 +39,7 @@ const routes: Routes = [{
     { path: 'basicinformation', component: BasicInformationComponent },
     { path: 'paymentdetails/:id', component: PaymentDetailsComponent },
     { path: 'submitapplication', component: SubmitApplicationComponent },
-    { path: 'paymentgateway', component: PaymentGatewayComponent },
+    { path: 'paymentgateway/:id', component: PaymentGatewayComponent },
     { path: 'invoicemasterdetail', component: InvoiceMasterDetailComponent },
     { path: 'invoicelist', component: InvoiceListComponent },
 
