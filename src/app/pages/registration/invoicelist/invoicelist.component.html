@@ -34,7 +34,7 @@
                         </thead>
                         <tbody>
 
-                            <tr *ngFor="let invoice of invoicelist">
+                            <tr *ngFor="let invoice of invoicelist | paginate: { itemsPerPage: 10, currentPage: p }">
                                 <td>{{invoice.narration}}</td>
                                 <td>{{invoice.refdate}}</td>
                                 <td>{{invoice.category}}</td>
@@ -42,9 +42,11 @@
                                 <td>{{invoice.status}}</td>
 
                                 <td class="text-nowrap" scope="row">
-                                    <button (click)="proceedtoinvoice(invoice)" class="btn btn-hero-info  btn-demo">Detail</button>
+                                    <button (click)="proceedtoinvoice(invoice)"
+                                        class="btn btn-hero-info  btn-demo">Detail</button>
                                 </td>
                             </tr>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
                         </tbody>
                     </table>

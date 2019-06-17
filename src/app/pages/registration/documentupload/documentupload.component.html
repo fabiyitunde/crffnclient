@@ -4,48 +4,40 @@
     </nb-card-header>
 
     <nb-card-body>
+        <h6 style="font-style: italic" class="text-primary">*please upload document in <b>pdf</b> format</h6>
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
 
                 <tbody>
                     <tr>
-                        <td>Document Type</td>
+                        <td><b>Document Type</b></td>
                         <td>
                             {{data.documentType}}
                         </td>
 
                     </tr>
                     <tr>
-                        <td>Description</td>
+                        <td><b>Description</b></td>
                         <td>
                             {{data.description}}
                         </td>
 
                     </tr>
                     <tr>
-                        <td>Select File</td>
+                        <td><b>Select File</b></td>
                         <td>
-                            <ngx-ba-file-uploader (onFileUploadCompleted)="onFileUploadCompleted()" (onFileUpload)="onFileUpload()" [fileUploaderOptions]="fileUploaderOptions"></ngx-ba-file-uploader>
+                            <ngx-ba-file-uploader (onFileUploadCompleted)="onFileUploadCompleted()"
+                                (onFileUpload)="onFileUpload()" [fileUploaderOptions]="fileUploaderOptions">
+                            </ngx-ba-file-uploader>
                         </td>
                     </tr>
 
 
-                    <tr>
-                        <td>
-                            <div *ngIf="uploadInProgress" class="item text-warning">
-                                <div class="color bg-warning"></div>
-                                <div>
-                                    <h5 class="text-warning">Alert</h5>
-                                    upload in progress.
-                                </div>
-                            </div>
-                        </td>
-                        <td> <button class="btn btn-hero-info  btn-demo" (click)="viewdocument()">View</button></td>
 
-                    </tr>
                 </tbody>
 
             </table>
+            <button class="btn btn-hero-info  btn-demo" (click)="viewdocument()">View</button>
         </div>
     </nb-card-body>
 </nb-card>

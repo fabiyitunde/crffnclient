@@ -1,7 +1,7 @@
 <nb-card-body>
 
     <h4 style="margin-left:10px; border-top:solid 1px #09ae44; padding:10px; ">
-        <i class="fa fa-address-book"></i> Member Search</h4>
+        <i class="fa fa-address-book"></i> Practitoner Search</h4>
 </nb-card-body>
 
 
@@ -18,17 +18,20 @@
             </nb-card-header>
 
             <nb-card-body style="background-image:url('assets/images/backdrop.jpg');">
-                <div class="table-responsive" style="background-color:rgb(243, 243, 243);  border-radius: 20px;">
+                <div class="table-responsive form-group col-md-10 offset-1"
+                    style="background-color:rgb(243, 243, 243);  border-radius: 20px; margin-top:50px;">
                     <table class="table table-bordered table-striped">
 
                         <tbody>
                             <tr>
                                 <td>
-                                    <b>Membership Category</b>
+                                    <b>Practitoner Category</b>
                                 </td>
                                 <td>
-                                    <select class="form-control" [(ngModel)]="data.membershipcategoryid" name="membershipcategoryid">
-                                        <option *ngFor="let item of membershipcategorylist" [value]="item.id">{{item.description}}</option>
+                                    <select class="form-control" [(ngModel)]="data.membershipcategoryid"
+                                        name="membershipcategoryid">
+                                        <option *ngFor="let item of membershipcategorylist" [value]="item.id">
+                                            {{item.description}}</option>
                                     </select>
                                 </td>
                                 <td>
@@ -36,7 +39,8 @@
                                 </td>
                                 <td>
                                     <select class="form-control" [(ngModel)]="data.stateid" name="stateid">
-                                        <option *ngFor="let item of statelist" [value]="item.id">{{item.description}}</option>
+                                        <option *ngFor="let item of statelist" [value]="item.id">{{item.description}}
+                                        </option>
                                     </select>
                                 </td>
 
@@ -46,26 +50,23 @@
                                     <b>Name</b>
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" name="membername" #membername="ngModel" [(ngModel)]="data.membername" id="membername"
-                                        placeholder="Name">
+                                    <input type="text" class="form-control" name="membername" #membername="ngModel"
+                                        [(ngModel)]="data.membername" id="membername" placeholder="Name">
                                 </td>
                                 <td>
                                     <b>Address</b>
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="data.address" id="address" placeholder="Address">
+                                    <input type="text" class="form-control" name="address" #address="ngModel"
+                                        [(ngModel)]="data.address" id="address" placeholder="Address">
                                 </td>
                             </tr>
 
 
 
-                            <tr>
 
-                                <td>
-                                    <button class="btn btn-hero-info  btn-demo" (click)="search()">Search</button>
-                                </td>
-
-                            </tr>
+                            <button class="btn btn-hero-info  btn-demo btn-outline" [disabled]="isDisabled"
+                                (click)="search()">Search</button>
                         </tbody>
 
                     </table>
@@ -75,14 +76,21 @@
 
                 <div class="row justify-content-center">
 
-                    <pagination-controls (pageChange)="getPage($event)" id="server" style="color:#ffffff;"></pagination-controls>
+                    <pagination-controls (pageChange)="getPage($event)" id="server" style="color:#ffffff;">
+                    </pagination-controls>
                 </div>
             </nb-card-body>
+
         </nb-card>
 
         <nb-card>
             <nb-card-body>
-                <div (click)="opendetails(result)" class="row contact" *ngFor="let result of resultlist | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }">
+                <div *ngIf="spinner" class="row justify-content-center">
+                    <div style="margin-top:17px;">Search result is Loading</div>
+                    <spinner style="margin-left:3px;"></spinner>
+                </div>
+                <div (click)="opendetails(result)" class="row contact"
+                    *ngFor="let result of resultlist | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }">
 
                     <nb-user [picture]="result.picture" [name]="result.name" [title]="result.address" size="large">
 

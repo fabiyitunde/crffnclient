@@ -9,7 +9,7 @@
     </nb-card-header>
     <nb-card-body style="background-color:#dfdede;">
         <div class="row" style="margin:15px;">
-            <button class="btn btn-hero-info  btn-demo" (click)="createPaymentTransactionRecord()">Click Here To Process Payment</button>
+            <button class="btn btn-hero-info  btn-demo" [disabled]="isDisabled" (click)="createPaymentTransactionRecord()">Click Here To Process Payment</button>
         </div>
 
 
@@ -22,7 +22,8 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th></th>
+                                        <th>Details</th>
+                                        <th>Cancel</th>
                                         <th> Reference Date
                                             <small>date generated</small>
                                         </th>
@@ -51,6 +52,9 @@
                                     <tr *ngFor="let payment of paymentlist">
                                         <td class="text-nowrap" scope="row">
                                             <button (click)="openpaymentdetails(payment)" class="btn btn-hero-info  btn-demo">Details</button>
+                                        </td>
+                                        <td class="text-nowrap" scope="row">
+                                            <button (click)="cancelPaymentTransaction(payment)" class="btn btn-hero-danger  btn-demo">Cancel</button>
                                         </td>
                                         <td>{{payment.refdate}}</td>
                                         <td>{{payment.category}}</td>

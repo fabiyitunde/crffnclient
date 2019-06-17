@@ -17,7 +17,19 @@ export class CustomerStaffCmsService {
     }
 
     getstafflist(crffnmasterid: number) {
-        const url = `${webapibaseurl}api/ffinformation`;
+        const url = `${webapibaseurl}api/ffinformation/getstafflist?crffnmasterid=${crffnmasterid}`;
+        return this.http
+            .get(url)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+    getstaffprofilepicture(staffid: number) {
+        const url = `${webapibaseurl}api/ffinformation/getStaffProfilePicture?staffid=${staffid}`;
         return this.http
             .get(url)
             .map((response: Response) => response)
@@ -44,7 +56,7 @@ export class CustomerStaffCmsService {
         return JSON.parse(localStorage.getItem('userinfo')).crffnmasterid;
     }
     deletestaff(model: any) {
-        const url = `${webapibaseurl}api/ffinformation`;
+        const url = `${webapibaseurl}api/ffinformation/deletestaff`;
 
         return this.http
             .post(url, model)

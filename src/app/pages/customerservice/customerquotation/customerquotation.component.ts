@@ -7,18 +7,43 @@ import { Component, Inject, OnInit, Input } from '@angular/core';
     providers: [CustomerQuotationService],
 })
 export class CustomerQuotationComponent implements OnInit {
-    customer: any = {};
+    //customer: any = {};
+    data: any = {};
+    quotationmasterid: number;
+    freighttransporttypeid: number;
+
+    showquotationdetail: boolean = false;
+    showquotationmaster: boolean = true;
+
     @Input() crffnmasterid: number;
     constructor(private service: CustomerQuotationService) {
 
     }
     ngOnInit() {
-        this.service.getcustomerquotation(this.crffnmasterid).subscribe(data => {
 
-            this.customer = data;
-        }, err => {
-            alert(err);
-        });
+
+
+    }
+
+    createQuotation() {
+        this.data.crffnmasterid = this.crffnmasterid;
+
+        this.service.createQuotation(this.data).subscribe(result => {
+            this.quotationmasterid = parseInt(result);
+
+            alert('Quotation Header Created');
+
+
+
+            this.showquotationmaster = false;
+            this.showquotationdetail = true;
+
+
+
+        },
+            error => {
+                alert(error);
+            });
     }
 
 }

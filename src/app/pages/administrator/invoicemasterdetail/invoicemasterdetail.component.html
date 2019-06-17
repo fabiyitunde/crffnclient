@@ -1,0 +1,65 @@
+<nb-card>
+
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-6">Invoice Master Detail</div>
+      <div class="col-md-6" style="text-align:right;">
+        <b>Invoice Number:{{invoicedata.invoicenos}}</b>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body style="border-top:5px solid rgb(69, 230, 252)">
+
+    <div class="row">
+      <div class="col-md-4">
+        <b>Billed To: </b> {{invoicedata.payername}}
+        <br/>
+        <b>phone Number: </b> {{invoicedata.phone}}
+        <br/>
+        <b>email:</b> {{invoicedata.email}}
+        <br/>
+        <b>Address: </b>{{invoicedata.payeraddress}}</div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4" style="text-align:right;">
+        <b>Date: </b>{{invoicedata.refdate}}
+        <br/>
+        <h3>Status:</h3>{{invoicedata.status}}
+      </div>
+    </div>
+
+    <div class="row col-md-12" style="background-color: rgb(40, 227, 252, 0.4); margin-top:7px; height:25px;">
+
+      <b> Name Of Organizations:</b> {{invoicedata.organizationname}}
+      <br/>
+      <b> Address:</b> {{invoicedata.address}}
+
+
+    </div>
+
+    <div class="row col-md-12" style="border-top:2px solid rgb(184, 184, 184); margin-top:7px; ">
+      <div class="row col-md-12" style="width:100%; margin-top:10px">
+        <div class="row col-md-12">
+          <div class="col-md-3" style="font-weight:bold; text-align:centre;">Category</div>
+          <div class="col-md-3" style="font-weight:bold; text-align:centre;">Naration</div>
+
+          <div class="col-md-3" style="font-weight:bold; text-align:centre;">Amount</div>
+          <div class="col-md-3" style="font-weight:bold; text-align:centre;"></div>
+        </div>
+
+        <div class="row col-md-12">
+          <div class="col-md-3" style=" text-align:centre;">{{invoicedata.category}}</div>
+          <div class="col-md-3" style=" text-align:centre;">{{invoicedata.narration}}</div>
+
+          <div class="col-md-3" style=" text-align:centre;">{{invoicedata.invoiceamount}}</div>
+          <div class="col-md-3" style=" text-align:centre;">
+            <button (click)="returnToList()" type="submit" class="btn btn-primary">Back To List</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </nb-card-body>
+
+</nb-card>

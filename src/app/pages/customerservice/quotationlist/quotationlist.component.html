@@ -1,0 +1,54 @@
+<!--<ngx-invoicemasterdetail *ngIf="invoicedetail" [crffnmasterid]="crrfnmasterid"></ngx-invoicemasterdetail>-->
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        Quotation List
+      </nb-card-header>
+      <nb-card-body>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th> Full Name
+
+                </th>
+
+                <th>Company Name
+
+                </th>
+                <th> Phone Number
+
+                </th>
+                <th> Email
+
+                </th>
+
+                <th> Detail
+
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let quotation of quotationlist | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>{{quotation.fullname}}</td>
+                <td>{{quotation.companyname}}</td>
+                <td>{{quotation.phonenumber}}</td>
+                <td>{{quotation.email}}</td>
+
+
+                <td class="text-nowrap" scope="row">
+                  <button (click)="quotationdetail(quotation)" class="btn btn-hero-info  btn-demo">Detail</button>
+                </td>
+              </tr>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+            </tbody>
+          </table>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

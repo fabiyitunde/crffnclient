@@ -1,0 +1,49 @@
+<nb-card>
+  <nb-card-header>
+    Pending Invoice List
+  </nb-card-header>
+  <nb-card-body>
+    <table class="table table-bordered table-striped">
+
+      <tbody>
+        <tr>
+
+          <th>Narration</th>
+          <th>Amount </th>
+          <th>Date</th>
+          <th> View Invoice</th>
+
+          <th>Approve Invoice</th>
+          <th>Return Invoice</th>
+        </tr>
+        <tr *ngFor="let invoice of invoicelist | paginate: { itemsPerPage: 10, currentPage: p }">
+
+          <td>{{invoice.narration}}</td>
+
+
+          <td>{{invoice.invoiceamount}}</td>
+          <td>{{invoice.refdate}}</td>
+
+          <td>
+            <button (click)="viewInvoice(invoice.id)" type="submit" class="btn btn-primary">
+              <i class="control-icon nb-arrow-dropright"></i>
+            </button>
+          </td>
+          <td>
+            <button (click)="approveInvoice(invoice.id)" type="submit" class="btn btn-success">
+              <i class="control-icon ion-checkmark"></i>
+            </button>
+          </td>
+          <td>
+            <button (click)="returnInvoice(invoice.id)" type="submit" class="btn btn-danger">
+              <i class="control-icon ion-arrow-return-left"></i>
+            </button>
+          </td>
+
+        </tr>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </tbody>
+    </table>
+
+  </nb-card-body>
+</nb-card>

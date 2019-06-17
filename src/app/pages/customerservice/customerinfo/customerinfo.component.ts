@@ -8,6 +8,7 @@ import { Component, Inject, OnInit, Input } from '@angular/core';
 })
 export class CustomerInfoComponent implements OnInit {
     customer: any = {};
+    imageUrl: string = 'assets/images/default-image.jpg';
     @Input() crffnmasterid: number;
     constructor(private service: CustomerInfoService) {
 
@@ -16,6 +17,7 @@ export class CustomerInfoComponent implements OnInit {
         this.service.getcustomerinfo(this.crffnmasterid).subscribe(data => {
             data.picture = 'data:image/png;base64,' + data.picture;
             this.customer = data;
+            this.imageUrl = this.customer.picture;
         }, err => {
             alert(err);
         });

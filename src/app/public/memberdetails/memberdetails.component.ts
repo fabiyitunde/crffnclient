@@ -30,6 +30,7 @@ export class MemberDetailsComponent implements OnInit {
 
     });
   }
+
   onSelectAboutTab() {
 
     this.showcustomerstaff = false;

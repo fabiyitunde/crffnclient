@@ -5,19 +5,13 @@
             <nb-card>
                 <nb-card-body>
                     <div class="row col-md-4">
-
+                        <!-- profile.picture -->
                         <ngx-ba-picture-uploader [picture]="profile.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"
                             (onUpload)="onUpload()" (onUploadCompleted)="onUploadCompleted($event)"></ngx-ba-picture-uploader>
 
 
                     </div>
-                    <div *ngIf="uploadInProgress" class="item text-warning">
-                        <div class="color bg-warning"></div>
-                        <div>
-                            <h5 class="text-warning">Alert</h5>
-                            upload in progress.
-                        </div>
-                    </div>
+
                 </nb-card-body>
 
             </nb-card>

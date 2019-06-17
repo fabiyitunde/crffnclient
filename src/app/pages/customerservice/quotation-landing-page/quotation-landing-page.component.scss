@@ -1,0 +1,11 @@
+.custombutton {
+    background-color:white; border:2px rgba(97, 241, 97, 0.849) solid; padding:15px 40px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  
+  .custombutton:hover {
+
+    background-color: rgba(97, 241, 97, 0.849); 
+    color: white;
+  }

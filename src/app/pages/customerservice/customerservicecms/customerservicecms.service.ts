@@ -16,6 +16,50 @@ export class CustomerServiceCmsService {
 
     }
 
+    getservicelist(crffnmasterid: number) {
+        const url = `${webapibaseurl}api/ffinformation/getserviceofferinglist?crffnmasterid=${crffnmasterid}`;
+        return this.http
+            .get(url)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+    createservice(model: any) {
+        const url = `${webapibaseurl}api/ffinformation/createserviceoffering`;
+
+        return this.http
+            .post(url, model)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+
+
+    getCRFFNMasterId() {
+        return JSON.parse(localStorage.getItem('userinfo')).crffnmasterid;
+    }
+
+    deleteService(model: any) {
+        const url = `${webapibaseurl}api/ffinformation/deleteserviceoffering`;
+        return this.http
+            .post(url, model)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+
 
 
 }

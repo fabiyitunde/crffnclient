@@ -27,9 +27,11 @@ export class CustomerInvoiceEditComponent implements OnInit {
     settings = {};
     showtable: boolean = false;
     iseditable: boolean = true;
+    showcancel: boolean = false;
     header: any = {};
+    remarks: string = "Invoice has been cancelled";
     @Input() invoicemasterid: number;
-    
+
     source: LocalDataSource = new LocalDataSource();
     @Output() onFinishedEditingInvoice: EventEmitter<any> = new EventEmitter();
 
@@ -52,6 +54,7 @@ export class CustomerInvoiceEditComponent implements OnInit {
             if (data.header.status !== "Pending") this.iseditable = false;
             this.source.load(data.lineitems);
             this.showtable = true;
+            this.showcancel = true;
         });
     }
     onDeleteConfirm(event): void {
@@ -83,6 +86,18 @@ export class CustomerInvoiceEditComponent implements OnInit {
         if (window.confirm('Are you sure you want to delete?')) {
 
             this.service.deleteInvoice({ invoicemasterid: this.invoicemasterid }).subscribe(result => {
+                this.onFinishedEditingInvoice.emit(this.header);
+            }, err => {
+                alert(err);
+            });
+        }
+    }
+
+
+    cancelinvoice() {
+        if (window.confirm('Are you sure you want to cancel?')) {
+
+            this.service.cancelInvoice({ invoicemasterid: this.invoicemasterid, remarks: this.remarks }).subscribe(result => {
                 this.onFinishedEditingInvoice.emit(this.header);
             }, err => {
                 alert(err);

@@ -1,0 +1,19 @@
+<nb-card *ngIf="showReply">
+  <nb-card-header>
+    <div class="details">
+      <h5>Reply</h5>
+
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form (ngSubmit)="submitQuotationResponse()">
+      <div class="col-md-12">
+        <textarea name="quoteresponse" #quoteresponse="ngModel" [(ngModel)]="data.quoteresponse" placeholder="Text Area" rows="6"
+          style="width:100%; border-radius:15px;">
+  </textarea>
+        <button [disabled]="quoteresponse.value==''" type="submit" class="btn btn-hero-success  btn-demo">Submit</button>
+
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

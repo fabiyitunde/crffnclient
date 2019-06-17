@@ -2,7 +2,7 @@
 </ngx-remita-trans-detail>
 
 <form ngNoForm method="POST" [action]="data.remitapostUrl" #remitaform>
-    <input type="hidden" id="payerName" name="payerName" [value]="data.payerName">
+    <!-- <input type="hidden" id="payerName" name="payerName" [value]="data.payerName">
     <input type="hidden" id="payerEmail" name="payerEmail" [value]="data.payerEmail">
     <input type="hidden" id="payerPhone" name="payerPhone" [value]="data.payerPhone">
     <input type="hidden" id="orderId" name="orderId" [value]="data.orderId">
@@ -11,6 +11,13 @@
     <input type="hidden" id="responseurl" name="responseurl" [value]="data.responseurl">
     <input type="hidden" id="amt" name="amt" [value]="data.amt">
     <input type="hidden" id="hash" name="hash" [value]="data.hash">
-    <input type="hidden" id="paymenttype" name="paymenttype" [value]="data.paymenttype">
+    <input type="hidden" id="paymenttype" name="paymenttype" [value]="data.paymenttype"> -->
+
+    <input id="merchantId" name="merchantId" [value]="data.merchantId" type="hidden"/>
+    <input id="rrr" name="rrr" [value]="data.rrr" type="hidden"/>
+    <input id="responseurl" name="responseurl" [value]="data.responseurl" type="hidden"/>
+    <input id="hash" name="hash" [value]="data.hash" type="hidden"/>
+
+
     <button #savebutton type="submit" class="btn btn-primary">Proceed To Remita Gateway</button>
 </form>

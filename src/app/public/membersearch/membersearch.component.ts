@@ -21,7 +21,9 @@ export class MemberSearchComponent implements OnInit {
 
     resultlist: Observable<any[]>;
     p: number = 1;
+    isDisabled: boolean = false;
     total: number;
+    spinner: boolean;
     loading: boolean;
     data: any = {};
     membershipcategorylist: any[] = [];
@@ -50,11 +52,19 @@ export class MemberSearchComponent implements OnInit {
                 this.total = res.total;
                 this.p = page;
                 this.loading = false;
+                this.isDisabled = false;
+                this.spinner = false;
             })
             .map(res => res.items);
+
+
     }
     search() {
+        this.spinner = true;
+        this.isDisabled = true;
+
         this.getPage(1);
+
     }
     opendetails(item: any) {
         this.router.navigate(['public/memberdetails', item.id]);

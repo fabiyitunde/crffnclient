@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from '../services/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
+
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -18,19 +20,21 @@ const PAGES_COMPONENTS = [
 @NgModule({
   imports: [
     PagesRoutingModule,
-    ThemeModule,HomeModule,
+    ThemeModule, HomeModule,
     DashboardModule, HttpClientModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,
+    ErrorpageComponent,
+
   ],
-   providers: [PagesService,
-   {
+  providers: [PagesService,
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
     },
-    ],
+  ],
 })
 export class PagesModule {
 }

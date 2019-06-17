@@ -5,30 +5,43 @@
         </nb-card-header>
         <nb-card-body>
             <div>
-                <i>Write about your companys contact details in the section below:</i>
+                <i>Write about your company's contact details in the section below:</i>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Branch</label>
-                        <input type="text" class="form-control" name="contactperson" id="contactperson" placeholder="Branch">
+                        <input type="text" class="form-control" name="contactperson" #branch="ngModel" [(ngModel)]="data.branch" id="contactperson"
+                            placeholder="Branch">
                     </div>
                     <div class="form-group">
                         <label>Telephone</label>
-                        <input type="text" class="form-control" name="contactperson" id="contactperson" placeholder="Telephone">
+                        <input type="text" class="form-control" name="contactperson" #phonenumber="ngModel" [(ngModel)]="data.phonenumber" id="contactperson"
+                            placeholder="Telephone">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" name="contactperson" id="contactperson" placeholder="Email">
+                        <input type="text" class="form-control" name="contactperson" #email="ngModel" [(ngModel)]="data.email" id="contactperson"
+                            placeholder="Email">
                     </div>
+
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="postaladdress">Location</label>
-                    <textarea rows="9" name="postaladdress" id="postaladdress" class="form-control" placeholder="Location" class="form-control"></textarea>
+                    <div class="form-group">
+                        <label for="postaladdress">Location</label>
+                        <textarea rows="5" name="postaladdress" id="postaladdress" #description="ngModel" [(ngModel)]="data.description" class="form-control"
+                            placeholder="Location" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="text" class="form-control" name="contactperson" #website="ngModel" [(ngModel)]="data.website" id="" placeholder="Website">
+                    </div>
+
+
                 </div>
             </div>
             <div style="padding-top:10px;">
-                <button type="submit" class="btn btn-success">Add</button>
+                <button (click)="addcontact()" type="submit" class="btn btn-success">Add</button>
             </div>
         </nb-card-body>
     </nb-card>
@@ -45,24 +58,27 @@
                         <th>Branch</th>
                         <th>Telephone</th>
                         <th>Email</th>
+                        <th>Website</th>
                         <th>Location</th>
-                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let contact of contactlist">
+                        <td>{{contact.branch}}</td>
+                        <td>{{contact.phonenumber}}</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.website}}</td>
+                        <td>{{contact.description}}</td>
+
+
                         <td>
-                            <button type="submit" class="btn btn-success">Edit</button>
+                            <button (click)="deletecontact(contact.id)" type="submit" class="btn btn-danger">Delete</button>
                         </td>
 
                     </tr>
                 </tbody>
             </table>
-            <div style="padding-top:10px;">
-                <button type="submit" class="btn btn-danger">Save</button>
-            </div>
+
+
         </nb-card-body>
     </nb-card>
 

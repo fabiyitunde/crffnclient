@@ -1,4 +1,4 @@
-import {Component, ViewChild, Input, Output, EventEmitter, ElementRef, Renderer} from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter, ElementRef, Renderer } from '@angular/core';
 import { NgUploaderOptions } from 'ngx-uploader';
 
 @Component({
@@ -8,19 +8,24 @@ import { NgUploaderOptions } from 'ngx-uploader';
 })
 export class BaPictureUploaderComponent {
 
-  @Input() defaultPicture:string = '';
-  @Input() picture:string = '';
 
-  @Input() uploaderOptions:NgUploaderOptions = { url: '' };
-  @Input() canDelete:boolean = true;
+
+
+
+  @Input() defaultPicture: string = '';
+  @Input() picture: string = '';
+
+  @Input() uploaderOptions: NgUploaderOptions = { url: '' };
+  @Input() canDelete: boolean = true;
 
   @Output() onUpload = new EventEmitter<any>();
   @Output() onUploadCompleted = new EventEmitter<any>();
 
-  @ViewChild('fileUpload') public _fileUpload:ElementRef;
+  @ViewChild('fileUpload') public _fileUpload: ElementRef;
 
-  public uploadInProgress:boolean;
 
+  public uploadInProgress: boolean;
+  public uploadCompleted: boolean;
   constructor(private renderer: Renderer) {
   }
 
@@ -39,20 +44,20 @@ export class BaPictureUploaderComponent {
     }
   }
 
-  bringFileSelector():boolean {
+  bringFileSelector(): boolean {
     this.renderer.invokeElementMethod(this._fileUpload.nativeElement, 'click');
     return false;
   }
 
-  removePicture():boolean {
+  removePicture(): boolean {
     this.picture = '';
     return false;
   }
 
-  _changePicture(file:File):void {
+  _changePicture(file: File): void {
     const reader = new FileReader();
-    reader.addEventListener('load', (event:Event) => {
-      this.picture = (<any> event.target).result;
+    reader.addEventListener('load', (event: Event) => {
+      this.picture = (<any>event.target).result;
     }, false);
     reader.readAsDataURL(file);
   }
@@ -63,15 +68,18 @@ export class BaPictureUploaderComponent {
       this._onUploadCompleted(data);
     } else {
       this.onUpload.emit(data);
+      this.uploadCompleted = true;
+      this.uploadInProgress = false;
     }
   }
 
-  _onUploadCompleted(data):void {
-    this.uploadInProgress = false;
+  _onUploadCompleted(data): void {
+
     this.onUploadCompleted.emit(data);
+
   }
 
-  _canUploadOnServer():boolean {
+  _canUploadOnServer(): boolean {
     return !!this.uploaderOptions['url'];
   }
 }

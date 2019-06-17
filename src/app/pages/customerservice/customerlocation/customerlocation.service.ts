@@ -16,8 +16,8 @@ export class CustomerLocationService {
 
     }
 
-    getcustomerlocation(crffnmasterid: number) {
-        const url = `${webapibaseurl}api/customerservice/getcustomerinfo?crffnmasterid=${crffnmasterid}`;
+    getContactList(crffnmasterid: number) {
+        const url = `${webapibaseurl}api/ffinformation/getlocationlist?crffnmasterid=${crffnmasterid}`;
         return this.http
             .get(url)
             .map((response: Response) => response)

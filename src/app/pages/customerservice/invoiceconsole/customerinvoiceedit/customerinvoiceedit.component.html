@@ -8,7 +8,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <tbody>
-                            
+
                             <tr>
                                 <td>Invoice Date</td>
                                 <td>{{header.refdate}}</td>
@@ -22,12 +22,14 @@
                                 <td>{{header.invoiceamount}}</td>
                             </tr>
                             <tr>
+
                                 <td>
+                                    <button *ngIf="showcancel" (click)="cancelinvoice()" class="btn btn-danger">Cancel Invoice</button>
                                     <button *ngIf="iseditable" (click)="deleteinvoice()" class="btn btn-danger">Delete Invoice</button>
                                 </td>
                                 <td>
-                                    <button *ngIf="iseditable" (click)="submitinvoice()" class="btn btn-danger">Submit Invoice</button>
-                                                                    </td>
+                                    <button *ngIf="iseditable" (click)="submitinvoice()" class="btn btn-primary">Submit Invoice</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -41,7 +43,7 @@
     </ng2-smart-table>
 </div>
 <hr/>
-<div  *ngIf="!iseditable" class="row col-md-12">
+<div *ngIf="!iseditable" class="row col-md-12">
 
-        <ngx-paymentlist [invoicemasterid]="invoicemasterid"></ngx-paymentlist>
-    </div>
+    <ngx-paymentlist [invoicemasterid]="invoicemasterid"></ngx-paymentlist>
+</div>

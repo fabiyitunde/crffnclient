@@ -1,0 +1,15 @@
+<nb-card>
+  <spinner *ngIf="showspinner"></spinner>
+  <form #imageForm="ngForm" (ngSubmit)="onSubmit(htmlnote)">
+    <img [src]="imageUrl" style="width:250px; height:250px">
+    <label class="btn btn-success imagePointer">
+      <span>Select Image</span>
+      <input type="file" class="imagePointer" #image accept="image/*" (change)="handleFileInput($event.target.files)">
+    </label>
+    <button type="submit" [disabled]="image.value==''" class="btn btn-primary">Submit</button>
+
+  </form>
+</nb-card>
+<nb-card>
+
+</nb-card>

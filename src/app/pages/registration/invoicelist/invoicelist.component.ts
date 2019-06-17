@@ -8,7 +8,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
     providers: [InvoiceListService],
 })
 export class InvoiceListComponent implements OnInit {
-
+    p: number = 1;
     invoicelist: any[] = [];
     constructor(private service: InvoiceListService, private router: Router) {
 
@@ -22,6 +22,5 @@ export class InvoiceListComponent implements OnInit {
     proceedtoinvoice(invoiceheader) {
 
         this.router.navigate(['pages/registration/invoicemasterdetail', invoiceheader.id]);
-        console.log(invoiceheader.id);
     }
 }

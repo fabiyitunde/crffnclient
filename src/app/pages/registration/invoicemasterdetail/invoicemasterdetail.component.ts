@@ -23,8 +23,6 @@ export class InvoiceMasterDetailComponent implements OnInit {
     }
     ngOnInit() {
 
-        this.getinvoicedetails();
-        this.getpaymentlist();
 
         this.route.params.subscribe(params => {
             this.invoicemasterid = +params['id'];
@@ -32,6 +30,8 @@ export class InvoiceMasterDetailComponent implements OnInit {
             this.getpaymentlist();// (+) converts string 'id' to a number
 
         });
+        // this.getinvoicedetails();
+        //this.getpaymentlist();
     }
 
     getinvoicedetails() {

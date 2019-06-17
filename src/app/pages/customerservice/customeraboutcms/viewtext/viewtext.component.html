@@ -1,0 +1,33 @@
+<nb-card>
+  <nb-card-header>
+    Text Content List
+  </nb-card-header>
+  <nb-card-body>
+    <table class="table table-bordered table-striped">
+
+      <tbody class="col-md-12">
+        <tr>
+
+          <th>Text Content</th>
+
+          <th>Delete</th>
+
+        </tr>
+        <tr *ngFor="let text of aboutuslist | paginate: { itemsPerPage: 5, currentPage: p }">
+          <td class="col-md-10" [innerHTML]="text.htmlnote"></td>
+
+
+
+
+          <td class="col-md-2">
+            <button (click)="deleteAboutUsItem(text.id)" type="submit" class="btn btn-danger">Delete</button>
+          </td>
+
+        </tr>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+      </tbody>
+    </table>
+
+  </nb-card-body>
+</nb-card>

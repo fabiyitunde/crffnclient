@@ -5,7 +5,7 @@
 
     <h2 class="title">Register a New Member</h2>
     <small class="form-text sub-title">Register a member and assign a role</small>
-    <form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
+    <form #form="ngForm" autocomplete="nope">
 
 
       <div class="form-group">
@@ -42,7 +42,7 @@
 
       </div>
 
-      <button class="btn btn-block btn-hero-success" [class.btn-pulse]="submitted" (click)="createnewuser()">
+      <button class="btn btn-block btn-hero-success" (click)="createnewuser()">
         Add New Member
       </button>
     </form>

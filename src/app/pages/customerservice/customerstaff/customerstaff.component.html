@@ -3,18 +3,21 @@
         <nb-card-header> Staff </nb-card-header>
         <nb-card-body class="" style="background-image:url('assets/images/bgbg.jpg'); ">
             <div class="row">
-                <div *ngFor="let staff of stafflist" class="row col-md-4">
-                    <div class="row col-md-6" *ngIf="{{staff.id}}">
-                        <img src="assets/images/placeholder.jpg">
+                <div *ngFor="let staff of stafflist" class="row col-md-4" style="padding:5px">
+                    <div class="row col-md-6">
+                        <img width="100px" height="100px" [hidden]="staff.profilepicture ===''"
+                            src="data:image/jpg;base64,{{staff.profilepicture}}">
+                        <img width="100px" height="100px" src="assets/images/avatarSearch.png"
+                            [hidden]="staff.profilepicture !=''">
                     </div>
                     <div class="row col-md-6">
                         <p>
                             <b>Name:</b>{{staff.name}}
-                            <br/>
+                            <br />
                             <b>Position:</b>{{staff.position}}
-                            <br/>
+                            <br />
                             <b>email:</b>{{staff.email}}
-                            <br/>
+                            <br />
                         </p>
                     </div>
                 </div>

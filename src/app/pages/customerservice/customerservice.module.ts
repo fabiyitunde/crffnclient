@@ -21,30 +21,57 @@ import { QuotationComponent } from './quotation/quotation.component';
 import { CustomerServicesComponent } from './customerservices/customerservices.component';
 import { CustomerStaffComponent } from './customerstaff/customerstaff.component';
 
+
 import { BaPictureUploaderComponent } from './customerstaffcms/components/baPictureUploader/baPictureUploader.component';
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgModule } from '@angular/core';
-import { ThemeModule } from '../../@theme/theme.module';
+
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PaymentListComponent } from './invoiceconsole/paymentlist/paymentlist.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { ModalsComponent } from './customerstaffcms/modals/modals.component';
+import { ModalComponent } from './customerstaffcms/modals/modal/modal.component';
+import { ThemeModule } from '../../@theme/theme.module';
+import { TextComponent } from './customeraboutcms/text/text.component';
+import { ImageComponent } from './customeraboutcms/image/image.component';
+import { ViewtextComponent } from './customeraboutcms/viewtext/viewtext.component';
+import { ViewimagesComponent } from './customeraboutcms/viewimages/viewimages.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { QuotationdetailComponent } from './quotationdetail/quotationdetail.component';
+import { QuotationLandingPageComponent } from './quotation-landing-page/quotation-landing-page.component';
+import { QuotationDetailViewComponent } from './quotation-detail-view/quotation-detail-view.component';
+
+import { QuotationListComponent } from './quotationlist/quotationlist.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { QuotationReplyComponent } from './quotation-reply/quotation-reply.component';
+
+const components = [
+
+  ModalsComponent,
+
+  ModalComponent,
+
+];
+
 
 @NgModule({
   imports: [
-    ThemeModule, CKEditorModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, CustomerServiceRoutingModule,
+    ThemeModule, CKEditorModule, Ng2SmartTableModule, NgUploaderModule,
+    PdfViewerModule, CustomerServiceRoutingModule, NgxPaginationModule
 
   ],
   declarations: [CustomerDashboardComponent, QuotationComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
     CustomerServiceCmsComponent, CustomerLocationComponent, CustomerInfoComponent, CustomerServiceComponent, CustomerStaffComponent, CustomerInvoiceListComponent,
-    CustomerInvoiceListGridButtonViewDetailComponent, CustomerServicesComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent,
+    CustomerInvoiceListGridButtonViewDetailComponent, CustomerServicesComponent, CreateInvoiceHeaderComponent, CustomerInvoiceEditComponent, ModalsComponent, ModalComponent,
     InvoiceLineItemTypeDisplayComponent, CustomerContactCmsComponent, CustomerStaffCmsComponent,
-    InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent, BaPictureUploaderComponent],
+    InvoiceConsoleComponent, CustomerQuotationComponent, PaymentListComponent, BaPictureUploaderComponent, TextComponent, ImageComponent, ViewtextComponent, ViewimagesComponent, QuotationdetailComponent,
+    QuotationLandingPageComponent, QuotationDetailViewComponent, QuotationListComponent, SpinnerComponent, QuotationReplyComponent],
   providers: [],
   exports: [CustomerInfoComponent, CustomerAboutComponent, CustomerAboutCmsComponent,
     CustomerLocationComponent, CustomerServicesComponent, CustomerStaffComponent,
-    CustomerQuotationComponent],
-  entryComponents: [CustomerInvoiceListGridButtonViewDetailComponent, InvoiceLineItemTypeDisplayComponent],
+    CustomerQuotationComponent, CustomerStaffCmsComponent],
+  entryComponents: [CustomerInvoiceListGridButtonViewDetailComponent, ModalComponent, InvoiceLineItemTypeDisplayComponent],
 })
 export class CustomerServiceModule { }

@@ -37,6 +37,17 @@ export class CustomerInvoiceEditService {
                 return Observable.throw(errMsg);
             });
     }
+    cancelInvoice(model: any) {
+        const url = `${webapibaseurl}api/invoice/cancellInvoice`;
+        return this.http
+            .post(url, model)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
     deleteInvoiceLineItem(model: any) {
         const url = `${webapibaseurl}api/invoice/deleteInvoiceLineItem`;
         return this.http
@@ -61,12 +72,12 @@ export class CustomerInvoiceEditService {
     }
     loadLineItemTypeList() {
         const url = `${webapibaseurl}api/invoice/getInvoiceLineItemTypeListForDropDown`;
-         this.http
+        this.http
             .get(url)
             .map((response: any) => response)
             .subscribe(res => this.lineitemtypedataSubject.next(res));
     }
-  getInvoiceDetails(invoicemasterid: number) {
+    getInvoiceDetails(invoicemasterid: number) {
         const url = `${webapibaseurl}api/invoice/getInvoiceDetails?invoicemasterid=${invoicemasterid}`;
         return this.http
             .get(url)

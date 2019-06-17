@@ -14,6 +14,10 @@ export class BaFileUploaderComponent {
   @ViewChild('fileUpload') public _fileUpload: ElementRef;
   @ViewChild('inputText') public _inputText: ElementRef;
 
+
+  public uploadInProgress: boolean;
+  public uploadCompleted: boolean;
+
   public uploadFileInProgress: boolean;
   constructor(private renderer: Renderer) {
   }
@@ -31,6 +35,7 @@ export class BaFileUploaderComponent {
       if (!this._canFleUploadOnServer()) {
         uploadingFile.setAbort();
       } else {
+        this.uploadInProgress = true;
         this.uploadFileInProgress = true;
       }
     }
@@ -45,11 +50,13 @@ export class BaFileUploaderComponent {
       this._onFileUploadCompleted(data);
     } else {
       this.onFileUpload.emit(data);
+      this.uploadInProgress = false;
+      this.uploadCompleted = true;
     }
   }
 
   _onFileUploadCompleted(data): void {
-    this.uploadFileInProgress = false;
+
     this.onFileUploadCompleted.emit(data);
   }
 

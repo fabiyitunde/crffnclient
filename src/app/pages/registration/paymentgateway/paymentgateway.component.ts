@@ -12,7 +12,7 @@ import { webapibaseurl } from '../../../app.model';
 })
 export class PaymentGatewayComponent implements OnInit {
 
-
+    invoicedata: any = {};
     @Input() invoicemasterid: number;
     invoice: number;
 
@@ -25,7 +25,7 @@ export class PaymentGatewayComponent implements OnInit {
     }
     ngOnInit() {
 
-
+        this.getinvoicedetails();
         this.route.params.subscribe(params => {
             this.invoicemasterid = +params['id'];
 
@@ -35,6 +35,13 @@ export class PaymentGatewayComponent implements OnInit {
 
     }
 
+    getinvoicedetails() {
+        this.service.getinvoicedetails(this.invoicemasterid).subscribe(result => {
+
+            this.invoicedata = result.header;
+        });
+
+    }
     proceedtopayment() {
 
         this.router.navigate(['pages/registration/payments', this.invoicemasterid]);

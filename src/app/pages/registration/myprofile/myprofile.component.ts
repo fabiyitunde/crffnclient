@@ -13,6 +13,7 @@ export class MyProfileComponent implements OnInit {
   public defaultPicture = 'assets/images/default.png';
   uploadInProgress: boolean = false;
   data: any = {};
+  imageUrl: string = 'assets/images/avatar.png';
   public profile: any = {
     picture: 'assets/img/app/profile/Nasta.png',
   };
@@ -20,13 +21,17 @@ export class MyProfileComponent implements OnInit {
     url: `${webapibaseurl}api/Account/saveProfilePicture`,
     data: { username: JSON.parse(localStorage.getItem('userinfo')).userName },
 
+
   };
   constructor(private service: MyProfileService) {
 
   }
 
   ngOnInit() {
+    this.profile.picture = this.imageUrl;
     this.service.getProfilePicture().subscribe(data => this.profile.picture = 'data:image/png;base64,' + data);
+
+
   }
   onUpload() {
     this.uploadInProgress = true;

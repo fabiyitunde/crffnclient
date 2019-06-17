@@ -1,5 +1,6 @@
 import { QuotationService } from './quotation.service';
-import { Component, Inject, OnInit, Input } from '@angular/core';
+import { Component, Inject, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'ngx-quotation',
@@ -7,18 +8,35 @@ import { Component, Inject, OnInit, Input } from '@angular/core';
     providers: [QuotationService],
 })
 export class QuotationComponent implements OnInit {
-    customer: any = {};
-    @Input() crffnmasterid: number;
-    constructor(private service: QuotationService) {
+    quotationlist: any[] = [];
+    crffnmasterid: number;
+    p: number = 1;
+    constructor(private service: QuotationService, private route: ActivatedRoute, private router: Router) {
 
     }
     ngOnInit() {
-        this.service.getquotation(this.crffnmasterid).subscribe(data => {
+        this.route.queryParams.subscribe(params => {
 
-            this.customer = data;
+
+            const forwarderID = +params['id'];
+
+            this.crffnmasterid = forwarderID;
+
+        });
+
+        this.service.getquotationlist(this.crffnmasterid).subscribe(data => {
+            console.log(this.crffnmasterid)
+                ; this.quotationlist = data;
         }, err => {
             alert(err);
         });
+    }
+
+
+    quotationdetail(quotation) {
+
+        this.router.navigate(['pages/customerservice/quotationdetailview', quotation.id]);
+        console.log(quotation.id);
     }
 
 }

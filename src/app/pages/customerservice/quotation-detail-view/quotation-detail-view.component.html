@@ -1,0 +1,91 @@
+<nb-card>
+  <nb-card-body>
+    <div class="row" style="border-bottom:2px solid rgb(186, 241, 186); padding-bottom:20px;">
+      <div class="col-md-6">
+        <h6 style="font-weight:bold">Full Name
+          <i _ngcontent-c17="" class="nb-arrow-dropdown" style="color:aquamarine"></i>
+        </h6>{{quotationdetail.fullname}}
+      </div>
+      <div class="col-md-6">
+        <h6 style="font-weight:bold">Email Address
+          <i _ngcontent-c17="" class="nb-arrow-dropdown" style="color:aquamarine"></i>
+        </h6>{{quotationdetail.email}}
+      </div>
+    </div>
+    <div class="row" style="border-bottom:2px solid rgb(186, 241, 186); padding-bottom:20px;">
+      <div class="col-md-6">
+        <h6 style="font-weight:bold">Company Name
+          <i _ngcontent-c17="" class="nb-arrow-dropdown" style="color:aquamarine"></i>
+        </h6> {{quotationdetail.companyname}}
+      </div>
+      <div class="col-md-6">
+        <h6 style="font-weight:bold">Full Phone Number
+          <i _ngcontent-c17="" class="nb-arrow-dropdown" style="color:aquamarine"></i>
+        </h6> {{quotationdetail.phonenumber}}
+      </div>
+    </div>
+    <h6 style="font-weight:bold">Additional Information
+      <i _ngcontent-c17="" class="nb-arrow-dropdown" style="color:aquamarine"></i>
+    </h6>
+
+    <div>{{quotationdetail.additionalinformation}}
+    </div>
+    <div style="padding:10px" class="col-md-12">
+
+      <button (click)="backToQuotation()" style="float:left; margin:10px 10px;" class=" custombutton">Back To Quotation</button>
+      <button (click)="replyQuotation()" style="float:right; margin:10px 10px;" class=" custombutton">Reply</button>
+    </div>
+
+    <div class="col-md-12" style="padding:10px;float:left;">
+      <quotation-reply *ngIf="showReply"></quotation-reply>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th> Freight Transport Detail
+
+            </th>
+
+            <th>POF Transaction
+
+            </th>
+            <th> Quantity
+
+            </th>
+            <th> Date
+
+            </th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor=" let list of quotationlist | paginate: { itemsPerPage: 10, currentPage: p }">
+            <td>{{list.freighttransporttype}}</td>
+            <td>{{list.poftransactiontype}}</td>
+            <td> {{list.quantity}}</td>
+            <td> {{list.datecreated}}</td>
+
+
+          </tr>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </nb-card-body>
+</nb-card>

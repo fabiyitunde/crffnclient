@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -16,6 +16,10 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+    },
+    {
+      path: '404',
+      component: ErrorpageComponent,
     }, {
       path: 'registration',
       loadChildren: './registration/registration.module#RegistrationModule',
@@ -55,7 +59,8 @@ const routes: Routes = [{
     }, {
       path: 'tables',
       loadChildren: './tables/tables.module#TablesModule',
-    }, {
+    },
+    {
       path: '',
       redirectTo: 'home',
       pathMatch: 'full',

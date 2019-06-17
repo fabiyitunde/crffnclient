@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from '../services/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SpinnerComponent } from './spinner/spinner.component';
 const PAGES_COMPONENTS = [
   PublicComponent, MemberSearchComponent,
   MemberDetailsComponent
@@ -24,6 +25,7 @@ const PAGES_COMPONENTS = [
   ],
   declarations: [
     ...PAGES_COMPONENTS,
+    SpinnerComponent,
   ],
   providers: [
     {

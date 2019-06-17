@@ -12,7 +12,10 @@ import { AuthGuard } from './../../services/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { QuotationLandingPageComponent } from './quotation-landing-page/quotation-landing-page.component';
 
+import { QuotationDetailViewComponent } from './quotation-detail-view/quotation-detail-view.component';
+import { QuotationReplyComponent } from './quotation-reply/quotation-reply.component';
 
 const routes: Routes = [{
   path: '',
@@ -25,6 +28,11 @@ const routes: Routes = [{
     { path: 'contactcms', component: CustomerContactCmsComponent },
     { path: 'staffcms', component: CustomerStaffCmsComponent },
     { path: 'quotation', component: QuotationComponent },
+    { path: 'quotationLanding', component: QuotationLandingPageComponent },
+    { path: 'quotationdetailview/:id', component: QuotationDetailViewComponent },
+    { path: 'quotation-reply/:id', component: QuotationReplyComponent },
+
+
 
   ],
 }];

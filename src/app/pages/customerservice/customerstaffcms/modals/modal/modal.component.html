@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <span>{{ modalHeader }}</span>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <nb-card>
+        <form #imageForm="ngForm" (ngSubmit)="onSubmit()">
+            <img [src]="imageUrl" style="width:250px; height:250px">
+            <input type="file" #image accept="image/*" (change)="handleFileInput($event.target.files)">
+            <div class="row">
+                <button type="submit" [disabled]="image.value==''" class="btn btn-md btn-primary col-md-8">Upload
+                    Photo</button>
+                <div class="col-md-4" style="height:15px; margin-top:-120px " *ngIf="spinner">
+
+                    <spinner class="col-md-6"></spinner>
+                </div>
+            </div>
+        </form>
+
+        <div class="item text-warning" *ngIf="uploadInProgress">Upload in progress ...</div>
+        <div class="item text-success" *ngIf="uploadCompleted">Upload completed</div>
+
+    </nb-card>
+</div>
+<div class="modal-footer">
+
+</div>

@@ -32,15 +32,26 @@
                                 <td>Narration</td>
                                 <td>{{header.narration}}</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>Created On</td>
                                 <td>{{header.createdon}}</td>
                             </tr>
                             <tr>
-                                <td> <button (click)="deletePOFTransaction()" class="btn btn-danger">Delete Transaction</button></td>
-                                <td> <button (click)="submitPOFTransaction()" class="btn btn-danger">Submit Transaction</button></td>
-                                <td> <button (click)="addnewdetail()" class="btn btn-danger">Add New Detail</button></td>
 
+                                <td>
+                                    <button (click)="addnewdetail()" class="btn btn-warning">Add New Detail</button>
+                                </td>
+
+
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button (click)="submitPOFTransaction()" class="btn btn-success">Submit Transaction</button>
+                                </td>
+                                <td>
+                                    <button (click)="deletePOFTransaction()" class="btn btn-danger">Delete Transaction</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -50,6 +61,6 @@
     </div>
 </div>
 <div class="row col-md-12">
-    <ng2-smart-table *ngIf="showtable" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    <ng2-smart-table class="table table-responsive" *ngIf="showtable" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
 </div>

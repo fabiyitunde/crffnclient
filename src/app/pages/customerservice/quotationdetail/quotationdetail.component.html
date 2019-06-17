@@ -1,0 +1,107 @@
+<div class="col-md-12" *ngIf="showquotationdetail">
+
+  <nb-card>
+    <nb-card-header>
+      Quotation Detail</nb-card-header>
+    <nb-card-body>
+
+
+
+      <form (ngSubmit)="createQuotationDetail()" class="form-group" #form="ngForm">
+
+        <div class="row col-sm-12">
+          <div class="form-group col-md-6">
+            <label>
+              <b>Transport type</b>
+            </label>
+            <select class="form-control" (change)="onSelect($event.target.value)" [(ngModel)]="data.freighttransporttypeid" name="typeofid">
+              <option *ngFor="let transport of transportlist" [value]="transport.id">{{transport.description}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>
+              <b>Transaction Type</b>
+            </label>
+            <select class="form-control" [(ngModel)]="data.poftransactiontypeid" name="typeofid">
+              <option *ngFor="let transaction of transactionlist" [value]="transaction.id">{{transaction.description}}</option>
+            </select>
+          </div>
+
+          <div class="col-sm-6 ">
+            <label>
+              <b>Quantity</b>
+            </label>
+
+            <input class="form-control" name="quantity" #surname="ngModel" [(ngModel)]="data.quantity" id="quantity" placeholder="Quantity"
+              type="text">
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <label>
+              <b>POF Charge Detail</b>
+            </label>
+            <select class="form-control" [(ngModel)]="data.pofchargeid" name="typeofid">
+              <option *ngFor="let pofcharge of pofchargelist" [value]="pofcharge.id">{{pofcharge.freightunitofmeasurement}}</option>
+            </select>
+          </div>
+
+        </div>
+
+
+
+
+        <div class="row col-md-12" style="margin-top:20px;">
+          <button type="submit" style="margin-top:20px; float:left" class="btn btn-primary">Add Item</button>
+          <button [disabled]="isDisabled" (click)="submitItem()" style="margin-top:20px;float:right" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th> Freight Transport Detail
+
+              </th>
+
+              <th>POF Transaction
+
+              </th>
+              <th> Quantity
+
+              </th>
+
+
+
+
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor=" let list of quotationlist | paginate: { itemsPerPage: 5, currentPage: p }">
+              <td>{{list.freighttransporttype}}</td>
+              <td>{{list.poftransactiontype}}</td>
+              <td> {{list.quantity}}</td>
+
+
+
+            </tr>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+          </tbody>
+        </table>
+      </div>
+
+
+
+
+
+    </nb-card-body>
+  </nb-card>
+
+
+
+</div>
+
+<quotation-landing-page *ngIf="showlandingpage"></quotation-landing-page>

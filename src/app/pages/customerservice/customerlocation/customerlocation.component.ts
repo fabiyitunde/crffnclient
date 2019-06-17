@@ -8,17 +8,20 @@ import { Component, Inject, OnInit, Input } from '@angular/core';
 })
 export class CustomerLocationComponent implements OnInit {
     customer: any = {};
+    contactlist: any[] = [];
     @Input() crffnmasterid: number;
     constructor(private service: CustomerLocationService) {
 
     }
     ngOnInit() {
-        this.service.getcustomerlocation(this.crffnmasterid).subscribe(data => {
+        this.getcontactlist();
 
-            this.customer = data;
-        }, err => {
-            alert(err);
-        });
     }
+    getcontactlist() {
+        this.service.getContactList(this.crffnmasterid).subscribe(result => {
+            this.contactlist = [];
+            this.contactlist = result;
+        });
 
+    }
 }

@@ -13,14 +13,16 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
-
+import { ApproveinternalinvoiceComponent } from './approveinternalinvoice/approveinternalinvoice.component';
+import { InvoicemasterdetailComponent } from './invoicemasterdetail/invoicemasterdetail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   imports: [
     ThemeModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, AdministratorRoutingModule,
-    MultiselectDropdownModule,
+    MultiselectDropdownModule, NgxPaginationModule
   ],
   declarations: [SystemUsersComponent, SystemUsersGridButtonViewDetailComponent, SystemUserManagementComponent,
-    AdministratorComponent, RegisterInternalUserComponent, RoleManagementComponent, RoleManagementGridCellDisplayDropdownTextComponent, UserMemberMappingComponent],
+    AdministratorComponent, RegisterInternalUserComponent, RoleManagementComponent, RoleManagementGridCellDisplayDropdownTextComponent, UserMemberMappingComponent, ApproveinternalinvoiceComponent, InvoicemasterdetailComponent],
   providers: [],
   entryComponents: [SystemUsersGridButtonViewDetailComponent, RoleManagementGridCellDisplayDropdownTextComponent],
 })

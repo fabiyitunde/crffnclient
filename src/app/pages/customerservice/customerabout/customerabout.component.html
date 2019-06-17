@@ -1,22 +1,41 @@
 <div class="col-md-12">
     <nb-card>
-        <nb-card-header> About {{customer.name}} </nb-card-header>
-        <nb-card-body class="" style="background-image:url('assets/images/bgbg.jpg'); text-align:justify; padding:10px; ">
-            Established in 1963 by founder and Swiss national, Hermann Anderwert, UFS prides itself on the reputation we have earned
-            over the years. Our first dedicated service was the UK – Switzerland – UK line which we are proud to say is still
-            a market leader and has been operated with our partner of over 40 years, Transmaritime AG in Birsfelden/Basel
-            in Switzerland. In 1984, Uniex added services to and from Holland / Belgium / Germany to compliment the already
-            successful Switzerland line with France joining the Company portfolio in 2004. The Company was re-branded in
-            2007 as UFS Limited but the core family values of Uniex still remained. With Switzerland as a large part of the
-            UFS story and being outside of Europe, UFS have their own office at the Port of Dover. Fully trained staff handle
-            the HMR formalities for cargo to and from Switzerland and all other destinations that require the expertise that
-            UFS staff have to move your cargo quickly and efficiently through Customs and safely on its way to the end receiver.
-            As a long-standing Freight Forwarder, we have tried and tested associations with many trusted hauliers and companies
-            able to handle road freight shipments to and from all European destinations as well as Sea & Airfreight to cover
-            worldwide destinations from our own office in Manchester. In February 2017 the shareholders of UFS Ltd reached
-            an agreement to sell the Company to a long-standing and valued supplier, I.R.F. Holding B.V. with the acquisition
-            being finalized on Friday 3rd February 2017.
 
+
+        <nb-card-header> About {{customer.name}} </nb-card-header>
+
+        <nb-card-body>
+            <div class=" row show-grid">
+
+
+                <table class="table table-bordered ">
+                    <tbody>
+                        <tr *ngFor="let item of listItem">
+
+                            <td class="" *ngIf="item.aboutusitemtype ==='Text' ; else showImage">
+                                <div [innerHTML]="item.htmlnote">
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <ng-template #showImage>
+
+
+                                    <img #showImage style="width:300px; height:300px; margin-left:40% " src="{{item.htmlnote}}">
+
+
+
+                                </ng-template>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </nb-card-body>
     </nb-card>
 </div>

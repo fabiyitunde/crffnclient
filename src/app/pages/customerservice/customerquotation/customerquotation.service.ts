@@ -16,10 +16,12 @@ export class CustomerQuotationService {
 
     }
 
-    getcustomerquotation(crffnmasterid: number) {
-        const url = `${webapibaseurl}api/customerservice/getcustomerinfo?crffnmasterid=${crffnmasterid}`;
+
+    createQuotation(model: any) {
+        const url = `${webapibaseurl}api/ffinformation/createquotation`;
+
         return this.http
-            .get(url)
+            .post(url, model)
             .map((response: Response) => response)
             .catch((error: any) => {
                 const body = error.error;

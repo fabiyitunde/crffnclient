@@ -14,7 +14,7 @@ export class StartRegistrationComponent implements OnInit {
     }
     ngOnInit() {
         this.service.getMembershipTypeList().subscribe(result => {
-            this.zone.run(() => { // <== added
+            this.zone.run(() => {
                 this.membertypelist = result;
                 this.ref.detectChanges();
             });

@@ -16,6 +16,50 @@ export class CustomerContactCmsService {
 
     }
 
+    getContactList(crffnmasterid: number) {
+        const url = `${webapibaseurl}api/ffinformation/getlocationlist?crffnmasterid=${crffnmasterid}`;
+        return this.http
+            .get(url)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+    createContact(model: any) {
+        const url = `${webapibaseurl}api/ffinformation/createlocation`;
+
+        return this.http
+            .post(url, model)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+
+
+    getCRFFNMasterId() {
+        return JSON.parse(localStorage.getItem('userinfo')).crffnmasterid;
+    }
+
+    deleteContact(model: any) {
+        const url = `${webapibaseurl}api/ffinformation/deletelocation`;
+        return this.http
+            .post(url, model)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
+
+
 
 
 }

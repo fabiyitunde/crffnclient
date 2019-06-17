@@ -2,17 +2,17 @@
     <nb-card-header> Contact {{customer.name}} </nb-card-header>
     <nb-card-body>
         <div class="row">
-            <nb-card class="col-md-6">
+            <nb-card *ngFor="let contact of contactlist" class="col-md-6">
 
                 <nb-card-body class="" style="background-image:url('assets/images/bgbg.jpg'); ">
                     <div class="row">
                         <div class="col-md-6">
                             <h4>
-                                <b>Branch: </b>Abuja</h4>
+                                <b>Branch: </b>{{contact.branch}}</h4>
                             <h6>
 
                                 <img src="assets/images/iconbgphn.png">
-                                <b>Telephone:</b> +44 (0)1842751751
+                                <b>Telephone:</b>{{contact.phonenumber}}
 
                             </h6>
                         </div>
@@ -21,14 +21,14 @@
                     <div>
                         <h6>
                             <img src="assets/images/iconbgeml.png">
-                            <b>Email:</b>sales@uniex.co.uk
+                            <b>Email:</b>{{contact.email}}
                         </h6>
                     </div>
 
                     <div>
                         <h6>
                             <img src="assets/images/iconbgweb.png">
-                            <b>website:</b>www.dommymail.com
+                            <b>website:</b>{{contact.website}}
                         </h6>
                     </div>
 
@@ -37,57 +37,14 @@
 
                             <img src="assets/images/iconbgloc.png">
                             <b>Location:</b>
-                            UFS Limited Uniex Freight Services Pegasus House Tilson Road Wythenshawe Manchester M23 9GF
-
+                            {{contact.description}}
                         </h6>
                     </div>
 
 
                 </nb-card-body>
             </nb-card>
-            <nb-card class="col-md-6">
-                <nb-card-body class="" style="background-image:url('assets/images/bgbg.jpg'); ">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4>
-                                <b>Branch: </b>Lagos</h4>
-                            <h6>
 
-                                <img src="assets/images/iconbgphn.png">
-                                <b>Telephone:</b>
-                                +44 (0)1842751751
-
-                            </h6>
-                        </div>
-
-                    </div>
-                    <div>
-                        <h6>
-                            <img src="assets/images/iconbgeml.png">
-                            <b>Email:</b>sales@uniex.co.uk
-                        </h6>
-                    </div>
-
-                    <div>
-                        <h6>
-                            <img src="assets/images/iconbgweb.png">
-                            <b>website:</b>www.dommymail.com
-                        </h6>
-                    </div>
-
-                    <div>
-                        <h6>
-
-                            <img src="assets/images/iconbgloc.png">
-                            <b>Location:</b>
-                            UFS Limited Uniex Freight Services Pegasus House Tilson Road Wythenshawe Manchester M23 9GF
-
-                        </h6>
-                    </div>
-
-
-                </nb-card-body>
-            </nb-card>
         </div>
     </nb-card-body>
 </nb-card>

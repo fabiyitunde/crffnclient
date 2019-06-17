@@ -8,17 +8,42 @@ import { Component, Inject, OnInit, Input } from '@angular/core';
 })
 export class CustomerAboutComponent implements OnInit {
     customer: any = {};
+    imageitemlist: any[] = [];
+    textitemlist: any[] = [];
+    listItem: any[] = [];
     @Input() crffnmasterid: number;
     constructor(private service: CustomerAboutService) {
 
     }
     ngOnInit() {
-        this.service.getcustomerabout(this.crffnmasterid).subscribe(data => {
+        this.getCustomerInfo();
+
+        this.getAboutItemList();
+    }
+
+
+    getCustomerInfo() {
+
+        this.service.getCustomerInfo(this.crffnmasterid).subscribe(data => {
             data.picture = 'data:image/png;base64,' + data.picture;
             this.customer = data;
         }, err => {
             alert(err);
         });
+    }
+
+    getAboutItemList() {
+
+        this.service.getAboutUsItemList(this.crffnmasterid).subscribe(data => {
+            console.log("here");
+            this.listItem = data;
+            let list = data;
+            this.imageitemlist = list.filter(item => item.aboutusitemtype === "Picture");
+            this.textitemlist = list.filter(item => item.aboutusitemtype === "Text");
+        }, err => {
+            alert(err);
+        });
+
     }
 
 }

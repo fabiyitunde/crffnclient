@@ -41,28 +41,26 @@ import { ProcessPaymentComponent } from './processpayment/processpayment.compone
 import { NgUploaderModule } from 'ngx-uploader';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BasicInformationComponent } from './basicinformation/basicinformation.component';
-import { CustomerStaffCmsComponent } from './membershiphome/customerstaffcms/customerstaffcms.component';
-import { ModalComponent } from './membershiphome/customerstaffcms/modals/modal/modal.component';
-import { ModalsComponent } from './membershiphome/customerstaffcms/modals/modals.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
 @NgModule({
   imports: [
-    ThemeModule, RegistrationRoutingModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule,
+    ThemeModule, RegistrationRoutingModule, Ng2SmartTableModule, NgUploaderModule, PdfViewerModule, NgxPaginationModule
   ],
   declarations: [RegistrationComponent, InvoiceMasterDetailComponent, PaymentGatewayComponent, QualificationTypeDisplayComponent, UploadDocumentTypeDisplayComponent,
-    MyProfileComponent, InvoiceListComponent, BaPictureUploaderComponent, ModalsComponent, IndiviualInfoComponent,
+    MyProfileComponent, InvoiceListComponent, BaPictureUploaderComponent, IndiviualInfoComponent,
     UploadDocumentDetailButtonComponent, BaFileUploaderComponent, ViewDocumentComponent, ManageIndividualFormComponent
-    , ModalComponent, InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
-    ProcessPaymentComponent, CustomerStaffCmsComponent, LoadRemitaGatewayComponent, RemitaResponseComponent, RemitaTransDetailComponent,
+    , InvoicesComponent, PaymentsComponent, InvoiceDetailComponent, ProcessPaymentComponent, DocumentUploadComponent,
+    ProcessPaymentComponent, LoadRemitaGatewayComponent, RemitaResponseComponent, RemitaTransDetailComponent,
     QualificationComponent, DocumentUploadSetupComponent, PaymentGatewayComponent, PaymentDetailsComponent, SubmitApplicationComponent,
     StartRegistrationComponent, MembershipHomeComponent, StatusCardComponent, IndividualFormComponent,
-    BasicInformationComponent, CorporateFormComponent, CorporateFormDetailComponent],
+    BasicInformationComponent, CorporateFormComponent, CorporateFormDetailComponent, SpinnerComponent],
   providers: [RegistrationService, QualificationService],
   entryComponents: [QualificationTypeDisplayComponent,
-    UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent, ModalComponent],
+    UploadDocumentTypeDisplayComponent, UploadDocumentDetailButtonComponent],
   exports: [IndiviualInfoComponent, StartRegistrationComponent, MembershipHomeComponent
     , StatusCardComponent, CorporateFormDetailComponent],
 })

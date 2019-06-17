@@ -30,7 +30,7 @@ export class UserMemberMappingComponent implements OnInit {
     memberselectSettings: IMultiSelectSettings = {
         enableSearch: true,
         checkedStyle: 'fontawesome',
-        buttonClasses: 'btn btn-primary',
+        buttonClasses: 'btn ',
         dynamicTitleMaxItems: 3,
         displayAllSelectedText: false,
         selectionLimit: 1,
@@ -48,7 +48,7 @@ export class UserMemberMappingComponent implements OnInit {
         searchPlaceholder: 'Find',
         searchEmptyResult: 'Nothing found...',
         searchNoRenderText: 'Type in search box to see results...',
-        defaultTitle: 'Select',
+        defaultTitle: 'Select Member',
         allSelected: 'All selected',
     };
     constructor(private service: UserMemberMappingService, private route: ActivatedRoute, private router: Router) {
@@ -81,7 +81,7 @@ export class UserMemberMappingComponent implements OnInit {
             // event.data.userid = this.userid;
             this.service.unMapMemberFromUser(event.data).subscribe(res => {
                 event.confirm.resolve();
-                  this.refreshmemberlistDropdown();
+                this.refreshmemberlistDropdown();
             }, err => {
                 alert(err);
                 event.confirm.reject();
@@ -133,7 +133,7 @@ export class UserMemberMappingComponent implements OnInit {
 
     }
     mapMemberToUser() {
-        
+
         this.service.mapMemberToUser({ userid: this.userid, crffnmasterid: this.unMappedMembersOptionsModel[0] }).subscribe(res => {
             this.loadTableData();
             this.refreshmemberlistDropdown();

@@ -15,8 +15,8 @@ export class QuotationService {
 
     }
 
-    getquotation(crffnmasterid: number) {
-        const url = `${webapibaseurl}api/customerservice/getcustomerinfo?crffnmasterid=${crffnmasterid}`;
+    getquotationlist(crffnmasterid: number) {
+        const url = `${webapibaseurl}api/ffinformation/getquotationlist?crffnmasterid=${crffnmasterid}`;
         return this.http
             .get(url)
             .map((response: Response) => response)

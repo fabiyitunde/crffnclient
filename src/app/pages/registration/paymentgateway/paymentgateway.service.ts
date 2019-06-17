@@ -27,6 +27,17 @@ export class PaymentGatewayService {
             });
     }
 
+    getinvoicedetails(invoicematerid: number) {
+        const url = `${webapibaseurl}api/invoice/getinvoicedetails?invoicemasterid=${invoicematerid}`;
+        return this.http
+            .get(url)
+            .map((response: Response) => response)
+            .catch((error: any) => {
+                const body = error.error;
+                const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                return Observable.throw(errMsg);
+            });
+    }
     getmemberinvoicelist() {
         const url = `${webapibaseurl}api/invoice/getmemberinvoiceApprovedForPaymentlist`;
         return this.http
