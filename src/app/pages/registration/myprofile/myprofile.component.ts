@@ -1,59 +1,69 @@
-import { MyProfileService } from './myprofile.service';
-import { Component, OnInit } from '@angular/core';
-import { NgUploaderOptions } from 'ngx-uploader';
-import { webapibaseurl } from '../../../app.model';
+import { MyProfileService } from "./myprofile.service";
+import { Component, OnInit } from "@angular/core";
+import { NgUploaderOptions } from "ngx-uploader";
+import { webapibaseurl } from "../../../app.model";
 
 @Component({
-  selector: 'ngx-my-profile',
-  templateUrl: './myprofile.component.html',
-  providers: [MyProfileService],
+  selector: "ngx-my-profile",
+  templateUrl: "./myprofile.component.html",
+  providers: [MyProfileService]
 })
 export class MyProfileComponent implements OnInit {
-
-  public defaultPicture = 'assets/images/default.png';
+  public defaultPicture = "assets/images/default.png";
   uploadInProgress: boolean = false;
   data: any = {};
-  imageUrl: string = 'assets/images/avatar.png';
+  imageUrl: string = "assets/images/avatar.png";
   public profile: any = {
-    picture: 'assets/img/app/profile/Nasta.png',
+    picture: "assets/img/app/profile/Nasta.png"
   };
   public uploaderOptions: NgUploaderOptions = {
     url: `${webapibaseurl}api/Account/saveProfilePicture`,
-    data: { username: JSON.parse(localStorage.getItem('userinfo')).userName },
-
-
+    data: { username: JSON.parse(localStorage.getItem("userinfo")).userName }
   };
-  constructor(private service: MyProfileService) {
-
-  }
+  constructor(private service: MyProfileService) {}
 
   ngOnInit() {
     this.profile.picture = this.imageUrl;
-    this.service.getProfilePicture().subscribe(data => this.profile.picture = 'data:image/png;base64,' + data);
-
-
+    this.service
+      .getProfilePicture()
+      .subscribe(
+        data => (this.profile.picture = "data:image/png;base64," + data)
+      );
   }
   onUpload() {
     this.uploadInProgress = true;
   }
   onUploadCompleted(data: any) {
-    alert('Complete');
+    alert("Complete");
     this.uploadInProgress = false;
   }
   verifyCodeAndRegisterPhoneNumber() {
-    this.service.verifyCodeAndRegisterPhoneNumber({ PhoneNumber: this.data.phonenumber, Code: this.data.code })
-      .subscribe(result => {
-        alert(result);
-      }, err => {
-        alert(err);
-      });
+    this.service
+      .verifyCodeAndRegisterPhoneNumber({
+        PhoneNumber: this.data.phonenumber,
+        Code: this.data.code
+      })
+      .subscribe(
+        result => {
+          alert(result);
+          this.data.code = "";
+          this.data.phonenumber = "";
+        },
+        err => {
+          alert(err);
+        }
+      );
   }
   sendPhoneNumberVerificationCode() {
-    this.service.sendPhoneNumberVerificationCode({ PhoneNumber: this.data.phonenumber })
-      .subscribe(result => {
-        alert(result);
-      }, err => {
-        alert(err);
-      });
+    this.service
+      .sendPhoneNumberVerificationCode({ PhoneNumber: this.data.phonenumber })
+      .subscribe(
+        result => {
+          alert(result);
+        },
+        err => {
+          alert(err);
+        }
+      );
   }
 }
