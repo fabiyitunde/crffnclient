@@ -1,28 +1,44 @@
-import { Component, NgZone, OnInit, Inject, Output, EventEmitter, ElementRef, ViewChild, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router'
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgUploaderOptions, UploadedFile, UploadRejected } from 'ngx-uploader';
-import { webapibaseurl } from '../../../../../app.model';
-import { FormBuilder, FormGroup, Validators, FormsModule, FormControl, FormControlName } from "@angular/forms";
+import {
+  Component,
+  NgZone,
+  OnInit,
+  Inject,
+  Output,
+  EventEmitter,
+  ElementRef,
+  ViewChild,
+  Input
+} from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgUploaderOptions, UploadedFile, UploadRejected } from "ngx-uploader";
+import { webapibaseurl } from "../../../../../app.model";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormsModule,
+  FormControl,
+  FormControlName
+} from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import { ModalService } from "./modal.service"
+import { ModalService } from "./modal.service";
 @Component({
-  selector: 'ngx-modal',
-  templateUrl: './modal.component.html',
+  selector: "ngx-modal",
+  templateUrl: "./modal.component.html",
 
   providers: [ModalService]
 })
 export class ModalComponent {
-
   @Input() crffnmasterid: number;
-  @Input('staffid') staffid: string;
+  @Input("staffid") staffid: string;
   fileToUpload: File = null;
   data: any = {};
   uploadid: number;
   imagefile: string;
   aboutusitemtypeid: number;
-  imageUrl: string = 'assets/images/Portrait_Placeholder.png';
+  imageUrl: string = "assets/images/Portrait_Placeholder.png";
   public fileUploaderOptions: any = {};
   modalHeader: string;
   modalContent = ` `;
@@ -31,18 +47,20 @@ export class ModalComponent {
   uploadCompleted: boolean;
   @Output() getstafflist: EventEmitter<any> = new EventEmitter();
 
-
-  constructor(private activeModal: NgbActiveModal, private service: ModalService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient, ) { }
+  constructor(
+    private activeModal: NgbActiveModal,
+    private service: ModalService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) {}
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-
-
-      const forwarderID = +params['id'];
+      const forwarderID = +params["id"];
 
       this.crffnmasterid = forwarderID;
       this.uploadid = this.data.id;
-
-
     });
   }
 
@@ -52,12 +70,9 @@ export class ModalComponent {
     var reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
-    }
-
+    };
 
     reader.readAsDataURL(this.fileToUpload);
-
-
   }
 
   closeModal() {
@@ -70,32 +85,29 @@ export class ModalComponent {
     this.uploadInProgress = true;
     this.data.staffid = this.staffid;
 
-    this.service.saveStaffProfilePicture(this.staffid, this.fileToUpload).subscribe(result => {
+    this.service
+      .saveStaffProfilePicture(this.staffid, this.fileToUpload)
+      .subscribe(
+        result => {
+          console.log("success");
+          this.imageUrl = "assets/images/Portrait_Placeholder.png";
 
-      console.log('success')
-      this.imageUrl = 'assets/images/Portrait_Placeholder.png';
+          this.uploadInProgress = false;
+          this.uploadCompleted = true;
+          this.spinner = false;
 
+          window.alert("Completed");
+        },
 
+        completed => {
+          this.uploadInProgress = false;
+          this.uploadCompleted = true;
+          this.spinner = false;
 
-
-    },
-
-
-      completed => {
-        this.uploadInProgress = false;
-        this.uploadCompleted = true;
-        this.spinner = false;
-
-        alert(completed);
-
-      });
-
+          alert(completed);
+        }
+      );
 
     //this.closeModal();
-
-
   }
-
-
-
 }
