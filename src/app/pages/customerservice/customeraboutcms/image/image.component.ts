@@ -81,6 +81,9 @@ export class ImageComponent implements OnInit {
 
     reader.readAsDataURL(this.fileToUpload);
   }
+  reloadPage() {
+   window.location.reload();
+}
 
   onSubmit(htmlnote) {
     this.data.htmlnote = this.htmlnote;
@@ -93,6 +96,8 @@ export class ImageComponent implements OnInit {
         alert("Image Uploaded SuccessFully");
         console.log("success");
         this.imageUrl = "assets/images/default-image.jpg";
+        setTimeout(() => { this.reloadPage(); }, 5000);
+        
       },
       error => {
         alert(error);

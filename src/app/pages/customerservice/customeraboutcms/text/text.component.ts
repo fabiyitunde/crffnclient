@@ -13,6 +13,7 @@ import { TextService } from "./text.service";
 export class TextComponent implements OnInit {
   crffnmasterid: number;
   data: any = {};
+  aboutuslist:any = [];
   constructor(
     private service: TextService,
 
@@ -27,7 +28,16 @@ export class TextComponent implements OnInit {
       this.crffnmasterid = forwarderID;
     });
   }
+reloadPage() {
+ window.location.reload();
+}
+// getstafflist() {
+//     this.service.getAboutUsList(this.crffnmasterid).subscribe(result => {
+//       let list = result;
 
+//       this.aboutuslist = list.filter(item => item.aboutusitemtype === "Text");
+//     });
+//   }
   createAboutUs() {
     this.data.crffnmasterid = this.crffnmasterid;
     this.data.aboutusitemtypeid = 1;
@@ -36,6 +46,8 @@ export class TextComponent implements OnInit {
         alert("Content SuccessFully Created");
         console.log("success");
         this.data.htmlnote = "";
+        this.reloadPage();
+       // this.getstafflist();
         // this.viewtext.ngOnInit();
       },
       error => {

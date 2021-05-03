@@ -27,5 +27,16 @@ export class TextService {
         return Observable.throw(errMsg);
       });
   }
+   getAboutUsList(crffnmasterid: number) {
+    const url = `${webapibaseurl}api/ffinformation/getaboutusitemlist?crffnmasterid=${crffnmasterid}`;
+    return this.http
+      .get(url)
+      .map((response: Response) => response)
+      .catch((error: any) => {
+        const body = error.error;
+        const errMsg = (body.Message) ? body.Message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        return Observable.throw(errMsg);
+      });
+  }
 
 }
