@@ -96,7 +96,7 @@ export class ImageComponent implements OnInit {
         alert("Image Uploaded SuccessFully");
         console.log("success");
         this.imageUrl = "assets/images/default-image.jpg";
-        setTimeout(() => { this.reloadPage(); }, 5000);
+        setTimeout(() => { this.reloadPage(); }, 2000);
         
       },
       error => {
